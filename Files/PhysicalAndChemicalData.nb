@@ -1,0 +1,787 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     35236,        779]
+NotebookOptionsPosition[     31534,        702]
+NotebookOutlinePosition[     32743,        736]
+CellTagsIndexPosition[     32700,        733]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Physical and Chemical Data", "Title",
+ CellChangeTimes->{{3.7405754126990175`*^9, 
+  3.7405754257586856`*^9}},ExpressionUUID->"34ce5b60-92e0-41e0-b41f-\
+249aadd435d5"],
+
+Cell[CellGroupData[{
+
+Cell["pH", "Section",
+ CellChangeTimes->{{3.740575428696368*^9, 3.740575431352753*^9}, {
+  3.7405759768195095`*^9, 
+  3.7405759770695224`*^9}},ExpressionUUID->"00771fdb-1418-4906-b793-\
+a6889c4896cb"],
+
+Cell["Find the average pH of a given food:", "Text",
+ CellChangeTimes->{{3.7405759670559516`*^9, 
+  3.740575987940735*^9}},ExpressionUUID->"1f7901eb-85c6-471d-85e8-\
+cd698dd0a7d8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"EntityValue", "[", 
+  RowBox[{
+   TemplateBox[{"\"lemon\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodType\"", ",", "\"Lemon\""}], "]"}],
+     "\"Entity[\\\"FoodType\\\", \\\"Lemon\\\"]\"","\"food type\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"approximate pH\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"FoodType\"", ",", "\"ApproximatepH\""}], "]"}],
+     "\"EntityProperty[\\\"FoodType\\\", \\\"ApproximatepH\\\"]\""},
+    "EntityProperty"]}], "]"}]], "Input",
+ CellChangeTimes->{{3.740575433884098*^9, 3.7405754710002756`*^9}, {
+  3.7405755363911037`*^9, 3.7405755369536324`*^9}, {3.74066156968626*^9, 
+  3.7406615880363097`*^9}},ExpressionUUID->"db6a187e-cd7a-4a04-8d4c-\
+62d7b2d3a008"],
+
+Cell[BoxData[
+ RowBox[{"Interval", "[", 
+  RowBox[{"{", 
+   RowBox[{"2.1999999999999997`", ",", "2.4000000000000004`"}], "}"}], 
+  "]"}]], "Output",
+ CellChangeTimes->{{3.740575455618496*^9, 3.740575475844247*^9}, 
+   3.740575562249861*^9},ExpressionUUID->"03a9e6d0-bf02-4098-8922-\
+9c61abb27135"]
+}, Open  ]],
+
+Cell["FInd detailed pH information about a given food:", "Text",
+ CellChangeTimes->{{3.7405759920789704`*^9, 
+  3.7405760034701834`*^9}},ExpressionUUID->"d0edca3a-3b42-40bc-a538-\
+78641de8877f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"EntityValue", "[", 
+  RowBox[{
+   TemplateBox[{"\"apple\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodType\"", ",", "\"Apple\""}], "]"}],
+     "\"Entity[\\\"FoodType\\\", \\\"Apple\\\"]\"","\"food type\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"pH association\"",RowBox[{"EntityProperty", "[", 
+       RowBox[{"\"FoodType\"", ",", "\"pHAssociation\""}], "]"}],
+     "\"EntityProperty[\\\"FoodType\\\", \\\"pHAssociation\\\"]\""},
+    "EntityProperty"]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7405754797311144`*^9, 3.7405754871197157`*^9}, {
+  3.740661594649688*^9, 3.7406616050902853`*^9}},
+ CellLabel->"",ExpressionUUID->"82d44dad-489c-46ce-b242-376ba8aa3a9f"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{
+    InterpretationBox[
+     DynamicModuleBox[{EntityFramework`Formatting`Private`open = True}, 
+      TemplateBox[{TemplateBox[{"\"foods\""}, "GeneralizedEntityBase"],TagBox[
+         GridBox[{{
+            TemplateBox[{
+              TemplateBox[{"\"food type\"", 
+                RowBox[{"EntityProperty", "[", 
+                  RowBox[{"\"Food\"", ",", "\"FoodType\""}], "]"}], 
+                "\"EntityProperty[\\\"Food\\\", \\\"FoodType\\\"]\""}, 
+               "EntityProperty"], 
+              StyleBox["\":\"", "GeneralizedEntityInfoItem"], 
+              RowBox[{"ContainsExactly", "[", 
+                RowBox[{"{", 
+                  TemplateBox[{"\"apple\"", 
+                    RowBox[{"Entity", "[", 
+                    RowBox[{"\"FoodType\"", ",", "\"Apple\""}], "]"}], 
+                    "\"Entity[\\\"FoodType\\\", \\\"Apple\\\"]\"", 
+                    "\"food type\""}, "Entity"], "}"}], "]"}]}, 
+             "GeneralizedEntityInfoRow"]}, {
+            TemplateBox[{
+              TemplateBox[{"\"added food types\"", 
+                RowBox[{"EntityProperty", "[", 
+                  RowBox[{"\"Food\"", ",", "\"AddedFoodTypes\""}], "]"}], 
+                "\"EntityProperty[\\\"Food\\\", \\\"AddedFoodTypes\\\"]\""}, 
+               "EntityProperty"], 
+              StyleBox["\":\"", "GeneralizedEntityInfoItem"], 
+              RowBox[{"ContainsExactly", "[", 
+                RowBox[{"{", "}"}], "]"}]}, "GeneralizedEntityInfoRow"]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+          "GeneralizedEntityInfoGrid", 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"],
+        Dynamic[EntityFramework`Formatting`Private`open],
+        "\"Entity[\\\"Food\\\", {EntityProperty[\\\"Food\\\", \
+\\\"FoodType\\\"] -> ContainsExactly[{Entity[\\\"FoodType\\\", \
+\\\"Apple\\\"]}], EntityProperty[\\\"Food\\\", \\\"AddedFoodTypes\\\"] -> \
+ContainsExactly[{}]}]\""},
+       "GeneralizedEntityToggle"]],
+     Entity["Food", {EntityProperty["Food", "FoodType"] -> ContainsExactly[{
+          Entity["FoodType", "Apple"]}], 
+       EntityProperty["Food", "AddedFoodTypes"] -> ContainsExactly[{}]}],
+     SelectWithContents->True], "\[Rule]", 
+    RowBox[{"Interval", "[", 
+     RowBox[{"{", 
+      RowBox[{"3.4699999999999993`", ",", "3.4700000000000015`"}], "}"}], 
+     "]"}]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     DynamicModuleBox[{EntityFramework`Formatting`Private`open = True}, 
+      TemplateBox[{TemplateBox[{"\"foods\""}, "GeneralizedEntityBase"],TagBox[
+         GridBox[{{
+            TemplateBox[{
+              TemplateBox[{"\"variety\"", 
+                RowBox[{"EntityProperty", "[", 
+                  RowBox[{"\"Food\"", ",", "\"Variety\""}], "]"}], 
+                "\"EntityProperty[\\\"Food\\\", \\\"Variety\\\"]\""}, 
+               "EntityProperty"], 
+              StyleBox["\":\"", "GeneralizedEntityInfoItem"], 
+              TemplateBox[{"\"red delicious\"", 
+                RowBox[{"Entity", "[", 
+                  RowBox[{"\"FoodVariety\"", ",", "\"RedDelicious\""}], "]"}],
+                 "\"Entity[\\\"FoodVariety\\\", \\\"RedDelicious\\\"]\"", 
+                "\"food variety\""}, "Entity"]}, 
+             "GeneralizedEntityInfoRow"]}, {
+            TemplateBox[{
+              TemplateBox[{"\"food type\"", 
+                RowBox[{"EntityProperty", "[", 
+                  RowBox[{"\"Food\"", ",", "\"FoodType\""}], "]"}], 
+                "\"EntityProperty[\\\"Food\\\", \\\"FoodType\\\"]\""}, 
+               "EntityProperty"], 
+              StyleBox["\":\"", "GeneralizedEntityInfoItem"], 
+              RowBox[{"ContainsExactly", "[", 
+                RowBox[{"{", 
+                  TemplateBox[{"\"apple\"", 
+                    RowBox[{"Entity", "[", 
+                    RowBox[{"\"FoodType\"", ",", "\"Apple\""}], "]"}], 
+                    "\"Entity[\\\"FoodType\\\", \\\"Apple\\\"]\"", 
+                    "\"food type\""}, "Entity"], "}"}], "]"}]}, 
+             "GeneralizedEntityInfoRow"]}, {
+            TemplateBox[{
+              TemplateBox[{"\"added food types\"", 
+                RowBox[{"EntityProperty", "[", 
+                  RowBox[{"\"Food\"", ",", "\"AddedFoodTypes\""}], "]"}], 
+                "\"EntityProperty[\\\"Food\\\", \\\"AddedFoodTypes\\\"]\""}, 
+               "EntityProperty"], 
+              StyleBox["\":\"", "GeneralizedEntityInfoItem"], 
+              RowBox[{"ContainsExactly", "[", 
+                RowBox[{"{", "}"}], "]"}]}, "GeneralizedEntityInfoRow"]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+          "GeneralizedEntityInfoGrid", 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"],
+        Dynamic[EntityFramework`Formatting`Private`open],
+        "\"Entity[\\\"Food\\\", {EntityProperty[\\\"Food\\\", \
+\\\"Variety\\\"] -> Entity[\\\"FoodVariety\\\", \\\"RedDelicious\\\"], \
+EntityProperty[\\\"Food\\\", \\\"FoodType\\\"] -> \
+ContainsExactly[{Entity[\\\"FoodType\\\", \\\"Apple\\\"]}], EntityProperty[\\\
+\"Food\\\", \\\"AddedFoodTypes\\\"] -> ContainsExactly[{}]}]\""},
+       "GeneralizedEntityToggle"]],
+     Entity[
+     "Food", {EntityProperty["Food", "Variety"] -> 
+       Entity["FoodVariety", "RedDelicious"], 
+       EntityProperty["Food", "FoodType"] -> ContainsExactly[{
+          Entity["FoodType", "Apple"]}], 
+       EntityProperty["Food", "AddedFoodTypes"] -> ContainsExactly[{}]}],
+     SelectWithContents->True], "\[Rule]", 
+    RowBox[{"Interval", "[", 
+     RowBox[{"{", 
+      RowBox[{"3.8999999999999986`", ",", "3.9000000000000012`"}], "}"}], 
+     "]"}]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     DynamicModuleBox[{EntityFramework`Formatting`Private`open = True}, 
+      TemplateBox[{TemplateBox[{"\"foods\""}, "GeneralizedEntityBase"],TagBox[
+         GridBox[{{
+            TemplateBox[{
+              TemplateBox[{"\"variety\"", 
+                RowBox[{"EntityProperty", "[", 
+                  RowBox[{"\"Food\"", ",", "\"Variety\""}], "]"}], 
+                "\"EntityProperty[\\\"Food\\\", \\\"Variety\\\"]\""}, 
+               "EntityProperty"], 
+              StyleBox["\":\"", "GeneralizedEntityInfoItem"], 
+              TemplateBox[{"\"golden delicious\"", 
+                RowBox[{"Entity", "[", 
+                  RowBox[{"\"FoodVariety\"", ",", "\"GoldenDelicious\""}], 
+                  "]"}], "\"Entity[\\\"FoodVariety\\\", \\\"GoldenDelicious\\\
+\"]\"", "\"food variety\""}, "Entity"]}, "GeneralizedEntityInfoRow"]}, {
+            TemplateBox[{
+              TemplateBox[{"\"food type\"", 
+                RowBox[{"EntityProperty", "[", 
+                  RowBox[{"\"Food\"", ",", "\"FoodType\""}], "]"}], 
+                "\"EntityProperty[\\\"Food\\\", \\\"FoodType\\\"]\""}, 
+               "EntityProperty"], 
+              StyleBox["\":\"", "GeneralizedEntityInfoItem"], 
+              RowBox[{"ContainsExactly", "[", 
+                RowBox[{"{", 
+                  TemplateBox[{"\"apple\"", 
+                    RowBox[{"Entity", "[", 
+                    RowBox[{"\"FoodType\"", ",", "\"Apple\""}], "]"}], 
+                    "\"Entity[\\\"FoodType\\\", \\\"Apple\\\"]\"", 
+                    "\"food type\""}, "Entity"], "}"}], "]"}]}, 
+             "GeneralizedEntityInfoRow"]}, {
+            TemplateBox[{
+              TemplateBox[{"\"added food types\"", 
+                RowBox[{"EntityProperty", "[", 
+                  RowBox[{"\"Food\"", ",", "\"AddedFoodTypes\""}], "]"}], 
+                "\"EntityProperty[\\\"Food\\\", \\\"AddedFoodTypes\\\"]\""}, 
+               "EntityProperty"], 
+              StyleBox["\":\"", "GeneralizedEntityInfoItem"], 
+              RowBox[{"ContainsExactly", "[", 
+                RowBox[{"{", "}"}], "]"}]}, "GeneralizedEntityInfoRow"]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+          "GeneralizedEntityInfoGrid", 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"],
+        Dynamic[EntityFramework`Formatting`Private`open],
+        "\"Entity[\\\"Food\\\", {EntityProperty[\\\"Food\\\", \
+\\\"Variety\\\"] -> Entity[\\\"FoodVariety\\\", \\\"GoldenDelicious\\\"], \
+EntityProperty[\\\"Food\\\", \\\"FoodType\\\"] -> \
+ContainsExactly[{Entity[\\\"FoodType\\\", \\\"Apple\\\"]}], EntityProperty[\\\
+\"Food\\\", \\\"AddedFoodTypes\\\"] -> ContainsExactly[{}]}]\""},
+       "GeneralizedEntityToggle"]],
+     Entity[
+     "Food", {EntityProperty["Food", "Variety"] -> 
+       Entity["FoodVariety", "GoldenDelicious"], 
+       EntityProperty["Food", "FoodType"] -> ContainsExactly[{
+          Entity["FoodType", "Apple"]}], 
+       EntityProperty["Food", "AddedFoodTypes"] -> ContainsExactly[{}]}],
+     SelectWithContents->True], "\[Rule]", 
+    RowBox[{"Interval", "[", 
+     RowBox[{"{", 
+      RowBox[{"3.5999999999999988`", ",", "3.6000000000000014`"}], "}"}], 
+     "]"}]}], ",", 
+   RowBox[{
+    InterpretationBox[
+     DynamicModuleBox[{EntityFramework`Formatting`Private`open = True}, 
+      TemplateBox[{TemplateBox[{"\"foods\""}, "GeneralizedEntityBase"],TagBox[
+         GridBox[{{
+            TemplateBox[{
+              TemplateBox[{"\"variety\"", 
+                RowBox[{"EntityProperty", "[", 
+                  RowBox[{"\"Food\"", ",", "\"Variety\""}], "]"}], 
+                "\"EntityProperty[\\\"Food\\\", \\\"Variety\\\"]\""}, 
+               "EntityProperty"], 
+              StyleBox["\":\"", "GeneralizedEntityInfoItem"], 
+              TemplateBox[{"\"McIntosh\"", 
+                RowBox[{"Entity", "[", 
+                  RowBox[{"\"FoodVariety\"", ",", "\"McIntosh\""}], "]"}], 
+                "\"Entity[\\\"FoodVariety\\\", \\\"McIntosh\\\"]\"", 
+                "\"food variety\""}, "Entity"]}, 
+             "GeneralizedEntityInfoRow"]}, {
+            TemplateBox[{
+              TemplateBox[{"\"food type\"", 
+                RowBox[{"EntityProperty", "[", 
+                  RowBox[{"\"Food\"", ",", "\"FoodType\""}], "]"}], 
+                "\"EntityProperty[\\\"Food\\\", \\\"FoodType\\\"]\""}, 
+               "EntityProperty"], 
+              StyleBox["\":\"", "GeneralizedEntityInfoItem"], 
+              RowBox[{"ContainsExactly", "[", 
+                RowBox[{"{", 
+                  TemplateBox[{"\"apple\"", 
+                    RowBox[{"Entity", "[", 
+                    RowBox[{"\"FoodType\"", ",", "\"Apple\""}], "]"}], 
+                    "\"Entity[\\\"FoodType\\\", \\\"Apple\\\"]\"", 
+                    "\"food type\""}, "Entity"], "}"}], "]"}]}, 
+             "GeneralizedEntityInfoRow"]}, {
+            TemplateBox[{
+              TemplateBox[{"\"added food types\"", 
+                RowBox[{"EntityProperty", "[", 
+                  RowBox[{"\"Food\"", ",", "\"AddedFoodTypes\""}], "]"}], 
+                "\"EntityProperty[\\\"Food\\\", \\\"AddedFoodTypes\\\"]\""}, 
+               "EntityProperty"], 
+              StyleBox["\":\"", "GeneralizedEntityInfoItem"], 
+              RowBox[{"ContainsExactly", "[", 
+                RowBox[{"{", "}"}], "]"}]}, "GeneralizedEntityInfoRow"]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+          "GeneralizedEntityInfoGrid", 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"],
+        Dynamic[EntityFramework`Formatting`Private`open],
+        "\"Entity[\\\"Food\\\", {EntityProperty[\\\"Food\\\", \
+\\\"Variety\\\"] -> Entity[\\\"FoodVariety\\\", \\\"McIntosh\\\"], \
+EntityProperty[\\\"Food\\\", \\\"FoodType\\\"] -> \
+ContainsExactly[{Entity[\\\"FoodType\\\", \\\"Apple\\\"]}], EntityProperty[\\\
+\"Food\\\", \\\"AddedFoodTypes\\\"] -> ContainsExactly[{}]}]\""},
+       "GeneralizedEntityToggle"]],
+     Entity[
+     "Food", {EntityProperty["Food", "Variety"] -> 
+       Entity["FoodVariety", "McIntosh"], EntityProperty["Food", "FoodType"] -> 
+       ContainsExactly[{
+          Entity["FoodType", "Apple"]}], 
+       EntityProperty["Food", "AddedFoodTypes"] -> ContainsExactly[{}]}],
+     SelectWithContents->True], "\[Rule]", 
+    RowBox[{"Interval", "[", 
+     RowBox[{"{", 
+      RowBox[{"3.3399999999999985`", ",", "3.340000000000001`"}], "}"}], 
+     "]"}]}]}], "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{{3.740575483371888*^9, 
+  3.7405755120005665`*^9}},ExpressionUUID->"6d2d5dc1-17d2-4ee6-8143-\
+13a7e5649b8c"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Shapes and Dimensions", "Section",
+ CellChangeTimes->{{3.740575499709804*^9, 3.74057550307827*^9}, {
+  3.7405756123714066`*^9, 
+  3.740575614418363*^9}},ExpressionUUID->"e2374410-ca9c-4bba-b68a-\
+59427a268ec8"],
+
+Cell["Get the shape and dimensions of specific foods:", "Text",
+ CellChangeTimes->{{3.7405757663172455`*^9, 3.740575782997918*^9}, {
+  3.7405760178336105`*^9, 
+  3.7405760192868447`*^9}},ExpressionUUID->"36f39c9c-b07b-497b-a35d-\
+9d13315ed614"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  TemplateBox[{"\"bagel\"",RowBox[{"Entity", "[", 
+      RowBox[{"\"FoodType\"", ",", "\"Bagel\""}], "]"}],
+    "\"Entity[\\\"FoodType\\\", \\\"Bagel\\\"]\"","\"food type\""},
+   "Entity"], "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     TemplateBox[{"\"approximate shape\"",RowBox[{"EntityProperty", "[", 
+         RowBox[{"\"FoodType\"", ",", "\"ApproximateShape\""}], "]"}],
+       "\"EntityProperty[\\\"FoodType\\\", \\\"ApproximateShape\\\"]\""},
+      "EntityProperty"], ",", 
+     TemplateBox[{
+      "\"approximate shape dimensions\"",RowBox[{"EntityProperty", "[", 
+         RowBox[{"\"FoodType\"", ",", "\"ApproximateShapeDimensions\""}], 
+         "]"}],"\"EntityProperty[\\\"FoodType\\\", \
+\\\"ApproximateShapeDimensions\\\"]\""},
+      "EntityProperty"]}], "}"}], ",", "\"\<PropertyAssociation\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.7405755056252384`*^9, 3.7405755240528603`*^9}, {
+  3.7405755848653316`*^9, 
+  3.7405756435097275`*^9}},ExpressionUUID->"4cb5ec87-99a2-4067-91a1-\
+583d5e0c9ae1"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{
+    TemplateBox[{"\"approximate shape\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"FoodType\"", ",", "\"ApproximateShape\""}], "]"}],
+      "\"EntityProperty[\\\"FoodType\\\", \\\"ApproximateShape\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{"\"torus\"",RowBox[{"Entity", "[", 
+        RowBox[{"\"FoodShape\"", ",", "\"Torus\""}], "]"}],
+      "\"Entity[\\\"FoodShape\\\", \\\"Torus\\\"]\"","\"shape\""},
+     "Entity"]}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"approximate shape dimensions\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"FoodType\"", ",", "\"ApproximateShapeDimensions\""}], 
+        "]"}],"\"EntityProperty[\\\"FoodType\\\", \
+\\\"ApproximateShapeDimensions\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{
+      RowBox[{"\[FormalA]", "\[Rule]", 
+       TemplateBox[{RowBox[{"Interval", "[", 
+           RowBox[{"{", 
+             RowBox[{"0.007499999999999992`", ",", "0.017500000000000022`"}], 
+             "}"}], "]"}],"\"m\"","meters","\"Meters\""},
+        "Quantity"]}], ",", 
+      RowBox[{"\[FormalH]", "\[Rule]", 
+       TemplateBox[{RowBox[{"Interval", "[", 
+           RowBox[{"{", 
+             RowBox[{"0.04499999999999994`", ",", "0.055000000000000056`"}], 
+             "}"}], "]"}],"\"m\"","meters","\"Meters\""},
+        "Quantity"]}]}], "\[RightAssociation]"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{{3.7405755583226757`*^9, 3.740575563390546*^9}, 
+   3.740575604959755*^9, 
+   3.7405756447129173`*^9},ExpressionUUID->"b9b2acc3-85f3-4a41-acf3-\
+9848e952d618"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  TemplateBox[{"\"onion\"",RowBox[{"Entity", "[", 
+      RowBox[{"\"FoodType\"", ",", "\"Onion\""}], "]"}],
+    "\"Entity[\\\"FoodType\\\", \\\"Onion\\\"]\"","\"food type\""},
+   "Entity"], "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     TemplateBox[{"\"approximate shape\"",RowBox[{"EntityProperty", "[", 
+         RowBox[{"\"FoodType\"", ",", "\"ApproximateShape\""}], "]"}],
+       "\"EntityProperty[\\\"FoodType\\\", \\\"ApproximateShape\\\"]\""},
+      "EntityProperty"], ",", 
+     TemplateBox[{
+      "\"approximate shape dimensions\"",RowBox[{"EntityProperty", "[", 
+         RowBox[{"\"FoodType\"", ",", "\"ApproximateShapeDimensions\""}], 
+         "]"}],"\"EntityProperty[\\\"FoodType\\\", \
+\\\"ApproximateShapeDimensions\\\"]\""},
+      "EntityProperty"]}], "}"}], ",", "\"\<PropertyAssociation\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.7405755056252384`*^9, 3.7405755240528603`*^9}, {
+  3.7405755848653316`*^9, 
+  3.7405757067128935`*^9}},ExpressionUUID->"30af8d79-cc44-4e4a-be0f-\
+111015cdb81e"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{
+    TemplateBox[{"\"approximate shape\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"FoodType\"", ",", "\"ApproximateShape\""}], "]"}],
+      "\"EntityProperty[\\\"FoodType\\\", \\\"ApproximateShape\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{"\"sphere\"",RowBox[{"Entity", "[", 
+        RowBox[{"\"FoodShape\"", ",", "\"Sphere\""}], "]"}],
+      "\"Entity[\\\"FoodShape\\\", \\\"Sphere\\\"]\"","\"shape\""},
+     "Entity"]}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"approximate shape dimensions\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"FoodType\"", ",", "\"ApproximateShapeDimensions\""}], 
+        "]"}],"\"EntityProperty[\\\"FoodType\\\", \
+\\\"ApproximateShapeDimensions\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"\[LeftAssociation]", 
+     RowBox[{"\[FormalA]", "\[Rule]", 
+      TemplateBox[{RowBox[{"Interval", "[", 
+          RowBox[{"{", 
+            RowBox[{"0.025399999999999978`", ",", "0.04762500000000005`"}], 
+            "}"}], "]"}],"\"m\"","meters","\"Meters\""},
+       "Quantity"]}], "\[RightAssociation]"}]}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{{3.7405755583226757`*^9, 3.740575563390546*^9}, 
+   3.740575604959755*^9, 3.7405756447129173`*^9, {3.7405756778422794`*^9, 
+   3.740575709650544*^9}},ExpressionUUID->"8a055695-dc55-40c5-9937-\
+61718e8e1694"]
+}, Open  ]],
+
+Cell["Find foods with a specific shape:", "Text",
+ CellChangeTimes->{{3.7405757875449867`*^9, 3.74057579413293*^9}, {
+  3.7406616453905897`*^9, 
+  3.740661645705608*^9}},ExpressionUUID->"0a0602e0-76df-4090-9537-\
+7f237e0a2c92"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"EntityList", "[", 
+   InterpretationBox[
+    DynamicModuleBox[{EntityFramework`Formatting`Private`open = True}, 
+     TemplateBox[{TemplateBox[{"\"food types\""}, "ImplicitEntityBase"],TagBox[
+        GridBox[{{
+           TemplateBox[{
+             TemplateBox[{"\"approximate shape\"", 
+               RowBox[{"EntityProperty", "[", 
+                 RowBox[{"\"FoodType\"", ",", "\"ApproximateShape\""}], "]"}],
+                "\"EntityProperty[\\\"FoodType\\\", \\\"ApproximateShape\\\"]\
+\""}, "GrayEntityFrame"], "\":\"", 
+             TemplateBox[{"\"spheroid\"", 
+               RowBox[{"Entity", "[", 
+                 RowBox[{"\"FoodShape\"", ",", "\"Spheroid\""}], "]"}], 
+               "\"Entity[\\\"FoodShape\\\", \\\"Spheroid\\\"]\"", 
+               "\"shape\""}, "Entity"]}, "ImplicitEntityInfoRow"]}}, 
+         GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+         "GeneralizedEntityInfoGrid", 
+         GridBoxItemSize -> {
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"],
+       Dynamic[EntityFramework`Formatting`Private`open],
+       "\"Entity[\\\"FoodType\\\", {EntityProperty[\\\"FoodType\\\", \
+\\\"ApproximateShape\\\"] -> Entity[\\\"FoodShape\\\", \\\"Spheroid\\\"]}]\""},
+      "ImplicitEntityToggle"]],
+    Entity[
+    "FoodType", {
+     EntityProperty["FoodType", "ApproximateShape"] -> 
+      Entity["FoodShape", "Spheroid"]}],
+    SelectWithContents->True], "]"}], "//", "Shallow"}]], "Input",
+ CellChangeTimes->{{3.7405757973830595`*^9, 3.740575953979398*^9}, {
+  3.7406616485877733`*^9, 3.7406617107563286`*^9}},
+ CellLabel->"In[28]:=",ExpressionUUID->"8c2ed31a-c3c9-4c2c-9909-3ea4a8ae00f8"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TemplateBox[{"\"abiyuch\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodType\"", ",", "\"Abiyuch\""}], "]"}],
+     "\"Entity[\\\"FoodType\\\", \\\"Abiyuch\\\"]\"","\"food type\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"acorn\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodType\"", ",", "\"Acorn\""}], "]"}],
+     "\"Entity[\\\"FoodType\\\", \\\"Acorn\\\"]\"","\"food type\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"anise\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodType\"", ",", "\"Anise\""}], "]"}],
+     "\"Entity[\\\"FoodType\\\", \\\"Anise\\\"]\"","\"food type\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"arrowroot\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodType\"", ",", "\"Arrowroot\""}], "]"}],
+     "\"Entity[\\\"FoodType\\\", \\\"Arrowroot\\\"]\"","\"food type\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"balsam pear\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodType\"", ",", "\"BalsamPear\""}], "]"}],
+     "\"Entity[\\\"FoodType\\\", \\\"BalsamPear\\\"]\"","\"food type\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"barley\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodType\"", ",", "\"Barley\""}], "]"}],
+     "\"Entity[\\\"FoodType\\\", \\\"Barley\\\"]\"","\"food type\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"belgian endive\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodType\"", ",", "\"BelgianEndive\""}], "]"}],
+     "\"Entity[\\\"FoodType\\\", \\\"BelgianEndive\\\"]\"","\"food type\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"bitter melon\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodType\"", ",", "\"BitterMelon\""}], "]"}],
+     "\"Entity[\\\"FoodType\\\", \\\"BitterMelon\\\"]\"","\"food type\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"blueberry\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodType\"", ",", "\"Blueberry\""}], "]"}],
+     "\"Entity[\\\"FoodType\\\", \\\"Blueberry\\\"]\"","\"food type\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"butterfish\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodType\"", ",", "\"Butterfish\""}], "]"}],
+     "\"Entity[\\\"FoodType\\\", \\\"Butterfish\\\"]\"","\"food type\""},
+    "Entity"], ",", 
+   RowBox[{"\[LeftSkeleton]", "76", "\[RightSkeleton]"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.740661700495742*^9, 3.7406617124084234`*^9}},
+ CellLabel->
+  "Out[28]//Shallow=",ExpressionUUID->"9c323661-d458-496a-ba99-faa2dde8ded7"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Colors", "Section",
+ CellChangeTimes->{{3.740575717838505*^9, 
+  3.7405757186666374`*^9}},ExpressionUUID->"4e0336de-83ae-40b9-ad2d-\
+f56cc1c2dda7"],
+
+Cell["Find the possible colors of a food:", "Text",
+ CellChangeTimes->{{3.7405760279102306`*^9, 3.740576034691843*^9}, {
+  3.740661725044146*^9, 
+  3.740661725379165*^9}},ExpressionUUID->"b2cbe61e-faaa-4b6c-8047-\
+d8bc22fd8d42"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  TemplateBox[{"\"watermelon\"",RowBox[{"Entity", "[", 
+      RowBox[{"\"FoodType\"", ",", "\"Watermelon\""}], "]"}],
+    "\"Entity[\\\"FoodType\\\", \\\"Watermelon\\\"]\"","\"food type\""},
+   "Entity"], "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     TemplateBox[{"\"possible inside colors\"",RowBox[{"EntityProperty", "[", 
+         RowBox[{"\"FoodType\"", ",", "\"PossibleInsideColors\""}], "]"}],
+       "\"EntityProperty[\\\"FoodType\\\", \\\"PossibleInsideColors\\\"]\""},
+      "EntityProperty"], ",", 
+     TemplateBox[{"\"possible outside colors\"",RowBox[{"EntityProperty", "[", 
+         RowBox[{"\"FoodType\"", ",", "\"PossibleOutsideColors\""}], "]"}],
+       "\"EntityProperty[\\\"FoodType\\\", \\\"PossibleOutsideColors\\\"]\""},
+      "EntityProperty"]}], "}"}], ",", "\"\<PropertyAssociation\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.7405757226824675`*^9, 3.740575743131459*^9}, {
+  3.7405760390608788`*^9, 3.7405760878389587`*^9}, {3.740661729995429*^9, 
+  3.7406617350847206`*^9}},
+ CellLabel->"In[31]:=",ExpressionUUID->"851323ec-6248-4a6e-a717-c2c6c56e8691"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{
+    TemplateBox[{"\"possible inside colors\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"FoodType\"", ",", "\"PossibleInsideColors\""}], "]"}],
+      "\"EntityProperty[\\\"FoodType\\\", \\\"PossibleInsideColors\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      TemplateBox[{"\"red\"",RowBox[{"Entity", "[", 
+          RowBox[{"\"ColorSet\"", ",", "\"Red\""}], "]"}],
+        "\"Entity[\\\"ColorSet\\\", \\\"Red\\\"]\"","\"set of colors\""},
+       "Entity"], ",", 
+      TemplateBox[{"\"yellow\"",RowBox[{"Entity", "[", 
+          RowBox[{"\"ColorSet\"", ",", "\"Yellow\""}], "]"}],
+        "\"Entity[\\\"ColorSet\\\", \\\"Yellow\\\"]\"","\"set of colors\""},
+       "Entity"]}], "}"}]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"possible outside colors\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"FoodType\"", ",", "\"PossibleOutsideColors\""}], "]"}],
+      "\"EntityProperty[\\\"FoodType\\\", \\\"PossibleOutsideColors\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    RowBox[{"{", 
+     TemplateBox[{"\"green\"",RowBox[{"Entity", "[", 
+         RowBox[{"\"ColorSet\"", ",", "\"Green\""}], "]"}],
+       "\"Entity[\\\"ColorSet\\\", \\\"Green\\\"]\"","\"set of colors\""},
+      "Entity"], "}"}]}]}], "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{
+  3.7405757680985794`*^9, {3.7405760465252304`*^9, 3.7405760895733852`*^9}, 
+   3.740661739747987*^9},
+ CellLabel->"Out[31]=",ExpressionUUID->"d4d0efc6-46a1-4949-a1ce-c83dde74395f"]
+}, Open  ]],
+
+Cell["Find the canonical colors of a food:", "Text",
+ CellChangeTimes->{{3.74057610905997*^9, 
+  3.7405761362159953`*^9}},ExpressionUUID->"e9edf671-43ee-4637-b018-\
+6d52e8f4a205"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  TemplateBox[{"\"apple\"",RowBox[{"Entity", "[", 
+      RowBox[{"\"FoodType\"", ",", "\"Apple\""}], "]"}],
+    "\"Entity[\\\"FoodType\\\", \\\"Apple\\\"]\"","\"food type\""},
+   "Entity"], "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     TemplateBox[{"\"common inside color\"",RowBox[{"EntityProperty", "[", 
+         RowBox[{"\"FoodType\"", ",", "\"CommonInsideColor\""}], "]"}],
+       "\"EntityProperty[\\\"FoodType\\\", \\\"CommonInsideColor\\\"]\""},
+      "EntityProperty"], ",", 
+     TemplateBox[{"\"common outside color\"",RowBox[{"EntityProperty", "[", 
+         RowBox[{"\"FoodType\"", ",", "\"CommonOutsideColor\""}], "]"}],
+       "\"EntityProperty[\\\"FoodType\\\", \\\"CommonOutsideColor\\\"]\""},
+      "EntityProperty"]}], "}"}], ",", "\"\<PropertyAssociation\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.7405757226824675`*^9, 3.740575743131459*^9}, {
+  3.7405760390608788`*^9, 3.7405761287824483`*^9}, {3.7406617430551763`*^9, 
+  3.740661746144353*^9}},
+ CellLabel->"In[34]:=",ExpressionUUID->"4c5d719f-2550-47a0-ba8e-8e5fcf1758b9"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{
+    TemplateBox[{"\"common inside color\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"FoodType\"", ",", "\"CommonInsideColor\""}], "]"}],
+      "\"EntityProperty[\\\"FoodType\\\", \\\"CommonInsideColor\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{"\"cream\"",RowBox[{"Entity", "[", 
+        RowBox[{"\"ColorSet\"", ",", "\"Cream\""}], "]"}],
+      "\"Entity[\\\"ColorSet\\\", \\\"Cream\\\"]\"","\"set of colors\""},
+     "Entity"]}], ",", 
+   RowBox[{
+    TemplateBox[{"\"common outside color\"",RowBox[{"EntityProperty", "[", 
+        RowBox[{"\"FoodType\"", ",", "\"CommonOutsideColor\""}], "]"}],
+      "\"EntityProperty[\\\"FoodType\\\", \\\"CommonOutsideColor\\\"]\""},
+     "EntityProperty"], "\[Rule]", 
+    TemplateBox[{"\"red\"",RowBox[{"Entity", "[", 
+        RowBox[{"\"ColorSet\"", ",", "\"Red\""}], "]"}],
+      "\"Entity[\\\"ColorSet\\\", \\\"Red\\\"]\"","\"set of colors\""},
+     "Entity"]}]}], "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{
+  3.7405757680985794`*^9, {3.7405760465252304`*^9, 3.7405760895733852`*^9}, 
+   3.7405761404574404`*^9, 3.7406617480934644`*^9},
+ CellLabel->"Out[34]=",ExpressionUUID->"dd7aa534-34be-4a11-a58a-f593564a8d52"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1920, 998},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Default.nb"]], 
+   Cell[
+    StyleData["EntityContainsSequence"], 
+    TemplateBoxOptions -> {DisplayFunction -> (RowBox[{
+         TemplateSlotSequence[1, ","]}]& )}], 
+   Cell[
+    StyleData["ImplicitEntityPropertySequence"], 
+    TemplateBoxOptions -> {DisplayFunction -> (StyleBox[
+        RowBox[{
+          TemplateSlotSequence[1, 
+           StyleBox[
+           "\"\[ThinSpace]|\[ThinSpace]\"", FontColor -> 
+            RGBColor[0.515625, 0.515625, 0.515625]]]}], FontColor -> 
+        RGBColor[0.199219, 0.199219, 0.199219], FontSize -> 11, FontFamily -> 
+        "Arial"]& )}]}, WindowSize -> {775, 873}, 
+  WindowMargins -> {{25, Automatic}, {Automatic, 30}}, Visible -> False, 
+  FrontEndVersion -> "11.3 for Microsoft Windows (64-bit) (March 6, 2018)", 
+  StyleDefinitions -> "PrivateStylesheetFormatting.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 173, 3, 96, "Title",ExpressionUUID->"34ce5b60-92e0-41e0-b41f-249aadd435d5"],
+Cell[CellGroupData[{
+Cell[778, 29, 200, 4, 67, "Section",ExpressionUUID->"00771fdb-1418-4906-b793-a6889c4896cb"],
+Cell[981, 35, 180, 3, 34, "Text",ExpressionUUID->"1f7901eb-85c6-471d-85e8-cd698dd0a7d8"],
+Cell[CellGroupData[{
+Cell[1186, 42, 728, 14, 41, "Input",ExpressionUUID->"db6a187e-cd7a-4a04-8d4c-62d7b2d3a008"],
+Cell[1917, 58, 297, 7, 32, "Output",ExpressionUUID->"03a9e6d0-bf02-4098-8922-9c61abb27135"]
+}, Open  ]],
+Cell[2229, 68, 194, 3, 34, "Text",ExpressionUUID->"d0edca3a-3b42-40bc-a538-78641de8877f"],
+Cell[CellGroupData[{
+Cell[2448, 75, 692, 13, 41, "Input",ExpressionUUID->"82d44dad-489c-46ce-b242-376ba8aa3a9f"],
+Cell[3143, 90, 12506, 243, 253, "Output",ExpressionUUID->"6d2d5dc1-17d2-4ee6-8143-13a7e5649b8c"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15698, 339, 216, 4, 67, "Section",ExpressionUUID->"e2374410-ca9c-4bba-b68a-59427a268ec8"],
+Cell[15917, 345, 244, 4, 34, "Text",ExpressionUUID->"36f39c9c-b07b-497b-a35d-9d13315ed614"],
+Cell[CellGroupData[{
+Cell[16186, 353, 1046, 23, 41, "Input",ExpressionUUID->"4cb5ec87-99a2-4067-91a1-583d5e0c9ae1"],
+Cell[17235, 378, 1674, 37, 47, "Output",ExpressionUUID->"b9b2acc3-85f3-4a41-acf3-9848e952d618"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18946, 420, 1046, 23, 41, "Input",ExpressionUUID->"30af8d79-cc44-4e4a-be0f-111015cdb81e"],
+Cell[19995, 445, 1426, 30, 47, "Output",ExpressionUUID->"8a055695-dc55-40c5-9937-61718e8e1694"]
+}, Open  ]],
+Cell[21436, 478, 227, 4, 34, "Text",ExpressionUUID->"0a0602e0-76df-4090-9537-7f237e0a2c92"],
+Cell[CellGroupData[{
+Cell[21688, 486, 1710, 33, 77, "Input",ExpressionUUID->"8c2ed31a-c3c9-4c2c-9909-3ea4a8ae00f8"],
+Cell[23401, 521, 2384, 46, 59, "Output",ExpressionUUID->"9c323661-d458-496a-ba99-faa2dde8ded7"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25834, 573, 153, 3, 67, "Section",ExpressionUUID->"4e0336de-83ae-40b9-ad2d-f56cc1c2dda7"],
+Cell[25990, 578, 228, 4, 34, "Text",ExpressionUUID->"b2cbe61e-faaa-4b6c-8047-d8bc22fd8d42"],
+Cell[CellGroupData[{
+Cell[26243, 586, 1116, 21, 41, "Input",ExpressionUUID->"851323ec-6248-4a6e-a717-c2c6c56e8691"],
+Cell[27362, 609, 1558, 31, 47, "Output",ExpressionUUID->"d4d0efc6-46a1-4949-a1ce-c83dde74395f"]
+}, Open  ]],
+Cell[28935, 643, 179, 3, 34, "Text",ExpressionUUID->"e9edf671-43ee-4637-b018-6d52e8f4a205"],
+Cell[CellGroupData[{
+Cell[29139, 650, 1083, 21, 41, "Input",ExpressionUUID->"4c5d719f-2550-47a0-ba8e-8e5fcf1758b9"],
+Cell[30225, 673, 1269, 24, 47, "Output",ExpressionUUID->"dd7aa534-34be-4a11-a58a-f593564a8d52"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

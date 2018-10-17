@@ -1,0 +1,1801 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     78312,       1793]
+NotebookOptionsPosition[     73535,       1699]
+NotebookOutlinePosition[     74766,       1734]
+CellTagsIndexPosition[     74723,       1731]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Packaged Food Ingredients", "Title",
+ CellChangeTimes->{{3.7405769483077154`*^9, 
+  3.7405769528079395`*^9}},ExpressionUUID->"8c81e5b8-4de3-488d-b0d9-\
+389ba966413d"],
+
+Cell[CellGroupData[{
+
+Cell["Ingredients", "Section",
+ CellChangeTimes->{{3.74057696503157*^9, 
+  3.740576966318121*^9}},ExpressionUUID->"2e882bea-9204-4d94-9334-\
+4c8ebdfa5be7"],
+
+Cell["Look up the raw ingredient list for a given food:", "Text",
+ CellChangeTimes->{{3.7405770041211653`*^9, 3.740577012544422*^9}, 
+   3.740661495609023*^9},ExpressionUUID->"ac3e773c-6e92-4a67-b410-\
+21760d2b88b2"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  TemplateBox[{
+   "\"Van de Kamp's Fillets Beer Battered\"",RowBox[{"Entity", "[", 
+      RowBox[{"\"Food\"", ",", "\"VanDeKampsFilletsBeerBattered::rx25p\""}], 
+      "]"}],"\"Entity[\\\"Food\\\", \
+\\\"VanDeKampsFilletsBeerBattered::rx25p\\\"]\"","\"food\""},
+   "Entity"], "[", "\"\<IngredientList\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.7405770146694984`*^9, 3.740577029782164*^9}, 
+   3.740577068471063*^9},
+ CellLabel->"In[6]:=",ExpressionUUID->"45100226-213f-4397-bdf5-57c242f6ad8a"],
+
+Cell[BoxData["\<\"ALASKA POLLOCK, WATER, COTTONSEED OIL AND/OR SOYBEAN OIL, \
+WHEAT FLOUR, YELLOW CORN FLOUR, WHEAT FLOUR (ENRICHED WITH NIACIN, FERROUS \
+SULFATE, THIAMINE MONONITRATE, RIBOFLAVIN, FOLIC ACID), SALT, SOYBEAN OIL. \
+CONTAINS 2% OR LESS OF: BEER (WATER, RICE, CORNSTARCH, BARLEY MALT, HOP \
+EXTRACT, YEAST), MODIFIED FOOD STARCH, LEAVENING (SODIUM ACID PYROPHOSPHATE, \
+SODIUM BICARBONATE, MONOCALCIUM PHOSPHATE), YEAST EXTRACT, SALT, SUGAR, \
+DEXTROSE, SPICE, ONION POWDER, SODIUM TRIPOLYPHOSPHATE (TO RETAIN \
+MOISTURE).\"\>"], "Output",
+ CellChangeTimes->{{3.740577029032095*^9, 3.740577031032192*^9}, 
+   3.740577109162346*^9, 3.7406102732013016`*^9, {3.7406614975391335`*^9, 
+   3.740661501266347*^9}},
+ CellLabel->"Out[6]=",ExpressionUUID->"28963f19-bcfa-4672-a704-29a537aca9a6"]
+}, Open  ]],
+
+Cell["Get a computable list of ingredients:", "Text",
+ CellChangeTimes->{{3.740576967583808*^9, 3.7405769742872763`*^9}, {
+  3.740577035340711*^9, 
+  3.7405770467334337`*^9}},ExpressionUUID->"ec4112b5-c824-4087-9b40-\
+c6e2e6cfe9cd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  TemplateBox[{
+   "\"Van de Kamp's Fillets Beer Battered\"",RowBox[{"Entity", "[", 
+      RowBox[{"\"Food\"", ",", "\"VanDeKampsFilletsBeerBattered::rx25p\""}], 
+      "]"}],"\"Entity[\\\"Food\\\", \
+\\\"VanDeKampsFilletsBeerBattered::rx25p\\\"]\"","\"food\""},
+   "Entity"], "[", "\"\<Ingredients\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.7405769762248387`*^9, 3.7405769787093735`*^9}, {
+  3.740577043670811*^9, 3.740577075288334*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"18a5acb5-fc03-4763-909f-182551049f02"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TemplateBox[{"\"alaska pollock\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"AlaskaPollock\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"AlaskaPollock\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"water\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"Water\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"Water\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"cottonseed oil\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"CottonseedOil\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"CottonseedOil\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"soybean oil\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"SoybeanOil\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"SoybeanOil\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"wheat flour\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"WheatFlour\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"WheatFlour\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"yellow corn flour\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"YellowCornFlour\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"YellowCornFlour\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"salt\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"Salt\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"Salt\\\"]\"","\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"enriched with niacin\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"EnrichedWithNiacin\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"EnrichedWithNiacin\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"ferrous sulfate\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"FerrousSulfate\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"FerrousSulfate\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"thiamine mono-nitrate\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"ThiamineMononitrate\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"ThiamineMononitrate\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"riboflavin\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"Riboflavin\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"Riboflavin\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"folic acid\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"FolicAcid\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"FolicAcid\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"beer\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"Beer\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"Beer\\\"]\"","\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"modified food starch\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"ModifiedFoodStarch\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"ModifiedFoodStarch\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"leavening\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"Leavening\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"Leavening\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"yeast extract\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"YeastExtract\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"YeastExtract\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"sugar\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"Sugar\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"Sugar\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"dextrose\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"Dextrose\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"Dextrose\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"spice\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"Spice\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"Spice\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"onion powder\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"OnionPowder\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"OnionPowder\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"sodium tripolyphosphate\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"SodiumTripolyphosphate\""}], 
+       "]"}],"\"Entity[\\\"FoodIngredient\\\", \
+\\\"SodiumTripolyphosphate\\\"]\"","\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"rice\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"Rice\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"Rice\\\"]\"","\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"cornstarch\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"Cornstarch\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"Cornstarch\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"barley malt\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"BarleyMalt\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"BarleyMalt\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"yeast\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"Yeast\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"Yeast\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"sodium acid pyrophosphate\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"SodiumAcidPyrophosphate\""}], 
+       "]"}],"\"Entity[\\\"FoodIngredient\\\", \
+\\\"SodiumAcidPyrophosphate\\\"]\"","\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"sodium bicarbonate\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"SodiumBicarbonate\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"SodiumBicarbonate\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"monocalcium phosphate\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"MonocalciumPhosphate\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"MonocalciumPhosphate\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"]}], "}"}]], "Output",
+ CellChangeTimes->{3.7405770781165695`*^9, 3.7406615023094063`*^9},
+ CellLabel->"Out[7]=",ExpressionUUID->"d37b3a5c-d98b-4b01-9759-19d11c1b1d20"]
+}, Open  ]],
+
+Cell["Find foods with a specific ingredient:", "Text",
+ CellChangeTimes->{{3.7405771497405586`*^9, 
+  3.740577160486727*^9}},ExpressionUUID->"5d3f4ca7-e02f-4c86-9d76-\
+5b107e5d51af"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"EntityValue", "[", 
+  RowBox[{
+   RowBox[{"Entity", "[", 
+    RowBox[{"\"\<Food\>\"", ",", 
+     RowBox[{"\"\<Ingredients\>\"", "\[Rule]", "\"\<OrangeExtract\>\""}]}], 
+    "]"}], ",", "\"\<Entities\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.7405771676276827`*^9, 3.7405772310282803`*^9}, {
+  3.7405772646167994`*^9, 3.7405772660325403`*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"209e7f5c-fbe6-441b-9a5b-37000afc056b"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TemplateBox[{
+    "\"Ahold Pumpkin Cranberry Cracker Crisps\"",RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", "\"AholdPumpkinCranberryCrackerCrisps::py3b7\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \
+\\\"AholdPumpkinCranberryCrackerCrisps::py3b7\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Drew's Dressing & Quick Marinade Harvest French\"",
+     RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", 
+         "\"DrewsDressing&QuickMarinadeHarvestFrench::f9299\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \
+\\\"DrewsDressing&QuickMarinadeHarvestFrench::f9299\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"Holy-Mole Mole Sauce\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"HolyMoleMoleSauce::6p5hd\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \\\"HolyMoleMoleSauce::6p5hd\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Hot Cakes Bakery Scones Cranberry Orange - 3 CT\"",
+     RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", 
+         "\"HotCakesBakerySconesCranberryOrange3Ct::3dz4y\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \
+\\\"HotCakesBakerySconesCranberryOrange3Ct::3dz4y\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Little Miracles Organic Energy Lemongrass Tea\"",RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", 
+         "\"LittleMiraclesOrganicEnergyLemongrassTea::5382b\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \
+\\\"LittleMiraclesOrganicEnergyLemongrassTea::5382b\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Little Miracles Organic Energy Lemongrass Tea Orange Juice Ginger \
+Ginseng Agave\"",RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", 
+         "\"LittleMiraclesOrganicEnergyLemongrassTeaOrangeJuiceGingerGinsengAg\
+ave::645by\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \
+\\\"LittleMiraclesOrganicEnergyLemongrassTeaOrangeJuiceGingerGinsengAgave::\
+645by\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Maple Hill Creamery, Creamline Yogurt, Orange Creme\"",
+     RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", 
+         "\"MapleHillCreameryCreamlineYogurtOrangeCreme::7k964\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \
+\\\"MapleHillCreameryCreamlineYogurtOrangeCreme::7k964\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Polar Orange Juice Diet Orange Dry\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"PolarOrangeJuiceDietOrangeDry::6s7z7\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \\\"PolarOrangeJuiceDietOrangeDry::6s7z7\
+\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Polar Orange Juice Diet Orange Dry\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"PolarOrangeJuiceDietOrangeDry::jy2w2\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \\\"PolarOrangeJuiceDietOrangeDry::jy2w2\
+\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Polar Orange Juice Diet Orange Dry\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"PolarOrangeJuiceDietOrangeDry::wz85m\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \\\"PolarOrangeJuiceDietOrangeDry::wz85m\
+\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Powell & Mahoney Cocktail Mixer Cosmopolitan\"",RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", 
+         "\"Powell&MahoneyCocktailMixerCosmopolitan::b76d5\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \
+\\\"Powell&MahoneyCocktailMixerCosmopolitan::b76d5\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Powell & Mahoney Cocktail Mixer Margarita\"",RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", "\"Powell&MahoneyCocktailMixerMargarita::6zv9t\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \
+\\\"Powell&MahoneyCocktailMixerMargarita::6zv9t\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Robert Rothschild Farm Organic Pineapple Habanero BBQ Gourmet Sauce\"",
+     RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", 
+         "\"RobertRothschildFarmOrganicPineappleHabaneroBbqGourmetSauce::\
+mk87v\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \
+\\\"RobertRothschildFarmOrganicPineappleHabaneroBbqGourmetSauce::mk87v\\\"]\"\
+","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Robert Rothschild Farm Organic White Wine Creole Gourmet Sauce\"",
+     RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", 
+         "\"RobertRothschildFarmOrganicWhiteWineCreoleGourmetSauce::6wn56\""}]\
+, "]"}],"\"Entity[\\\"Food\\\", \
+\\\"RobertRothschildFarmOrganicWhiteWineCreoleGourmetSauce::6wn56\\\"]\"",
+     "\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Seattle, French Chocolate, Sorbets\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"SeattleFrenchChocolateSorbets::mhmv5\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \\\"SeattleFrenchChocolateSorbets::mhmv5\
+\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Siggi's, 0% Milkfat Strained Non-Fat Yogurt, Orange & Ginger\"",
+     RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", 
+         "\"Siggis0MilkfatStrainedNonFatYogurtOrange&Ginger::w5qyp\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \
+\\\"Siggis0MilkfatStrainedNonFatYogurtOrange&Ginger::w5qyp\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Tait Farm Foods, Shrub Artisan Drink Mixer, Cranberry\"",
+     RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", 
+         "\"TaitFarmFoodsShrubArtisanDrinkMixerCranberry::4bch9\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \
+\\\"TaitFarmFoodsShrubArtisanDrinkMixerCranberry::4bch9\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"The Great San Saba River Pecan Company Orange Pecan Marmalade\"",
+     RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", 
+         "\"TheGreatSanSabaRiverPecanCompanyOrangePecanMarmalade::v2x76\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \
+\\\"TheGreatSanSabaRiverPecanCompanyOrangePecanMarmalade::v2x76\\\"]\"",
+     "\"food\""},
+    "Entity"]}], "}"}]], "Output",
+ CellChangeTimes->{{3.740577226715533*^9, 3.740577236702204*^9}, 
+   3.7406615038964972`*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"e143ee30-7a80-4a7c-bca0-1c2238e67123"]
+}, Open  ]],
+
+Cell["Find foods with a specific set of ingredients:", "Text",
+ CellChangeTimes->{{3.7405771708310027`*^9, 
+  3.7405771827693033`*^9}},ExpressionUUID->"fc1a02dd-bc55-4bb2-a528-\
+4343c620bf7c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"EntityValue", "[", 
+  RowBox[{
+   RowBox[{"Entity", "[", 
+    RowBox[{"\"\<Food\>\"", ",", 
+     RowBox[{"\"\<Ingredients\>\"", "\[Rule]", 
+      RowBox[{"ContainsAll", "[", 
+       RowBox[{"{", 
+        RowBox[{"\"\<Rice\>\"", ",", "\"\<Beer\>\""}], "}"}], "]"}]}]}], 
+    "]"}], ",", "\"\<Entities\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.7405771676276827`*^9, 3.7405772310282803`*^9}, {
+  3.7405772646167994`*^9, 3.7405772660325403`*^9}, {3.7405773886883583`*^9, 
+  3.7405774028443785`*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"eff3d45a-2d1a-4fb5-a87d-237ce70e4282"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TemplateBox[{"\"Budweiser Hot Wing Sauce\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"BudweiserHotWingSauce::jz6cr\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \\\"BudweiserHotWingSauce::jz6cr\\\"]\"",
+     "\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Gorton's Beer Battered Fish Fillets\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"GortonsBeerBatteredFishFillets::63r69\""}],
+        "]"}],"\"Entity[\\\"Food\\\", \
+\\\"GortonsBeerBatteredFishFillets::63r69\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Gorton's Beer Battered Fish Tenders\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"GortonsBeerBatteredFishTenders::zf8vk\""}],
+        "]"}],"\"Entity[\\\"Food\\\", \
+\\\"GortonsBeerBatteredFishTenders::zf8vk\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Gorton's Classic Beer Battered Fish Fillets - 10 CT\"",
+     RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", 
+         "\"GortonsClassicBeerBatteredFishFillets10Ct::69v88\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \
+\\\"GortonsClassicBeerBatteredFishFillets10Ct::69v88\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Hungry-Man Pub Favorites Chicken Beer Battered\"",
+     RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", 
+         "\"HungryManPubFavoritesChickenBeerBattered::2r2wz\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \
+\\\"HungryManPubFavoritesChickenBeerBattered::2r2wz\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Hungry-Man Pub Favorites Grilled Beef Patty\"",RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", "\"HungryManPubFavoritesGrilledBeefPatty::m9624\""}],
+        "]"}],"\"Entity[\\\"Food\\\", \
+\\\"HungryManPubFavoritesGrilledBeefPatty::m9624\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Mrs. Paul's Fillets Beer Battered - 10 CT\"",RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", "\"MrsPaulsFilletsBeerBattered10Ct::42q46\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \
+\\\"MrsPaulsFilletsBeerBattered10Ct::42q46\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Van de Kamp's Fillets Beer Battered\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"VanDeKampsFilletsBeerBattered::rx25p\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \\\"VanDeKampsFilletsBeerBattered::rx25p\
+\\\"]\"","\"food\""},
+    "Entity"]}], "}"}]], "Output",
+ CellChangeTimes->{3.7405774082571435`*^9, 3.74066150447553*^9},
+ CellLabel->"Out[9]=",ExpressionUUID->"fca266fb-6a31-4d26-96f8-854b0ac59b5b"]
+}, Open  ]],
+
+Cell["Find foods without a specific ingredient:", "Text",
+ CellChangeTimes->{{3.740577184238124*^9, 
+  3.7405771925979257`*^9}},ExpressionUUID->"d22a6cee-f502-4962-969e-\
+db75d163623f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"EntityValue", "[", 
+  RowBox[{
+   InterpretationBox[
+    DynamicModuleBox[{EntityFramework`Formatting`Private`open = True}, 
+     TemplateBox[{TemplateBox[{"\"foods\""}, "ImplicitEntityClassBase"],TagBox[
+        GridBox[{{
+           TemplateBox[{
+             TemplateBox[{"\"preparation\"", 
+               RowBox[{"EntityProperty", "[", 
+                 RowBox[{"\"Food\"", ",", "\"Preparation\""}], "]"}], 
+               "\"EntityProperty[\\\"Food\\\", \\\"Preparation\\\"]\""}, 
+              "GrayEntityFrame"], "\":\"", 
+             TemplateBox[{"\"refried\"", 
+               RowBox[{"Entity", "[", 
+                 RowBox[{"\"FoodPreparation\"", ",", "\"Refried\""}], "]"}], 
+               "\"Entity[\\\"FoodPreparation\\\", \\\"Refried\\\"]\"", 
+               "\"preparation\""}, "Entity"]}, "ImplicitEntityInfoRow"]}, {
+           TemplateBox[{
+             TemplateBox[{"\"food type\"", 
+               RowBox[{"EntityProperty", "[", 
+                 RowBox[{"\"Food\"", ",", "\"FoodType\""}], "]"}], 
+               "\"EntityProperty[\\\"Food\\\", \\\"FoodType\\\"]\""}, 
+              "GrayEntityFrame"], "\":\"", 
+             TemplateBox[{"\"bean\"", 
+               RowBox[{"Entity", "[", 
+                 RowBox[{"\"FoodType\"", ",", "\"Bean\""}], "]"}], 
+               "\"Entity[\\\"FoodType\\\", \\\"Bean\\\"]\"", "\"food type\""},
+               "Entity"]}, "ImplicitEntityInfoRow"]}, {
+           TemplateBox[{
+             TemplateBox[{"\"ingredients\"", 
+               RowBox[{"EntityProperty", "[", 
+                 RowBox[{"\"Food\"", ",", "\"Ingredients\""}], "]"}], 
+               "\"EntityProperty[\\\"Food\\\", \\\"Ingredients\\\"]\""}, 
+              "GrayEntityFrame"], "\":\"", 
+             RowBox[{
+               StyleBox["\"none of\"", "ImplicitEntityContains"], 
+               TemplateBox[{
+                 TemplateBox[{"\"lard\"", 
+                   RowBox[{"Entity", "[", 
+                    RowBox[{"\"FoodIngredient\"", ",", "\"Lard\""}], "]"}], 
+                   "\"Entity[\\\"FoodIngredient\\\", \\\"Lard\\\"]\"", 
+                   "\"food ingredient\""}, "Entity"]}, 
+                "EntityContainsSequence"]}]}, "ImplicitEntityInfoRow"]}}, 
+         GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+         "GeneralizedEntityInfoGrid", 
+         GridBoxItemSize -> {
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Column"],
+       Dynamic[EntityFramework`Formatting`Private`open],
+       "\"EntityClass[\\\"Food\\\", {EntityProperty[\\\"Food\\\", \
+\\\"Preparation\\\"] -> Entity[\\\"FoodPreparation\\\", \\\"Refried\\\"], \
+EntityProperty[\\\"Food\\\", \\\"FoodType\\\"] -> Entity[\\\"FoodType\\\", \\\
+\"Bean\\\"], EntityProperty[\\\"Food\\\", \\\"Ingredients\\\"] -> \
+ContainsNone[{Entity[\\\"FoodIngredient\\\", \\\"Lard\\\"]}]}]\""},
+      "ImplicitEntityToggle"]],
+    EntityClass[
+    "Food", {EntityProperty["Food", "Preparation"] -> 
+      Entity["FoodPreparation", "Refried"], 
+      EntityProperty["Food", "FoodType"] -> Entity["FoodType", "Bean"], 
+      EntityProperty["Food", "Ingredients"] -> ContainsNone[{
+         Entity["FoodIngredient", "Lard"]}]}],
+    SelectWithContents->True], ",", "\"\<Entities\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.740577436537918*^9, 3.7405775002031155`*^9}, {
+  3.740577539235159*^9, 3.7405775400008526`*^9}, {3.740577609429684*^9, 
+  3.740577611706688*^9}, {3.7405776476711187`*^9, 3.7405776887462463`*^9}, {
+  3.7405777256525164`*^9, 3.740577971978629*^9}, {3.7406614387297697`*^9, 
+  3.7406614494233813`*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"b176045e-fa9b-4245-a356-36cb1afad3ca"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TemplateBox[{
+    "\"Casa Fiesta All Natural Spicy Refried Beans\"",RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", "\"CasaFiestaAllNaturalSpicyRefriedBeans::3ncfv\""}],
+        "]"}],"\"Entity[\\\"Food\\\", \
+\\\"CasaFiestaAllNaturalSpicyRefriedBeans::3ncfv\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"Centrella Refried Beans\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"CentrellaRefriedBeans::j3g9f\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \\\"CentrellaRefriedBeans::j3g9f\\\"]\"",
+     "\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"Ducal Refried Black Beans\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"DucalRefriedBlackBeans::y7335\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \\\"DucalRefriedBlackBeans::y7335\\\"]\"",
+     "\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"Ducal Refried Red Beans\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"DucalRefriedRedBeans::t23p8\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \\\"DucalRefriedRedBeans::t23p8\\\"]\"",
+     "\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"El Rio Refried Beans\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"ElRioRefriedBeans::9fbm4\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \\\"ElRioRefriedBeans::9fbm4\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Goya, Refried Pinto Beans With Chorizo\"",RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", "\"GoyaRefriedPintoBeansWithChorizo::5382z\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \
+\\\"GoyaRefriedPintoBeansWithChorizo::5382z\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"La Costena, Refried Black Beans\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"LaCostenaRefriedBlackBeans::qxtc9\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \
+\\\"LaCostenaRefriedBlackBeans::qxtc9\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"La Costena, Refried Pinto Beans\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"LaCostenaRefriedPintoBeans::35sd7\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \
+\\\"LaCostenaRefriedPintoBeans::35sd7\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"La Preferida, Inc. Refried Beans\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"LaPreferidaIncRefriedBeans::q34c3\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \
+\\\"LaPreferidaIncRefriedBeans::q34c3\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"La Preferida Refried Beans Fat Free\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"LaPreferidaRefriedBeansFatFree::825zz\""}],
+        "]"}],"\"Entity[\\\"Food\\\", \
+\\\"LaPreferidaRefriedBeansFatFree::825zz\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"La Preferida Refried Beans Vegetarian\"",RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", "\"LaPreferidaRefriedBeansVegetarian::3f632\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \
+\\\"LaPreferidaRefriedBeansVegetarian::3f632\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"La Preferida, Refried Beans\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"LaPreferidaRefriedBeans::yxr79\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \\\"LaPreferidaRefriedBeans::yxr79\\\"]\"",
+     "\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"La Preferida Refried Black Beans\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"LaPreferidaRefriedBlackBeans::h3cyw\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \
+\\\"LaPreferidaRefriedBlackBeans::h3cyw\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Old El Paso Fat Free Refried Beans\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"OldElPasoFatFreeRefriedBeans::23nw4\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \
+\\\"OldElPasoFatFreeRefriedBeans::23nw4\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Old El Paso Refried Beans Black Bean\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"OldElPasoRefriedBeansBlackBean::k979t\""}],
+        "]"}],"\"Entity[\\\"Food\\\", \
+\\\"OldElPasoRefriedBeansBlackBean::k979t\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Old El Paso Traditional Refried Beans\"",RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", "\"OldElPasoTraditionalRefriedBeans::8563h\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \
+\\\"OldElPasoTraditionalRefriedBeans::8563h\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Old El Paso Vegetarian Refried Beans\"",RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", "\"OldElPasoVegetarianRefriedBeans::x2cjg\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \
+\\\"OldElPasoVegetarianRefriedBeans::x2cjg\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Refried Pinto Beans Frijoles Bayos Refritos\"",RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", 
+         "\"RefriedPintoBeansFrijolesBayosRefritos::xdtc6\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \
+\\\"RefriedPintoBeansFrijolesBayosRefritos::xdtc6\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"San Francisco Frijoles Rojos Refried Black Beans\"",
+     RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", 
+         "\"SanFranciscoFrijolesRojosRefriedBlackBeans::45f48\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \
+\\\"SanFranciscoFrijolesRojosRefriedBlackBeans::45f48\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"San Francisco Frijoles Rojos Refried Red Silk Beans\"",
+     RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", 
+         "\"SanFranciscoFrijolesRojosRefriedRedSilkBeans::8999m\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \
+\\\"SanFranciscoFrijolesRojosRefriedRedSilkBeans::8999m\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"San Francisco, Refried Black Beans\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"SanFranciscoRefriedBlackBeans::kg597\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \\\"SanFranciscoRefriedBlackBeans::kg597\
+\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"San Francisco, Refried Black Beans\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"SanFranciscoRefriedBlackBeans::mjss7\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \\\"SanFranciscoRefriedBlackBeans::mjss7\
+\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"San Francisco, Refried Red Silk Beans\"",RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", "\"SanFranciscoRefriedRedSilkBeans::km2jg\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \
+\\\"SanFranciscoRefriedRedSilkBeans::km2jg\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Taco Bell Home Originals Vegetarian Blend Refried Beans\"",
+     RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", 
+         "\"TacoBellHomeOriginalsVegetarianBlendRefriedBeans::3gbwt\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \
+\\\"TacoBellHomeOriginalsVegetarianBlendRefriedBeans::3gbwt\\\"]\"",
+     "\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"Taco Bell Refried Beans Original\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"TacoBellRefriedBeansOriginal::8g482\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \
+\\\"TacoBellRefriedBeansOriginal::8g482\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"Traditional Refried Pinto Beans\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"TraditionalRefriedPintoBeans::7h3r9\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \
+\\\"TraditionalRefriedPintoBeans::7h3r9\\\"]\"","\"food\""},
+    "Entity"]}], "}"}]], "Output",
+ CellChangeTimes->{{3.740577754205398*^9, 3.7405778076132703`*^9}, {
+   3.740577950764613*^9, 3.7405779760725894`*^9}, 3.7406615052415743`*^9},
+ CellLabel->"Out[10]=",ExpressionUUID->"e5169899-cee0-4e9f-9eae-e0f341c6e69a"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Main Ingredients", "Section",
+ CellChangeTimes->{{3.740577118536614*^9, 
+  3.7405771239119196`*^9}},ExpressionUUID->"0dee3a4f-b856-4280-876a-\
+5d582267200e"],
+
+Cell["Find only the top-level ingredients for a food:", "Text",
+ CellChangeTimes->{{3.740577125536992*^9, 
+  3.7405771333811502`*^9}},ExpressionUUID->"31f0692c-bd63-45c0-b28e-\
+efe0dbb001d8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  TemplateBox[{
+   "\"Van de Kamp's Fillets Beer Battered\"",RowBox[{"Entity", "[", 
+      RowBox[{"\"Food\"", ",", "\"VanDeKampsFilletsBeerBattered::rx25p\""}], 
+      "]"}],"\"Entity[\\\"Food\\\", \
+\\\"VanDeKampsFilletsBeerBattered::rx25p\\\"]\"","\"food\""},
+   "Entity"], "[", "\"\<MainIngredients\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.740577135099987*^9, 3.7405771383611813`*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"492731f7-9a35-4b0f-a953-009903b73284"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TemplateBox[{"\"alaska pollock\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"AlaskaPollock\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"AlaskaPollock\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"water\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"Water\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"Water\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"cottonseed oil\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"CottonseedOil\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"CottonseedOil\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"soybean oil\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"SoybeanOil\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"SoybeanOil\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"wheat flour\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"WheatFlour\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"WheatFlour\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"yellow corn flour\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"YellowCornFlour\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"YellowCornFlour\\\"]\"",
+     "\"food ingredient\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"salt\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"FoodIngredient\"", ",", "\"Salt\""}], "]"}],
+     "\"Entity[\\\"FoodIngredient\\\", \\\"Salt\\\"]\"","\"food ingredient\""},
+    "Entity"]}], "}"}]], "Output",
+ CellChangeTimes->{3.7405771397987194`*^9, 3.7406615065686502`*^9},
+ CellLabel->"Out[11]=",ExpressionUUID->"496c8193-e069-4616-8c8b-0e0ecd40e70e"]
+}, Open  ]],
+
+Cell["Find foods by top-level ingredients:", "Text",
+ CellChangeTimes->{{3.7405780044563065`*^9, 
+  3.7405780145264916`*^9}},ExpressionUUID->"5f4a5baf-a251-4a0c-8a09-\
+9ecb247043a2"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"EntityValue", "[", 
+   RowBox[{
+    RowBox[{"Entity", "[", 
+     RowBox[{"\"\<Food\>\"", ",", 
+      RowBox[{
+      "\"\<MainIngredients\>\"", "\[Rule]", "\"\<AlaskaPollock\>\""}]}], 
+     "]"}], ",", "\"\<Entities\>\""}], "]"}], "//", "Shallow"}]], "Input",
+ CellChangeTimes->{{3.7405780193079777`*^9, 3.740578088680811*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"65e17788-9048-4bfe-adfa-844565572cad"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TemplateBox[{
+    "\"American Pride Seafood, Beer Battered Wild Alaska Pollock Fillets\"",
+     RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", 
+         "\"AmericanPrideSeafoodBeerBatteredWildAlaskaPollockFillets::jdrw7\"\
+"}], "]"}],
+     "\"Entity[\\\"Food\\\", \
+\\\"AmericanPrideSeafoodBeerBatteredWildAlaskaPollockFillets::jdrw7\\\"]\"",
+     "\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"American Pride, Wild Alaska Pollock Fillets, Sea Salt & Pepper\"",
+     RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", 
+         "\"AmericanPrideWildAlaskaPollockFilletsSeaSalt&Pepper::p7z29\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \
+\\\"AmericanPrideWildAlaskaPollockFilletsSeaSalt&Pepper::p7z29\\\"]\"",
+     "\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"American Pride, Wild Alaska Pollock Fish Sticks\"",
+     RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", 
+         "\"AmericanPrideWildAlaskaPollockFishSticks::fz7h6\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \
+\\\"AmericanPrideWildAlaskaPollockFishSticks::fz7h6\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"American Pride, Wild Alaska Pollock Flaky Fillets With A Lemon Pepper \
+Crust, Lemon Pepper\"",RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", 
+         "\"AmericanPrideWildAlaskaPollockFlakyFilletsWithALemonPepperCrustLem\
+onPepper::y7453\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \
+\\\"AmericanPrideWildAlaskaPollockFlakyFilletsWithALemonPepperCrustLemonPepper\
+::y7453\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"American Pride, Wild Alaska Pollock, Garlic & Herb\"",
+     RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", 
+         "\"AmericanPrideWildAlaskaPollockGarlic&Herb::grb7n\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \
+\\\"AmericanPrideWildAlaskaPollockGarlic&Herb::grb7n\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Chashu Tenpura, Fried Fish Cake With Sweet Pork\"",
+     RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", 
+         "\"ChashuTenpuraFriedFishCakeWithSweetPork::s8963\""}], "]"}],
+     "\"Entity[\\\"Food\\\", \
+\\\"ChashuTenpuraFriedFishCakeWithSweetPork::s8963\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"Chunk Style Deluxe Imitation Crab\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"ChunkStyleDeluxeImitationCrab::598h2\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \\\"ChunkStyleDeluxeImitationCrab::598h2\
+\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"Crab Classic Imitation Crab\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"CrabClassicImitationCrab::44qr9\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \\\"CrabClassicImitationCrab::44qr9\\\"]\
+\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{"\"Flake Style Imitation Crabmeat\"",RowBox[{"Entity", "[", 
+       RowBox[{"\"Food\"", ",", "\"FlakeStyleImitationCrabmeat::8r982\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \\\"FlakeStyleImitationCrabmeat::8r982\\\
+\"]\"","\"food\""},
+    "Entity"], ",", 
+   TemplateBox[{
+    "\"Gobo Tenpura Fried Fish Cake With Burdock\"",RowBox[{"Entity", "[", 
+       RowBox[{
+        "\"Food\"", ",", "\"GoboTenpuraFriedFishCakeWithBurdock::6877p\""}], 
+       "]"}],"\"Entity[\\\"Food\\\", \
+\\\"GoboTenpuraFriedFishCakeWithBurdock::6877p\\\"]\"","\"food\""},
+    "Entity"], ",", 
+   RowBox[{"\[LeftSkeleton]", "57", "\[RightSkeleton]"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.7405780683322735`*^9, 3.740578090368376*^9}, 
+   3.7406615070846796`*^9},
+ CellLabel->
+  "Out[12]//Shallow=",ExpressionUUID->"276b2c8c-c2fa-4de1-8d49-3a7fbcf68769"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Ingredient Counts", "Section",
+ CellChangeTimes->{{3.740578125788499*^9, 3.740578126569812*^9}, {
+   3.7405782018630085`*^9, 3.740578205363185*^9}, 
+   3.7405782484629574`*^9},ExpressionUUID->"72ecc7e1-fce3-4e36-b451-\
+8508b7491964"],
+
+Cell["Find the number of ingredients that a food has:", "Text",
+ CellChangeTimes->{{3.7405782273148837`*^9, 
+  3.74057824439091*^9}},ExpressionUUID->"5b0d3c7b-400d-4202-8b21-\
+195602f3b18f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  TemplateBox[{"\"Crab Classic Imitation Crab\"",RowBox[{"Entity", "[", 
+      RowBox[{"\"Food\"", ",", "\"CrabClassicImitationCrab::44qr9\""}], "]"}],
+    "\"Entity[\\\"Food\\\", \\\"CrabClassicImitationCrab::44qr9\\\"]\"",
+    "\"food\""},
+   "Entity"], "[", "\"\<IngredientCount\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.740578253521309*^9, 3.7405782661602383`*^9}, {
+  3.740578297625453*^9, 3.7405783106469655`*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"150416b6-4190-447e-a754-15da324ab93c"],
+
+Cell[BoxData["31"], "Output",
+ CellChangeTimes->{3.7405783125533094`*^9, 3.7406615084157553`*^9},
+ CellLabel->"Out[13]=",ExpressionUUID->"94add19f-f383-4f4e-ac2c-303149054e70"]
+}, Open  ]],
+
+Cell["Find foods with less than a certain number of ingredients:", "Text",
+ CellChangeTimes->{{3.740578315756631*^9, 
+  3.740578323632033*^9}},ExpressionUUID->"a07cabc7-60ca-499f-a17a-\
+b156dbeaf1d3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"EntityClass", "[", 
+    RowBox[{"\"\<Food\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<Variety\>\"", "\[Rule]", "\"\<Saltine\>\""}], ",", 
+       RowBox[{"\"\<FoodType\>\"", "\[Rule]", "\"\<Cracker\>\""}], ",", 
+       RowBox[{"\"\<IngredientCount\>\"", "\[Rule]", 
+        RowBox[{"LessThan", "[", "20", "]"}]}]}], "}"}]}], "]"}], "[", 
+   RowBox[{
+   "\"\<IngredientCount\>\"", ",", "\"\<NonMissingEntityAssociation\>\""}], 
+   "]"}], "//", "Sort"}]], "Input",
+ CellChangeTimes->{{3.740578331018566*^9, 3.740578420576337*^9}, {
+  3.740580141169623*^9, 3.7405802628670144`*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"c83cdb6f-72cb-47ae-beda-bd41fed5527e"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{
+    TemplateBox[{
+     "\"Nabisco Original Premium Saltine Crackers\"",RowBox[{"Entity", "[", 
+        RowBox[{
+         "\"Food\"", ",", 
+          "\"NabiscoOriginalPremiumSaltineCrackers::g7xqy\""}], "]"}],
+      "\"Entity[\\\"Food\\\", \
+\\\"NabiscoOriginalPremiumSaltineCrackers::g7xqy\\\"]\"","\"food\""},
+     "Entity"], "\[Rule]", "15"}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"Premium Saltine Crackers Original\"",RowBox[{"Entity", "[", 
+        RowBox[{
+         "\"Food\"", ",", "\"PremiumSaltineCrackersOriginal::79zcf\""}], 
+        "]"}],"\"Entity[\\\"Food\\\", \
+\\\"PremiumSaltineCrackersOriginal::79zcf\\\"]\"","\"food\""},
+     "Entity"], "\[Rule]", "16"}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"Premium Rounds Unsalted Tops Saltine Crackers\"",
+      RowBox[{"Entity", "[", 
+        RowBox[{
+         "\"Food\"", ",", 
+          "\"PremiumRoundsUnsaltedTopsSaltineCrackers::2448k\""}], "]"}],
+      "\"Entity[\\\"Food\\\", \
+\\\"PremiumRoundsUnsaltedTopsSaltineCrackers::2448k\\\"]\"","\"food\""},
+     "Entity"], "\[Rule]", "16"}], ",", 
+   RowBox[{
+    TemplateBox[{"\"Nabisco Premium Saltine Crackers\"",RowBox[{"Entity", "[", 
+        RowBox[{"\"Food\"", ",", "\"NabiscoPremiumSaltineCrackers::y4mz8\""}],
+         "]"}],"\"Entity[\\\"Food\\\", \
+\\\"NabiscoPremiumSaltineCrackers::y4mz8\\\"]\"","\"food\""},
+     "Entity"], "\[Rule]", "16"}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"Nabisco Premium Minis Original Saltine Crackers\"",
+      RowBox[{"Entity", "[", 
+        RowBox[{
+         "\"Food\"", ",", 
+          "\"NabiscoPremiumMinisOriginalSaltineCrackers::2r957\""}], "]"}],
+      "\"Entity[\\\"Food\\\", \
+\\\"NabiscoPremiumMinisOriginalSaltineCrackers::2r957\\\"]\"","\"food\""},
+     "Entity"], "\[Rule]", "16"}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"Keebler Original Zesta Saltine Crackers\"",RowBox[{"Entity", "[", 
+        RowBox[{
+         "\"Food\"", ",", "\"KeeblerOriginalZestaSaltineCrackers::5wsqg\""}], 
+        "]"}],
+      "\"Entity[\\\"Food\\\", \
+\\\"KeeblerOriginalZestaSaltineCrackers::5wsqg\\\"]\"","\"food\""},
+     "Entity"], "\[Rule]", "16"}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"Nabisco Premium Rounds Saltine Crackers\"",RowBox[{"Entity", "[", 
+        RowBox[{
+         "\"Food\"", ",", "\"NabiscoPremiumRoundsSaltineCrackers::b93zj\""}], 
+        "]"}],"\"Entity[\\\"Food\\\", \
+\\\"NabiscoPremiumRoundsSaltineCrackers::b93zj\\\"]\"","\"food\""},
+     "Entity"], "\[Rule]", "17"}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"Back To Nature Organic Crackers Classic Saltine\"",
+      RowBox[{"Entity", "[", 
+        RowBox[{
+         "\"Food\"", ",", 
+          "\"BackToNatureOrganicCrackersClassicSaltine::5vk2d\""}], "]"}],
+      "\"Entity[\\\"Food\\\", \
+\\\"BackToNatureOrganicCrackersClassicSaltine::5vk2d\\\"]\"","\"food\""},
+     "Entity"], "\[Rule]", "17"}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"Premium Saltine Crackers with Whole Grain\"",RowBox[{"Entity", "[", 
+        RowBox[{
+         "\"Food\"", ",", "\"PremiumSaltineCrackersWithWholeGrain::2xrsm\""}],
+         "]"}],"\"Entity[\\\"Food\\\", \
+\\\"PremiumSaltineCrackersWithWholeGrain::2xrsm\\\"]\"","\"food\""},
+     "Entity"], "\[Rule]", "18"}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"Nabisco Premium Unsalted Tops Saltine Crackers\"",
+      RowBox[{"Entity", "[", 
+        RowBox[{
+         "\"Food\"", ",", 
+          "\"NabiscoPremiumUnsaltedTopsSaltineCrackers::74vm4\""}], "]"}],
+      "\"Entity[\\\"Food\\\", \
+\\\"NabiscoPremiumUnsaltedTopsSaltineCrackers::74vm4\\\"]\"","\"food\""},
+     "Entity"], "\[Rule]", "18"}], ",", 
+   RowBox[{
+    TemplateBox[{
+     "\"Nabisco Premium Fat Free Saltine Crackers\"",RowBox[{"Entity", "[", 
+        RowBox[{
+         "\"Food\"", ",", "\"NabiscoPremiumFatFreeSaltineCrackers::k4ckd\""}],
+         "]"}],"\"Entity[\\\"Food\\\", \
+\\\"NabiscoPremiumFatFreeSaltineCrackers::k4ckd\\\"]\"","\"food\""},
+     "Entity"], "\[Rule]", "19"}]}], "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{{3.7405783830442066`*^9, 3.7405784052260246`*^9}, {
+   3.7405801521168175`*^9, 3.740580263429511*^9}, 3.7406615100528493`*^9},
+ CellLabel->"Out[14]=",ExpressionUUID->"8b9ac816-cd1c-4cf9-9f71-34cd5add07e6"]
+}, Open  ]],
+
+Cell["Analyze the number of ingredients in different breads:", "Text",
+ CellChangeTimes->{{3.7405784383596845`*^9, 3.740578448150281*^9}, {
+  3.7405796983091154`*^9, 
+  3.7405797031603384`*^9}},ExpressionUUID->"5498f4bb-f2fe-4958-9b4e-\
+664173782922"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DistributionChart", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"KeyValueMap", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Labeled", "[", 
+       RowBox[{
+        RowBox[{"DeleteMissing", "[", 
+         RowBox[{"#2", "[", "\"\<IngredientCount\>\"", "]"}], "]"}], ",", 
+        "#1"}], "]"}], "&"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Rye bread\>\"", " ", "\[Rule]", 
+        InterpretationBox[
+         DynamicModuleBox[{EntityFramework`Formatting`Private`open = True}, 
+          
+          TemplateBox[{
+           TemplateBox[{"\"foods\""}, "ImplicitEntityClassBase"],TagBox[
+             GridBox[{{
+                TemplateBox[{
+                  TemplateBox[{"\"variety\"", 
+                    RowBox[{"EntityProperty", "[", 
+                    RowBox[{"\"Food\"", ",", "\"Variety\""}], "]"}], 
+                    "\"EntityProperty[\\\"Food\\\", \\\"Variety\\\"]\""}, 
+                   "GrayEntityFrame"], "\":\"", 
+                  TemplateBox[{"\"rye\"", 
+                    RowBox[{"Entity", "[", 
+                    RowBox[{"\"FoodVariety\"", ",", "\"Rye\""}], "]"}], 
+                    "\"Entity[\\\"FoodVariety\\\", \\\"Rye\\\"]\"", 
+                    "\"food variety\""}, "Entity"]}, 
+                 "ImplicitEntityInfoRow"]}, {
+                TemplateBox[{
+                  TemplateBox[{"\"food type\"", 
+                    RowBox[{"EntityProperty", "[", 
+                    RowBox[{"\"Food\"", ",", "\"FoodType\""}], "]"}], 
+                    "\"EntityProperty[\\\"Food\\\", \\\"FoodType\\\"]\""}, 
+                   "GrayEntityFrame"], "\":\"", 
+                  TemplateBox[{"\"bread\"", 
+                    RowBox[{"Entity", "[", 
+                    RowBox[{"\"FoodType\"", ",", "\"Bread\""}], "]"}], 
+                    "\"Entity[\\\"FoodType\\\", \\\"Bread\\\"]\"", 
+                    "\"food type\""}, "Entity"]}, "ImplicitEntityInfoRow"]}}, 
+              GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+              "GeneralizedEntityInfoGrid", 
+              GridBoxItemSize -> {
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+             "Column"],Dynamic[EntityFramework`Formatting`Private`open],
+            "\"EntityClass[\\\"Food\\\", {EntityProperty[\\\"Food\\\", \
+\\\"Variety\\\"] -> Entity[\\\"FoodVariety\\\", \\\"Rye\\\"], EntityProperty[\
+\\\"Food\\\", \\\"FoodType\\\"] -> Entity[\\\"FoodType\\\", \
+\\\"Bread\\\"]}]\""},
+           "ImplicitEntityToggle"]],
+         EntityClass[
+         "Food", {
+          EntityProperty["Food", "Variety"] -> Entity["FoodVariety", "Rye"], 
+           EntityProperty["Food", "FoodType"] -> Entity["FoodType", "Bread"]}],
+         SelectWithContents->True]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Wheat bread\>\"", "\[Rule]", 
+        InterpretationBox[
+         DynamicModuleBox[{EntityFramework`Formatting`Private`open = True}, 
+          
+          TemplateBox[{
+           TemplateBox[{"\"foods\""}, "ImplicitEntityClassBase"],TagBox[
+             GridBox[{{
+                TemplateBox[{
+                  TemplateBox[{"\"source food types\"", 
+                    RowBox[{"EntityProperty", "[", 
+                    RowBox[{"\"Food\"", ",", "\"SourceFoodTypes\""}], "]"}], 
+                    "\"EntityProperty[\\\"Food\\\", \
+\\\"SourceFoodTypes\\\"]\""}, "GrayEntityFrame"], "\":\"", 
+                  TemplateBox[{"\"wheat\"", 
+                    RowBox[{"Entity", "[", 
+                    RowBox[{"\"FoodType\"", ",", "\"Wheat\""}], "]"}], 
+                    "\"Entity[\\\"FoodType\\\", \\\"Wheat\\\"]\"", 
+                    "\"food type\""}, "Entity"]}, "ImplicitEntityInfoRow"]}, {
+                TemplateBox[{
+                  TemplateBox[{"\"food type\"", 
+                    RowBox[{"EntityProperty", "[", 
+                    RowBox[{"\"Food\"", ",", "\"FoodType\""}], "]"}], 
+                    "\"EntityProperty[\\\"Food\\\", \\\"FoodType\\\"]\""}, 
+                   "GrayEntityFrame"], "\":\"", 
+                  TemplateBox[{"\"bread\"", 
+                    RowBox[{"Entity", "[", 
+                    RowBox[{"\"FoodType\"", ",", "\"Bread\""}], "]"}], 
+                    "\"Entity[\\\"FoodType\\\", \\\"Bread\\\"]\"", 
+                    "\"food type\""}, "Entity"]}, "ImplicitEntityInfoRow"]}}, 
+              GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+              "GeneralizedEntityInfoGrid", 
+              GridBoxItemSize -> {
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+             "Column"],Dynamic[EntityFramework`Formatting`Private`open],
+            "\"EntityClass[\\\"Food\\\", {EntityProperty[\\\"Food\\\", \
+\\\"SourceFoodTypes\\\"] -> Entity[\\\"FoodType\\\", \\\"Wheat\\\"], \
+EntityProperty[\\\"Food\\\", \\\"FoodType\\\"] -> Entity[\\\"FoodType\\\", \\\
+\"Bread\\\"]}]\""},
+           "ImplicitEntityToggle"]],
+         EntityClass[
+         "Food", {
+          EntityProperty["Food", "SourceFoodTypes"] -> 
+           Entity["FoodType", "Wheat"], EntityProperty["Food", "FoodType"] -> 
+           Entity["FoodType", "Bread"]}],
+         SelectWithContents->True]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<White bread\>\"", "\[Rule]", " ", 
+        InterpretationBox[
+         DynamicModuleBox[{EntityFramework`Formatting`Private`open = True}, 
+          
+          TemplateBox[{
+           TemplateBox[{"\"foods\""}, "ImplicitEntityClassBase"],TagBox[
+             GridBox[{{
+                TemplateBox[{
+                  TemplateBox[{"\"variety\"", 
+                    RowBox[{"EntityProperty", "[", 
+                    RowBox[{"\"Food\"", ",", "\"Variety\""}], "]"}], 
+                    "\"EntityProperty[\\\"Food\\\", \\\"Variety\\\"]\""}, 
+                   "GrayEntityFrame"], "\":\"", 
+                  TemplateBox[{"\"white\"", 
+                    RowBox[{"Entity", "[", 
+                    RowBox[{"\"FoodVariety\"", ",", "\"White\""}], "]"}], 
+                    "\"Entity[\\\"FoodVariety\\\", \\\"White\\\"]\"", 
+                    "\"food variety\""}, "Entity"]}, 
+                 "ImplicitEntityInfoRow"]}, {
+                TemplateBox[{
+                  TemplateBox[{"\"food type\"", 
+                    RowBox[{"EntityProperty", "[", 
+                    RowBox[{"\"Food\"", ",", "\"FoodType\""}], "]"}], 
+                    "\"EntityProperty[\\\"Food\\\", \\\"FoodType\\\"]\""}, 
+                   "GrayEntityFrame"], "\":\"", 
+                  TemplateBox[{"\"bread\"", 
+                    RowBox[{"Entity", "[", 
+                    RowBox[{"\"FoodType\"", ",", "\"Bread\""}], "]"}], 
+                    "\"Entity[\\\"FoodType\\\", \\\"Bread\\\"]\"", 
+                    "\"food type\""}, "Entity"]}, "ImplicitEntityInfoRow"]}}, 
+              GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+              "GeneralizedEntityInfoGrid", 
+              GridBoxItemSize -> {
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+             "Column"],Dynamic[EntityFramework`Formatting`Private`open],
+            "\"EntityClass[\\\"Food\\\", {EntityProperty[\\\"Food\\\", \
+\\\"Variety\\\"] -> Entity[\\\"FoodVariety\\\", \\\"White\\\"], \
+EntityProperty[\\\"Food\\\", \\\"FoodType\\\"] -> Entity[\\\"FoodType\\\", \\\
+\"Bread\\\"]}]\""},
+           "ImplicitEntityToggle"]],
+         EntityClass[
+         "Food", {
+          EntityProperty["Food", "Variety"] -> Entity["FoodVariety", "White"],
+            EntityProperty["Food", "FoodType"] -> 
+           Entity["FoodType", "Bread"]}],
+         SelectWithContents->True]}]}], "\[IndentingNewLine]", "|>"}]}], 
+    "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"BarOrigin", "\[Rule]", "Left"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"PlotLabel", "\[Rule]", 
+    RowBox[{"Style", "[", 
+     RowBox[{"\"\<Ingredient Counts for Bread varieties\>\"", ",", "16"}], 
+     "]"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"FrameLabel", "\[Rule]", 
+    RowBox[{"{", "\"\<Number of Ingredients\>\"", "}"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"ChartElementFunction", "\[Rule]", "\"\<HistogramDensity\>\""}], 
+   ",", "\[IndentingNewLine]", 
+   RowBox[{"ImageSize", "\[Rule]", "Large"}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.740579147037718*^9, 3.7405796134525948`*^9}, {
+  3.7405796445777035`*^9, 3.740579672608893*^9}, {3.740579715676633*^9, 
+  3.7405798186135254`*^9}, {3.7405799156912556`*^9, 3.7405799235154457`*^9}, {
+  3.740579995002748*^9, 3.7405800458463335`*^9}, {3.740661468318462*^9, 
+  3.7406614790930786`*^9}, {3.7406615353422956`*^9, 
+  3.740661542422701*^9}},ExpressionUUID->"039d780a-b765-4ec8-a19b-\
+aa1bd437445c"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {Opacity[0], 
+    PointBox[{{2.15, 0.22469588540536467`}, {64.85, 3.273488866832185}}]}, 
+   {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[Opacity[0.7]], {}, 
+    {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[Opacity[0.7]], 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[Opacity[0.7]], 
+      TagBox[
+       TooltipBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          TagBox[
+           GraphicsGroupBox[{Antialiasing -> False, {
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{5, 0.5996369504475099}, {
+                 10, 0.8985478017900399}, "RoundingRadius" -> 0], "4.`"], 
+               Annotation[#, 4., "Tooltip"]& ], 
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{10, 0.69927390089502}, {15, 0.7989108513425298},
+                  "RoundingRadius" -> 0], "1.`"], 
+               Annotation[#, 1., "Tooltip"]& ], 
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{15, 0.69927390089502}, {20, 0.7989108513425298},
+                  "RoundingRadius" -> 0], "1.`"], 
+               Annotation[#, 1., "Tooltip"]& ], 
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{20, 0.6328492672633466}, {
+                 25, 0.8653354849742032}, "RoundingRadius" -> 0], "3.`"], 
+               Annotation[#, 3., "Tooltip"]& ], 
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{25, 0.6328492672633466}, {
+                 30, 0.8653354849742032}, "RoundingRadius" -> 0], "3.`"], 
+               Annotation[#, 3., "Tooltip"]& ], 
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{30, 0.49999999999999994`}, {
+                 35, 0.9981847522375498}, "RoundingRadius" -> 0], "7.`"], 
+               Annotation[#, 7., "Tooltip"]& ], 
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{35, 0.5664246336316733}, {
+                 40, 0.9317601186058765}, "RoundingRadius" -> 0], "5.`"], 
+               Annotation[#, 5., "Tooltip"]& ]}}], 
+           Annotation[#, {{0.5, 0.9981847522375499}, {5, 40}}, 
+            "BoundingBox"]& ]},
+         ImageSizeCache->{{108.63221957040574`, 364.23842482100247`}, {
+          57.57549212558254, 104.74774617768898`}}],
+        StyleBox[
+         TagBox[
+          GridBox[{{
+             StyleBox["\"max\"", Bold, StripOnInput -> False], "39"}, {
+             StyleBox["\"75%\"", Bold, StripOnInput -> False], "34"}, {
+             StyleBox["\"median\"", Bold, StripOnInput -> False], "29"}, {
+             StyleBox["\"25%\"", Bold, StripOnInput -> False], "17"}, {
+             StyleBox["\"min\"", Bold, StripOnInput -> False], "6"}}, 
+           GridBoxAlignment -> {"Columns" -> {Center, ".", {Left}}}, 
+           AutoDelete -> False, GridBoxDividers -> {"Columns" -> {
+               Directive[
+                GrayLevel[0.3]], {
+                Directive[
+                 GrayLevel[0.3]]}, 
+               Directive[
+                GrayLevel[0.3]]}, "Rows" -> {
+               Directive[
+                GrayLevel[0.3]], {
+                Directive[
+                 GrayLevel[0.3]]}, 
+               Directive[
+                GrayLevel[0.3]]}}, 
+           GridBoxFrame -> {
+            "ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> GrayLevel[0]}}, 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, BaseStyle -> 
+           Directive[
+             AbsoluteThickness[1], 
+             Dashing[{}]]], "Grid"], {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[
+         Grid[{{
+            Style["max", Bold], 39}, {
+            Style["75%", Bold], 34}, {
+            Style["median", Bold], 29}, {
+            Style["25%", Bold], 17}, {
+            Style["min", Bold], 6}}, Dividers -> {{
+             Directive[
+              GrayLevel[0.3]], {
+              Directive[
+               GrayLevel[0.3]]}, 
+             Directive[
+              GrayLevel[0.3]]}, {
+             Directive[
+              GrayLevel[0.3]], {
+              Directive[
+               GrayLevel[0.3]]}, 
+             Directive[
+              GrayLevel[0.3]]}}, Alignment -> {{Center, ".", {Left}}}, Frame -> 
+          GrayLevel[0], BaseStyle -> Directive[
+            AbsoluteThickness[1], 
+            Dashing[{}]]], {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[Opacity[0.7]], 
+      TagBox[
+       TooltipBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          TagBox[
+           GraphicsGroupBox[{Antialiasing -> False, {
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{15, 1.69927390089502}, {
+                 20, 1.7989108513425298`}, "RoundingRadius" -> 0], "1.`"], 
+               Annotation[#, 1., "Tooltip"]& ], 
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{20, 1.69927390089502}, {
+                 25, 1.7989108513425298`}, "RoundingRadius" -> 0], "1.`"], 
+               Annotation[#, 1., "Tooltip"]& ], 
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{25, 1.6423385006392999`}, {
+                 30, 1.85584625159825}, "RoundingRadius" -> 0], "3.`"], 
+               Annotation[#, 3., "Tooltip"]& ], 
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{30, 1.5}, {35, 1.9981847522375498`}, 
+                 "RoundingRadius" -> 0], "8.`"], 
+               Annotation[#, 8., "Tooltip"]& ], 
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{35, 1.61387080051144}, {
+                 40, 1.8843139517261098`}, "RoundingRadius" -> 0], "4.`"], 
+               Annotation[#, 4., "Tooltip"]& ], 
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{40, 1.69927390089502}, {
+                 45, 1.7989108513425298`}, "RoundingRadius" -> 0], "1.`"], 
+               Annotation[#, 1., "Tooltip"]& ], 
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{45, 1.67080620076716}, {
+                 50, 1.8273785514703897`}, "RoundingRadius" -> 0], "2.`"], 
+               Annotation[#, 2., "Tooltip"]& ]}}], 
+           Annotation[#, {{1.5, 1.9981847522375498`}, {15, 50}}, 
+            "BoundingBox"]& ]},
+         ImageSizeCache->{{181.3768496420048, 
+          436.98305489260156`}, {-35.10549388357995, 12.066760168526486`}}],
+        StyleBox[
+         TagBox[
+          GridBox[{{
+             StyleBox["\"max\"", Bold, StripOnInput -> False], "49"}, {
+             StyleBox["\"75%\"", Bold, StripOnInput -> False], "36"}, {
+             StyleBox["\"median\"", Bold, StripOnInput -> False], "32"}, {
+             StyleBox["\"25%\"", Bold, StripOnInput -> False], "29"}, {
+             StyleBox["\"min\"", Bold, StripOnInput -> False], "15"}}, 
+           GridBoxAlignment -> {"Columns" -> {Center, ".", {Left}}}, 
+           AutoDelete -> False, GridBoxDividers -> {"Columns" -> {
+               Directive[
+                GrayLevel[0.3]], {
+                Directive[
+                 GrayLevel[0.3]]}, 
+               Directive[
+                GrayLevel[0.3]]}, "Rows" -> {
+               Directive[
+                GrayLevel[0.3]], {
+                Directive[
+                 GrayLevel[0.3]]}, 
+               Directive[
+                GrayLevel[0.3]]}}, 
+           GridBoxFrame -> {
+            "ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> GrayLevel[0]}}, 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, BaseStyle -> 
+           Directive[
+             AbsoluteThickness[1], 
+             Dashing[{}]]], "Grid"], {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[
+         Grid[{{
+            Style["max", Bold], 49}, {
+            Style["75%", Bold], 36}, {
+            Style["median", Bold], 32}, {
+            Style["25%", Bold], 29}, {
+            Style["min", Bold], 15}}, Dividers -> {{
+             Directive[
+              GrayLevel[0.3]], {
+              Directive[
+               GrayLevel[0.3]]}, 
+             Directive[
+              GrayLevel[0.3]]}, {
+             Directive[
+              GrayLevel[0.3]], {
+              Directive[
+               GrayLevel[0.3]]}, 
+             Directive[
+              GrayLevel[0.3]]}}, Alignment -> {{Center, ".", {Left}}}, Frame -> 
+          GrayLevel[0], BaseStyle -> Directive[
+            AbsoluteThickness[1], 
+            Dashing[{}]]], {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[Opacity[0.7]], 
+      TagBox[
+       TooltipBox[
+        DynamicBox[{
+          FEPrivate`If[
+           CurrentValue["MouseOver"], 
+           EdgeForm[{
+             GrayLevel[0.5], 
+             AbsoluteThickness[1.5], 
+             Opacity[0.66]}], {}, {}], 
+          TagBox[
+           GraphicsGroupBox[{Antialiasing -> False, {
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{5, 2.62810465057537}, {10, 2.8700801016621798`},
+                  "RoundingRadius" -> 0], "5.`"], 
+               Annotation[#, 5., "Tooltip"]& ], 
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{10, 2.7365923761187747`}, {
+                 15, 2.761592376118775}, "RoundingRadius" -> 0], "0.`"], 
+               Annotation[#, 0., "Tooltip"]& ], 
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{15, 2.6565723507032297`}, {
+                 20, 2.84161240153432}, "RoundingRadius" -> 0], "3.`"], 
+               Annotation[#, 3., "Tooltip"]& ], 
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{20, 2.6138708005114397`}, {
+                 25, 2.88431395172611}, "RoundingRadius" -> 0], "6.`"], 
+               Annotation[#, 6., "Tooltip"]& ], 
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{25, 2.59963695044751}, {30, 2.89854780179004}, 
+                 "RoundingRadius" -> 0], "7.`"], 
+               Annotation[#, 7., "Tooltip"]& ], 
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{30, 2.5}, {35, 2.9981847522375498`}, 
+                 "RoundingRadius" -> 0], "14.`"], 
+               Annotation[#, 14., "Tooltip"]& ], 
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{35, 2.59963695044751}, {40, 2.89854780179004}, 
+                 "RoundingRadius" -> 0], "7.`"], 
+               Annotation[#, 7., "Tooltip"]& ], 
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{40, 2.67080620076716}, {
+                 45, 2.8273785514703897`}, "RoundingRadius" -> 0], "2.`"], 
+               Annotation[#, 2., "Tooltip"]& ], 
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{45, 2.6565723507032297`}, {
+                 50, 2.84161240153432}, "RoundingRadius" -> 0], "3.`"], 
+               Annotation[#, 3., "Tooltip"]& ], 
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{50, 2.7365923761187747`}, {
+                 55, 2.761592376118775}, "RoundingRadius" -> 0], "0.`"], 
+               Annotation[#, 0., "Tooltip"]& ], 
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{55, 2.7365923761187747`}, {
+                 60, 2.761592376118775}, "RoundingRadius" -> 0], "0.`"], 
+               Annotation[#, 0., "Tooltip"]& ], 
+              TagBox[
+               TooltipBox[
+                
+                RectangleBox[{60, 2.68504005083109}, {65, 2.81314470140646}, 
+                 "RoundingRadius" -> 0], "1.`"], 
+               Annotation[#, 1., "Tooltip"]& ]}}], 
+           Annotation[#, {{2.5, 2.9981847522375498`}, {5, 65}}, 
+            "BoundingBox"]& ]},
+         ImageSizeCache->{{108.63221957040574`, 
+          546.1000000000001}, {-127.78647989274242`, -80.61422584063601}}],
+        StyleBox[
+         TagBox[
+          GridBox[{{
+             StyleBox["\"max\"", Bold, StripOnInput -> False], "62"}, {
+             StyleBox["\"75%\"", Bold, StripOnInput -> False], "36"}, {
+             StyleBox["\"median\"", Bold, StripOnInput -> False], "30"}, {
+             StyleBox["\"25%\"", Bold, StripOnInput -> False], "22"}, {
+             StyleBox["\"min\"", Bold, StripOnInput -> False], "5"}}, 
+           GridBoxAlignment -> {"Columns" -> {Center, ".", {Left}}}, 
+           AutoDelete -> False, GridBoxDividers -> {"Columns" -> {
+               Directive[
+                GrayLevel[0.3]], {
+                Directive[
+                 GrayLevel[0.3]]}, 
+               Directive[
+                GrayLevel[0.3]]}, "Rows" -> {
+               Directive[
+                GrayLevel[0.3]], {
+                Directive[
+                 GrayLevel[0.3]]}, 
+               Directive[
+                GrayLevel[0.3]]}}, 
+           GridBoxFrame -> {
+            "ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> GrayLevel[0]}}, 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, BaseStyle -> 
+           Directive[
+             AbsoluteThickness[1], 
+             Dashing[{}]]], "Grid"], {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[
+         Grid[{{
+            Style["max", Bold], 62}, {
+            Style["75%", Bold], 36}, {
+            Style["median", Bold], 30}, {
+            Style["25%", Bold], 22}, {
+            Style["min", Bold], 5}}, Dividers -> {{
+             Directive[
+              GrayLevel[0.3]], {
+              Directive[
+               GrayLevel[0.3]]}, 
+             Directive[
+              GrayLevel[0.3]]}, {
+             Directive[
+              GrayLevel[0.3]], {
+              Directive[
+               GrayLevel[0.3]]}, 
+             Directive[
+              GrayLevel[0.3]]}}, Alignment -> {{Center, ".", {Left}}}, Frame -> 
+          GrayLevel[0], BaseStyle -> Directive[
+            AbsoluteThickness[1], 
+            Dashing[{}]]], {}], 
+        "Tooltip"]& ]}}, {}, {}}, {{{{{{{}, {}}, {}}, {{{}, {}}, {}}, {{{}, \
+{}}, {}}}, {}}, {}}, {}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{False, False},
+  AxesLabel->{None, None},
+  AxesOrigin->{0.5, 5},
+  DisplayFunction->Identity,
+  Frame->True,
+  FrameLabel->{{None, None}, {
+     FormBox["\"Number of Ingredients\"", TraditionalForm], None}},
+  FrameTicks->{{{{0.7490923761187749, 
+       FormBox[
+        TemplateBox[{0}, "Spacer1"], TraditionalForm], {0.008, 0}}, {
+      0.7490923761187749, 
+       FormBox["\"Rye bread\"", TraditionalForm], 0}, {1.7490923761187749`, 
+       FormBox[
+        TemplateBox[{0}, "Spacer1"], TraditionalForm], {0.008, 0}}, {
+      1.7490923761187749`, 
+       FormBox["\"Wheat bread\"", TraditionalForm], 0}, {2.749092376118775, 
+       FormBox[
+        TemplateBox[{0}, "Spacer1"], TraditionalForm], {0.008, 0}}, {
+      2.749092376118775, 
+       FormBox["\"White bread\"", TraditionalForm], 0}, {0.5, 
+       FormBox[
+        TemplateBox[{0}, "Spacer1"], TraditionalForm], {0, 0}}, {
+      2.9981847522375498`, 
+       FormBox[
+        TemplateBox[{0}, "Spacer1"], TraditionalForm], {0, 0}}}, {{
+      0.7490923761187749, 
+       FormBox[
+        TemplateBox[{0}, "Spacer1"], TraditionalForm], {0.008, 0}}, {
+      1.7490923761187749`, 
+       FormBox[
+        TemplateBox[{0}, "Spacer1"], TraditionalForm], {0.008, 0}}, {
+      2.749092376118775, 
+       FormBox[
+        TemplateBox[{0}, "Spacer1"], TraditionalForm], {0.008, 0}}, {0.5, 
+       FormBox[
+        TemplateBox[{0}, "Spacer1"], TraditionalForm], {0, 0}}, {
+      2.9981847522375498`, 
+       FormBox[
+        TemplateBox[{0}, "Spacer1"], TraditionalForm], {0, 0}}}}, {
+    Automatic, Automatic}},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImageSize->Large,
+  PlotLabel->FormBox[
+    StyleBox[
+    "\"Ingredient Counts for Bread varieties\"", 16, StripOnInput -> False], 
+    TraditionalForm],
+  PlotRangePadding->{{
+     Scaled[0.05], 
+     Scaled[0.05]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, {{0.7490923761187749, 
+      FormBox[
+       TemplateBox[{0}, "Spacer1"], TraditionalForm], {0.008, 0}}, {
+     0.7490923761187749, 
+      FormBox["\"Rye bread\"", TraditionalForm], 0}, {1.7490923761187749`, 
+      FormBox[
+       TemplateBox[{0}, "Spacer1"], TraditionalForm], {0.008, 0}}, {
+     1.7490923761187749`, 
+      FormBox["\"Wheat bread\"", TraditionalForm], 0}, {2.749092376118775, 
+      FormBox[
+       TemplateBox[{0}, "Spacer1"], TraditionalForm], {0.008, 0}}, {
+     2.749092376118775, 
+      FormBox["\"White bread\"", TraditionalForm], 0}, {0.5, 
+      FormBox[
+       TemplateBox[{0}, "Spacer1"], TraditionalForm], {0, 0}}, {
+     2.9981847522375498`, 
+      FormBox[
+       TemplateBox[{0}, "Spacer1"], TraditionalForm], {0, 0}}}}]], "Output",
+ CellChangeTimes->{{3.740579141492857*^9, 3.7405791478658886`*^9}, {
+   3.740579209527776*^9, 3.7405792802107935`*^9}, {3.740579311531396*^9, 
+   3.740579324106722*^9}, {3.740579361554763*^9, 3.7405793697807574`*^9}, {
+   3.7405794139098415`*^9, 3.7405794573050327`*^9}, 3.7405795099138594`*^9, {
+   3.7405795433768992`*^9, 3.740579563121784*^9}, {3.740579604088024*^9, 
+   3.740579673155748*^9}, 3.7405799357981405`*^9, {3.7405800051787148`*^9, 
+   3.740580046502617*^9}, {3.7406615217685194`*^9, 3.7406615372314034`*^9}},
+ CellLabel->"Out[16]=",ExpressionUUID->"de909773-e823-4963-9357-23a1f6e4e2ae"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1920, 998},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+WindowStatusArea->None,
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Default.nb"]], 
+   Cell[
+    StyleData["EntityContainsSequence"], 
+    TemplateBoxOptions -> {DisplayFunction -> (RowBox[{
+         TemplateSlotSequence[1, ","]}]& )}], 
+   Cell[
+    StyleData["ImplicitEntityPropertySequence"], 
+    TemplateBoxOptions -> {DisplayFunction -> (StyleBox[
+        RowBox[{
+          TemplateSlotSequence[1, 
+           StyleBox[
+           "\"\[ThinSpace]|\[ThinSpace]\"", FontColor -> 
+            RGBColor[0.515625, 0.515625, 0.515625]]]}], FontColor -> 
+        RGBColor[0.199219, 0.199219, 0.199219], FontSize -> 11, FontFamily -> 
+        "Arial"]& )}]}, WindowSize -> {775, 873}, 
+  WindowMargins -> {{0, Automatic}, {Automatic, 0}}, Visible -> False, 
+  FrontEndVersion -> "11.3 for Microsoft Windows (64-bit) (March 6, 2018)", 
+  StyleDefinitions -> "PrivateStylesheetFormatting.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 172, 3, 96, "Title",ExpressionUUID->"8c81e5b8-4de3-488d-b0d9-389ba966413d"],
+Cell[CellGroupData[{
+Cell[777, 29, 155, 3, 67, "Section",ExpressionUUID->"2e882bea-9204-4d94-9334-4c8ebdfa5be7"],
+Cell[935, 34, 216, 3, 34, "Text",ExpressionUUID->"ac3e773c-6e92-4a67-b410-21760d2b88b2"],
+Cell[CellGroupData[{
+Cell[1176, 41, 520, 10, 41, "Input",ExpressionUUID->"45100226-213f-4397-bdf5-57c242f6ad8a"],
+Cell[1699, 53, 800, 11, 71, "Output",ExpressionUUID->"28963f19-bcfa-4672-a704-29a537aca9a6"]
+}, Open  ]],
+Cell[2514, 67, 232, 4, 34, "Text",ExpressionUUID->"ec4112b5-c824-4087-9b40-c6e2e6cfe9cd"],
+Cell[CellGroupData[{
+Cell[2771, 75, 542, 10, 41, "Input",ExpressionUUID->"18a5acb5-fc03-4763-909f-182551049f02"],
+Cell[3316, 87, 7020, 141, 78, "Output",ExpressionUUID->"d37b3a5c-d98b-4b01-9759-19d11c1b1d20"]
+}, Open  ]],
+Cell[10351, 231, 182, 3, 34, "Text",ExpressionUUID->"5d3f4ca7-e02f-4c86-9d76-5b107e5d51af"],
+Cell[CellGroupData[{
+Cell[10558, 238, 448, 9, 28, "Input",ExpressionUUID->"209e7f5c-fbe6-441b-9a5b-37000afc056b"],
+Cell[11009, 249, 6308, 150, 144, "Output",ExpressionUUID->"e143ee30-7a80-4a7c-bca0-1c2238e67123"]
+}, Open  ]],
+Cell[17332, 402, 192, 3, 34, "Text",ExpressionUUID->"fc1a02dd-bc55-4bb2-a528-4343c620bf7c"],
+Cell[CellGroupData[{
+Cell[17549, 409, 602, 13, 28, "Input",ExpressionUUID->"eff3d45a-2d1a-4fb5-a87d-237ce70e4282"],
+Cell[18154, 424, 2645, 59, 78, "Output",ExpressionUUID->"fca266fb-6a31-4d26-96f8-854b0ac59b5b"]
+}, Open  ]],
+Cell[20814, 486, 185, 3, 34, "Text",ExpressionUUID->"d22a6cee-f502-4962-969e-db75d163623f"],
+Cell[CellGroupData[{
+Cell[21024, 493, 3675, 67, 127, "Input",ExpressionUUID->"b176045e-fa9b-4245-a356-36cb1afad3ca"],
+Cell[24702, 562, 7906, 167, 144, "Output",ExpressionUUID->"e5169899-cee0-4e9f-9eae-e0f341c6e69a"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32657, 735, 163, 3, 67, "Section",ExpressionUUID->"0dee3a4f-b856-4280-876a-5d582267200e"],
+Cell[32823, 740, 191, 3, 34, "Text",ExpressionUUID->"31f0692c-bd63-45c0-b28e-efe0dbb001d8"],
+Cell[CellGroupData[{
+Cell[33039, 747, 496, 9, 41, "Input",ExpressionUUID->"492731f7-9a35-4b0f-a953-009903b73284"],
+Cell[33538, 758, 1873, 38, 45, "Output",ExpressionUUID->"496c8193-e069-4616-8c8b-0e0ecd40e70e"]
+}, Open  ]],
+Cell[35426, 799, 182, 3, 34, "Text",ExpressionUUID->"5f4a5baf-a251-4a0c-8a09-9ecb247043a2"],
+Cell[CellGroupData[{
+Cell[35633, 806, 440, 10, 28, "Input",ExpressionUUID->"65e17788-9048-4bfe-adfa-844565572cad"],
+Cell[36076, 818, 3725, 88, 92, "Output",ExpressionUUID->"276b2c8c-c2fa-4de1-8d49-3a7fbcf68769"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39850, 912, 239, 4, 67, "Section",ExpressionUUID->"72ecc7e1-fce3-4e36-b451-8508b7491964"],
+Cell[40092, 918, 190, 3, 34, "Text",ExpressionUUID->"5b0d3c7b-400d-4202-8b21-195602f3b18f"],
+Cell[CellGroupData[{
+Cell[40307, 925, 526, 9, 41, "Input",ExpressionUUID->"150416b6-4190-447e-a754-15da324ab93c"],
+Cell[40836, 936, 176, 2, 32, "Output",ExpressionUUID->"94add19f-f383-4f4e-ac2c-303149054e70"]
+}, Open  ]],
+Cell[41027, 941, 200, 3, 34, "Text",ExpressionUUID->"a07cabc7-60ca-499f-a17a-b156dbeaf1d3"],
+Cell[CellGroupData[{
+Cell[41252, 948, 726, 16, 28, "Input",ExpressionUUID->"c83cdb6f-72cb-47ae-beda-bd41fed5527e"],
+Cell[41981, 966, 4283, 101, 115, "Output",ExpressionUUID->"8b9ac816-cd1c-4cf9-9f71-34cd5add07e6"]
+}, Open  ]],
+Cell[46279, 1070, 251, 4, 34, "Text",ExpressionUUID->"5498f4bb-f2fe-4958-9b4e-664173782922"],
+Cell[CellGroupData[{
+Cell[46555, 1078, 8816, 168, 603, "Input",ExpressionUUID->"039d780a-b765-4ec8-a19b-aa1bd437445c"],
+Cell[55374, 1248, 18121, 446, 385, "Output",ExpressionUUID->"de909773-e823-4963-9357-23a1f6e4e2ae"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

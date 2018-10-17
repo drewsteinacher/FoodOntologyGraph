@@ -1,0 +1,2160 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     94038,       2152]
+NotebookOptionsPosition[     87067,       2029]
+NotebookOutlinePosition[     87431,       2045]
+CellTagsIndexPosition[     87388,       2042]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Gather Data", "Title",
+ CellChangeTimes->{{3.738328937751378*^9, 3.738328941955378*^9}, {
+  3.73833979619187*^9, 
+  3.7383397963948903`*^9}},ExpressionUUID->"079449f4-27e5-45c9-b794-\
+f166ec7e0de4"],
+
+Cell[CellGroupData[{
+
+Cell["Get Food Entity Types", "Section",
+ CellChangeTimes->{{3.738328538948378*^9, 
+  3.7383285463723783`*^9}},ExpressionUUID->"8472186e-cc85-410b-91a2-\
+296dcb11f577"],
+
+Cell["\<\
+These are food entities available in the Wolfram Knowledgebase:\
+\>", "Text",
+ CellChangeTimes->{{3.738328615347378*^9, 3.7383286250523777`*^9}, {
+  3.7384197301514254`*^9, 
+  3.738419749260336*^9}},ExpressionUUID->"ec00b32a-3d6a-4a56-99e9-\
+fe6a559550a5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"foodEntityTypes", "=", 
+  RowBox[{"Select", "[", 
+   RowBox[{
+    RowBox[{"EntityValue", "[", "]"}], ",", 
+    RowBox[{"StringContainsQ", "[", "\"\<Food\>\"", "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.738328547831378*^9, 3.738328571858378*^9}},
+ CellLabel->
+  "In[307]:=",ExpressionUUID->"bfd4c1c8-6c11-4d3b-ba65-b03c2f2bbc7d"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"BasicFoodGroup\"\>", ",", "\<\"Food\"\>", 
+   ",", "\<\"FoodAge\"\>", ",", "\<\"FoodAlcoholLabel\"\>", 
+   ",", "\<\"FoodBeefGrade\"\>", ",", "\<\"FoodBoneContent\"\>", 
+   ",", "\<\"FoodBrandName\"\>", ",", "\<\"FoodCaffeineLabel\"\>", 
+   ",", "\<\"FoodCalorieLabel\"\>", ",", "\<\"FoodComposition\"\>", 
+   ",", "\<\"FoodConcentration\"\>", ",", "\<\"FoodCrustType\"\>", 
+   ",", "\<\"FoodCulture\"\>", ",", "\<\"FoodDataSource\"\>", 
+   ",", "\<\"FoodFatLabel\"\>", ",", "\<\"FoodFatType\"\>", 
+   ",", "\<\"FoodFiberLabel\"\>", ",", "\<\"FoodFlavor\"\>", 
+   ",", "\<\"FoodGeometryType\"\>", ",", "\<\"FoodIntendedUse\"\>", 
+   ",", "\<\"FoodIronLabel\"\>", ",", "\<\"FoodLocation\"\>", 
+   ",", "\<\"FoodManufacturer\"\>", ",", "\<\"FoodMeatCut\"\>", 
+   ",", "\<\"FoodMeatQuality\"\>", ",", "\<\"FoodMoistureLevel\"\>", 
+   ",", "\<\"FoodNutritionalSupplement\"\>", 
+   ",", "\<\"FoodNutritionalSupplementNotAdded\"\>", 
+   ",", "\<\"FoodPackaging\"\>", ",", "\<\"FoodPart\"\>", 
+   ",", "\<\"FoodPattyCount\"\>", ",", "\<\"FoodPeelingType\"\>", 
+   ",", "\<\"FoodPreparation\"\>", ",", "\<\"FoodProcessingType\"\>", 
+   ",", "\<\"FoodSeafoodVariety\"\>", ",", "\<\"FoodSeedContent\"\>", 
+   ",", "\<\"FoodServingType\"\>", ",", "\<\"FoodSize\"\>", 
+   ",", "\<\"FoodSkinContent\"\>", ",", "\<\"FoodSodiumLabel\"\>", 
+   ",", "\<\"FoodState\"\>", ",", "\<\"FoodStorageType\"\>", 
+   ",", "\<\"FoodSubBrandName\"\>", ",", "\<\"FoodSugarLabel\"\>", 
+   ",", "\<\"FoodSugarType\"\>", ",", "\<\"FoodTexture\"\>", 
+   ",", "\<\"FoodTrimmingLevel\"\>", ",", "\<\"FoodType\"\>", 
+   ",", "\<\"FoodTypeGroup\"\>", ",", "\<\"FoodVariety\"\>", 
+   ",", "\<\"FoodVegetablePart\"\>", ",", "\<\"USDAFoodGroup\"\>"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.7383285773283777`*^9, 3.7383291925043783`*^9, 3.738341549823598*^9, 
+   3.7383482157205987`*^9, 3.7384082702396965`*^9, 3.7384197226856785`*^9, 
+   3.7384197631337233`*^9, {3.7396157124793935`*^9, 3.739615749717219*^9}, 
+   3.739615806710116*^9, 3.739615845744402*^9, 3.748006794281515*^9},
+ CellLabel->
+  "Out[307]=",ExpressionUUID->"b6242e7b-417d-4e65-b124-1959d7f96f1f"]
+}, Open  ]],
+
+Cell["These are other food-related entities to include:", "Text",
+ CellChangeTimes->{{3.738328628139378*^9, 
+  3.7383286400843782`*^9}},ExpressionUUID->"e7bf1aaf-d3af-47a5-9d34-\
+9843c5893a46"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"otherFoodEntityTypes", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<Nutrient\>\"", ",", "\"\<PLUCode\>\"", ",", "\"\<LanguaLTerm\>\"", 
+     ",", "\"\<FoodIngredient\>\"", ",", "\"\<DietaryRestriction\>\"", ",", 
+     "\"\<FoodState\>\""}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.73840946764955*^9, 3.738409514122197*^9}, {
+  3.738419614647876*^9, 3.738419620179429*^9}},
+ CellLabel->
+  "In[308]:=",ExpressionUUID->"ff451cf4-13c1-4f53-95ec-20de5492bfe7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"allEntityTypes", "=", 
+  RowBox[{"Join", "[", 
+   RowBox[{"foodEntityTypes", ",", "otherFoodEntityTypes"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.738329159994378*^9, 3.738329189614378*^9}},
+ CellLabel->
+  "In[309]:=",ExpressionUUID->"aded6730-ea8c-445b-801a-7d2bfb909b4e"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"BasicFoodGroup\"\>", ",", "\<\"Food\"\>", 
+   ",", "\<\"FoodAge\"\>", ",", "\<\"FoodAlcoholLabel\"\>", 
+   ",", "\<\"FoodBeefGrade\"\>", ",", "\<\"FoodBoneContent\"\>", 
+   ",", "\<\"FoodBrandName\"\>", ",", "\<\"FoodCaffeineLabel\"\>", 
+   ",", "\<\"FoodCalorieLabel\"\>", ",", "\<\"FoodComposition\"\>", 
+   ",", "\<\"FoodConcentration\"\>", ",", "\<\"FoodCrustType\"\>", 
+   ",", "\<\"FoodCulture\"\>", ",", "\<\"FoodDataSource\"\>", 
+   ",", "\<\"FoodFatLabel\"\>", ",", "\<\"FoodFatType\"\>", 
+   ",", "\<\"FoodFiberLabel\"\>", ",", "\<\"FoodFlavor\"\>", 
+   ",", "\<\"FoodGeometryType\"\>", ",", "\<\"FoodIntendedUse\"\>", 
+   ",", "\<\"FoodIronLabel\"\>", ",", "\<\"FoodLocation\"\>", 
+   ",", "\<\"FoodManufacturer\"\>", ",", "\<\"FoodMeatCut\"\>", 
+   ",", "\<\"FoodMeatQuality\"\>", ",", "\<\"FoodMoistureLevel\"\>", 
+   ",", "\<\"FoodNutritionalSupplement\"\>", 
+   ",", "\<\"FoodNutritionalSupplementNotAdded\"\>", 
+   ",", "\<\"FoodPackaging\"\>", ",", "\<\"FoodPart\"\>", 
+   ",", "\<\"FoodPattyCount\"\>", ",", "\<\"FoodPeelingType\"\>", 
+   ",", "\<\"FoodPreparation\"\>", ",", "\<\"FoodProcessingType\"\>", 
+   ",", "\<\"FoodSeafoodVariety\"\>", ",", "\<\"FoodSeedContent\"\>", 
+   ",", "\<\"FoodServingType\"\>", ",", "\<\"FoodSize\"\>", 
+   ",", "\<\"FoodSkinContent\"\>", ",", "\<\"FoodSodiumLabel\"\>", 
+   ",", "\<\"FoodState\"\>", ",", "\<\"FoodStorageType\"\>", 
+   ",", "\<\"FoodSubBrandName\"\>", ",", "\<\"FoodSugarLabel\"\>", 
+   ",", "\<\"FoodSugarType\"\>", ",", "\<\"FoodTexture\"\>", 
+   ",", "\<\"FoodTrimmingLevel\"\>", ",", "\<\"FoodType\"\>", 
+   ",", "\<\"FoodTypeGroup\"\>", ",", "\<\"FoodVariety\"\>", 
+   ",", "\<\"FoodVegetablePart\"\>", ",", "\<\"USDAFoodGroup\"\>", 
+   ",", "\<\"Nutrient\"\>", ",", "\<\"PLUCode\"\>", 
+   ",", "\<\"LanguaLTerm\"\>", ",", "\<\"FoodIngredient\"\>", 
+   ",", "\<\"DietaryRestriction\"\>", ",", "\<\"FoodState\"\>"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.738329192632378*^9, 3.738341551683598*^9, {3.738343016792598*^9, 
+   3.738343047415598*^9}, 3.738343080360598*^9, 3.738343227710598*^9, 
+   3.7383432941405983`*^9, {3.738343721353598*^9, 3.738343723506598*^9}, 
+   3.738343761546598*^9, 3.7383482173417606`*^9, 3.7383543731001287`*^9, 
+   3.7384082922566967`*^9, 3.7384086698946967`*^9, 3.7384095204078255`*^9, 
+   3.7384197632467346`*^9, 3.73961571262335*^9, 3.7396157525313745`*^9, 
+   3.7396158091133947`*^9, 3.73961584751787*^9, 3.748006796816471*^9},
+ CellLabel->
+  "Out[309]=",ExpressionUUID->"5329d85d-9986-48d2-8b66-4552e6a2ea15"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Get Property Information for all Entity Types", "Section",
+ CellChangeTimes->{{3.738328511628378*^9, 3.738328528806378*^9}, {
+  3.738328655965378*^9, 
+  3.738328662050378*^9}},ExpressionUUID->"9125c487-7589-4fee-a55b-\
+def06dd543ff"],
+
+Cell[CellGroupData[{
+
+Cell["Get Basic property metadata", "Subsection",
+ CellChangeTimes->{{3.738329067857378*^9, 3.7383290800003777`*^9}, {
+  3.7384109509401274`*^9, 3.7384109570752883`*^9}, {3.7384120396962996`*^9, 
+  3.7384120399157023`*^9}},ExpressionUUID->"1e358e08-2c38-40fa-bbc4-\
+e5095fe23e5b"],
+
+Cell["\<\
+We can use EntityValue to get property metadata for all of the relevant types:\
+\>", "Text",
+ CellChangeTimes->{{3.738419774347844*^9, 
+  3.7384197937637854`*^9}},ExpressionUUID->"81557193-3d76-4f3d-8728-\
+dcf2c63ed6bc"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ClearAll", "[", "getPropertyMetadata", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"subproperties", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<Label\>\"", ",", "\"\<OutputType\>\"", ",", "\"\<Definition\>\"", 
+     ",", "\"\<PhysicalQuantity\>\"", ",", "\"\<Unit\>\""}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"getPropertyMetadata", "[", "entityType_String", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"EntityPropertyClass", "[", 
+     RowBox[{"entityType", ",", "All"}], "]"}], "[", 
+    RowBox[{"subproperties", ",", "\"\<Association\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"entityTypeToPropertyMetaData0", "=", 
+   RowBox[{"AssociationMap", "[", 
+    RowBox[{"getPropertyMetadata", ",", "allEntityTypes"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ReverseSort", "[", 
+  RowBox[{"Length", "/@", "entityTypeToPropertyMetaData0"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Total", "[", "%", "]"}]}], "Input",
+ CellChangeTimes->{{3.7383291097213783`*^9, 3.738329134972378*^9}, {
+  3.738329200877378*^9, 3.738329205410378*^9}, {3.738408675801697*^9, 
+  3.7384086801396966`*^9}, {3.7384116122728944`*^9, 3.7384116142746563`*^9}, {
+  3.738411688111847*^9, 3.738411700624007*^9}},
+ CellLabel->
+  "In[310]:=",ExpressionUUID->"2c314be3-bf70-4ef8-9ef3-4f1ea0d5e286"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"Food\"\>", "\[Rule]", "625"}], ",", 
+   RowBox[{"\<\"FoodType\"\>", "\[Rule]", "31"}], ",", 
+   RowBox[{"\<\"LanguaLTerm\"\>", "\[Rule]", "22"}], ",", 
+   RowBox[{"\<\"PLUCode\"\>", "\[Rule]", "16"}], ",", 
+   RowBox[{"\<\"Nutrient\"\>", "\[Rule]", "11"}], ",", 
+   RowBox[{"\<\"FoodTypeGroup\"\>", "\[Rule]", "11"}], ",", 
+   RowBox[{"\<\"BasicFoodGroup\"\>", "\[Rule]", "9"}], ",", 
+   RowBox[{"\<\"DietaryRestriction\"\>", "\[Rule]", "8"}], ",", 
+   RowBox[{"\<\"FoodIngredient\"\>", "\[Rule]", "5"}], ",", 
+   RowBox[{"\<\"USDAFoodGroup\"\>", "\[Rule]", "5"}], ",", 
+   RowBox[{"\<\"FoodState\"\>", "\[Rule]", "4"}], ",", 
+   RowBox[{"\<\"FoodDataSource\"\>", "\[Rule]", "4"}], ",", 
+   RowBox[{"\<\"FoodVegetablePart\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodVariety\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodTrimmingLevel\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodTexture\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodSugarType\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodSugarLabel\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodSubBrandName\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodStorageType\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodSodiumLabel\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodSkinContent\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodSize\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodServingType\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodSeedContent\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodSeafoodVariety\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodProcessingType\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodPreparation\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodPeelingType\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodPattyCount\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodPart\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodPackaging\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodNutritionalSupplementNotAdded\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodNutritionalSupplement\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodMoistureLevel\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodMeatQuality\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodMeatCut\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodLocation\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodIronLabel\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodIntendedUse\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodGeometryType\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodFlavor\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodFiberLabel\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodFatType\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodFatLabel\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodCulture\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodCrustType\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodConcentration\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodComposition\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodCalorieLabel\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodCaffeineLabel\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodBrandName\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodBoneContent\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodBeefGrade\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodAlcoholLabel\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodAge\"\>", "\[Rule]", "3"}], ",", 
+   RowBox[{"\<\"FoodManufacturer\"\>", "\[Rule]", "2"}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{
+  3.7384086953616962`*^9, 3.738409537734558*^9, 3.738411630735741*^9, 
+   3.7384117318524103`*^9, 3.7384128277771244`*^9, {3.7396157661762795`*^9, 
+   3.739615778713517*^9}, 3.7396158181666775`*^9, 3.7396159059853244`*^9, 
+   3.748006822751976*^9},
+ CellLabel->
+  "Out[314]=",ExpressionUUID->"c8b8b2bc-3f0b-44dc-9ada-c7bb4b251519"],
+
+Cell[BoxData["885"], "Output",
+ CellChangeTimes->{
+  3.7384086953616962`*^9, 3.738409537734558*^9, 3.738411630735741*^9, 
+   3.7384117318524103`*^9, 3.7384128277771244`*^9, {3.7396157661762795`*^9, 
+   3.739615778713517*^9}, 3.7396158181666775`*^9, 3.7396159059853244`*^9, 
+   3.748006822751976*^9},
+ CellLabel->
+  "Out[315]=",ExpressionUUID->"6dabd015-b141-45bc-b51c-4f3807f62429"]
+}, Open  ]],
+
+Cell["We can add a few more that aren\[CloseCurlyQuote]t listed:", "Text",
+ CellChangeTimes->{{3.738419822137623*^9, 
+  3.738419831837593*^9}},ExpressionUUID->"5854a4be-095d-4474-b960-\
+a612d98b2c74"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"entityTypeToAdditionalProperties", "=", 
+   RowBox[{"<|", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"\"\<Food\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        TemplateBox[{"\"ingredients\"",RowBox[{"EntityProperty", "[", 
+            RowBox[{"\"Food\"", ",", "\"Ingredients\""}], "]"}],
+          "\"EntityProperty[\\\"Food\\\", \\\"Ingredients\\\"]\""},
+         "EntityProperty"], ",", 
+        TemplateBox[{"\"price look up codes\"",RowBox[{"EntityProperty", "[", 
+            RowBox[{"\"Food\"", ",", "\"PLUCodes\""}], "]"}],
+          "\"EntityProperty[\\\"Food\\\", \\\"PLUCodes\\\"]\""},
+         "EntityProperty"], ",", 
+        TemplateBox[{
+         "\"compatible dietary restrictions\"",RowBox[{"EntityProperty", "[", 
+            RowBox[{"\"Food\"", ",", "\"CompatibleDietaryRestrictions\""}], 
+            "]"}],"\"EntityProperty[\\\"Food\\\", \
+\\\"CompatibleDietaryRestrictions\\\"]\""},
+         "EntityProperty"], ",", 
+        TemplateBox[{
+         "\"incompatible dietary restrictions\"",
+          RowBox[{"EntityProperty", "[", 
+            RowBox[{"\"Food\"", ",", "\"IncompatibleDietaryRestrictions\""}], 
+            "]"}],"\"EntityProperty[\\\"Food\\\", \
+\\\"IncompatibleDietaryRestrictions\\\"]\""},
+         "EntityProperty"], ",", 
+        TemplateBox[{
+         "\"questionably compatible dietary restrictions\"",
+          RowBox[{"EntityProperty", "[", 
+            
+            RowBox[{"\"Food\"", ",", 
+              "\"QuestionablyCompatibleDietaryRestrictions\""}], "]"}],
+          "\"EntityProperty[\\\"Food\\\", \
+\\\"QuestionablyCompatibleDietaryRestrictions\\\"]\""},
+         "EntityProperty"], ",", 
+        TemplateBox[{"\"LanguaL terms\"",RowBox[{"EntityProperty", "[", 
+            RowBox[{"\"Food\"", ",", "\"LanguaLTerms\""}], "]"}],
+          "\"EntityProperty[\\\"Food\\\", \\\"LanguaLTerms\\\"]\""},
+         "EntityProperty"]}], "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"\"\<FoodType\>\"", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        TemplateBox[{
+         "\"compatible dietary restrictions\"",RowBox[{"EntityProperty", "[", 
+            
+            RowBox[{"\"FoodType\"", ",", 
+              "\"CompatibleDietaryRestrictions\""}], "]"}],
+          "\"EntityProperty[\\\"FoodType\\\", \
+\\\"CompatibleDietaryRestrictions\\\"]\""},
+         "EntityProperty"], ",", 
+        TemplateBox[{
+         "\"incompatible dietary restrictions\"",
+          RowBox[{"EntityProperty", "[", 
+            
+            RowBox[{"\"FoodType\"", ",", 
+              "\"IncompatibleDietaryRestrictions\""}], "]"}],
+          "\"EntityProperty[\\\"FoodType\\\", \
+\\\"IncompatibleDietaryRestrictions\\\"]\""},
+         "EntityProperty"], ",", 
+        TemplateBox[{
+         "\"questionably compatible dietary restrictions\"",
+          RowBox[{"EntityProperty", "[", 
+            
+            RowBox[{"\"FoodType\"", ",", 
+              "\"QuestionablyCompatibleDietaryRestrictions\""}], "]"}],
+          "\"EntityProperty[\\\"FoodType\\\", \
+\\\"QuestionablyCompatibleDietaryRestrictions\\\"]\""},
+         "EntityProperty"]}], "}"}]}]}], "\[IndentingNewLine]", "|>"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"entityTypeToPropertyMetaData1", "=", 
+   RowBox[{"Association", "/@", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Map", "[", 
+       RowBox[{
+        RowBox[{"#", "\[Rule]", 
+         RowBox[{"AssociationMap", "[", 
+          RowBox[{"#", ",", "subproperties"}], "]"}]}], "&"}], "]"}], "/@", 
+      "entityTypeToAdditionalProperties"}], ")"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"entityTypeToPropertyMetaDataFinal", "=", 
+   RowBox[{"Merge", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "entityTypeToPropertyMetaData0", ",", "entityTypeToPropertyMetaData1"}],
+       "}"}], ",", 
+     RowBox[{"Apply", "[", "Join", "]"}]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.7384109654305086`*^9, 3.738411145965866*^9}, {
+  3.7384111792163324`*^9, 3.738411194543688*^9}, {3.7384116409963455`*^9, 
+  3.738411712123988*^9}, {3.738411767244734*^9, 3.738411880641827*^9}, {
+  3.7384120829716873`*^9, 3.7384120859471283`*^9}, {3.7384198151659255`*^9, 
+  3.7384198401874275`*^9}},
+ CellLabel->
+  "In[316]:=",ExpressionUUID->"d7a2b2de-7fec-47bf-bb96-6631a8239070"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"entityTypeToPropertyMetaDataFinal", "[", 
+  RowBox[{"[", 
+   RowBox[{
+    RowBox[{"2", ";;", "2"}], ",", 
+    RowBox[{
+     RowBox[{"-", "6"}], ";;"}]}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7384126306769247`*^9, 3.7384126408193245`*^9}, {
+  3.7384128271335244`*^9, 3.7384128345191245`*^9}, {3.7384198471381226`*^9, 
+  3.738419847540163*^9}},
+ CellLabel->
+  "In[319]:=",ExpressionUUID->"5e9ccd43-b782-4916-8b16-9fe16b51b125"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{"\<\"Food\"\>", "\[Rule]", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{
+      TemplateBox[{"\"ingredients\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"Ingredients\""}], "]"}],
+        "\"EntityProperty[\\\"Food\\\", \\\"Ingredients\\\"]\""},
+       "EntityProperty"], "\[Rule]", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"Label\"\>", "\[Rule]", "\<\"ingredients\"\>"}], ",", 
+        RowBox[{"\<\"OutputType\"\>", "\[Rule]", "\<\"DataList\"\>"}], ",", 
+        RowBox[{"\<\"Definition\"\>", "\[Rule]", 
+         RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+        RowBox[{"\<\"PhysicalQuantity\"\>", "\[Rule]", 
+         RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+        RowBox[{"\<\"Unit\"\>", "\[Rule]", "None"}]}], 
+       "\[RightAssociation]"}]}], ",", 
+     RowBox[{
+      TemplateBox[{"\"price look up codes\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"PLUCodes\""}], "]"}],
+        "\"EntityProperty[\\\"Food\\\", \\\"PLUCodes\\\"]\""},
+       "EntityProperty"], "\[Rule]", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"Label\"\>", "\[Rule]", "\<\"price look up codes\"\>"}], 
+        ",", 
+        RowBox[{"\<\"OutputType\"\>", "\[Rule]", "\<\"DataList\"\>"}], ",", 
+        RowBox[{"\<\"Definition\"\>", "\[Rule]", 
+         RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+        RowBox[{"\<\"PhysicalQuantity\"\>", "\[Rule]", 
+         RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+        RowBox[{"\<\"Unit\"\>", "\[Rule]", "None"}]}], 
+       "\[RightAssociation]"}]}], ",", 
+     RowBox[{
+      TemplateBox[{
+       "\"compatible dietary restrictions\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"CompatibleDietaryRestrictions\""}], 
+          "]"}],
+        "\"EntityProperty[\\\"Food\\\", \
+\\\"CompatibleDietaryRestrictions\\\"]\""},
+       "EntityProperty"], "\[Rule]", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"Label\"\>", 
+         "\[Rule]", "\<\"compatible dietary restrictions\"\>"}], ",", 
+        RowBox[{"\<\"OutputType\"\>", "\[Rule]", "\<\"DataList\"\>"}], ",", 
+        RowBox[{"\<\"Definition\"\>", "\[Rule]", 
+         RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+        RowBox[{"\<\"PhysicalQuantity\"\>", "\[Rule]", 
+         RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+        RowBox[{"\<\"Unit\"\>", "\[Rule]", "None"}]}], 
+       "\[RightAssociation]"}]}], ",", 
+     RowBox[{
+      TemplateBox[{
+       "\"incompatible dietary restrictions\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"IncompatibleDietaryRestrictions\""}], 
+          "]"}],"\"EntityProperty[\\\"Food\\\", \
+\\\"IncompatibleDietaryRestrictions\\\"]\""},
+       "EntityProperty"], "\[Rule]", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"Label\"\>", 
+         "\[Rule]", "\<\"incompatible dietary restrictions\"\>"}], ",", 
+        RowBox[{"\<\"OutputType\"\>", "\[Rule]", "\<\"DataList\"\>"}], ",", 
+        RowBox[{"\<\"Definition\"\>", "\[Rule]", 
+         RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+        RowBox[{"\<\"PhysicalQuantity\"\>", "\[Rule]", 
+         RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+        RowBox[{"\<\"Unit\"\>", "\[Rule]", "None"}]}], 
+       "\[RightAssociation]"}]}], ",", 
+     RowBox[{
+      TemplateBox[{
+       "\"questionably compatible dietary restrictions\"",
+        RowBox[{"EntityProperty", "[", 
+          
+          RowBox[{"\"Food\"", ",", 
+            "\"QuestionablyCompatibleDietaryRestrictions\""}], "]"}],
+        "\"EntityProperty[\\\"Food\\\", \
+\\\"QuestionablyCompatibleDietaryRestrictions\\\"]\""},
+       "EntityProperty"], "\[Rule]", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"Label\"\>", 
+         "\[Rule]", "\<\"questionably compatible dietary restrictions\"\>"}], 
+        ",", 
+        RowBox[{"\<\"OutputType\"\>", "\[Rule]", "\<\"DataList\"\>"}], ",", 
+        RowBox[{"\<\"Definition\"\>", "\[Rule]", 
+         RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+        RowBox[{"\<\"PhysicalQuantity\"\>", "\[Rule]", 
+         RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+        RowBox[{"\<\"Unit\"\>", "\[Rule]", "None"}]}], 
+       "\[RightAssociation]"}]}], ",", 
+     RowBox[{
+      TemplateBox[{"\"LanguaL terms\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"LanguaLTerms\""}], "]"}],
+        "\"EntityProperty[\\\"Food\\\", \\\"LanguaLTerms\\\"]\""},
+       "EntityProperty"], "\[Rule]", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"Label\"\>", "\[Rule]", "\<\"LanguaL terms\"\>"}], ",", 
+        RowBox[{"\<\"OutputType\"\>", "\[Rule]", "\<\"DataList\"\>"}], ",", 
+        RowBox[{"\<\"Definition\"\>", "\[Rule]", 
+         RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+        RowBox[{"\<\"PhysicalQuantity\"\>", "\[Rule]", 
+         RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+        RowBox[{"\<\"Unit\"\>", "\[Rule]", "None"}]}], 
+       "\[RightAssociation]"}]}]}], "\[RightAssociation]"}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{{3.7384126355695243`*^9, 3.7384126418051243`*^9}, {
+   3.738412829606324*^9, 3.738412835033924*^9}, 3.73841984811322*^9, 
+   3.739615915445485*^9, 3.7480068228923626`*^9},
+ CellLabel->
+  "Out[319]=",ExpressionUUID->"ae61a05a-2d92-4202-8bf4-89237679527c"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Determine more information for Entity Type to Entity Type properties\
+\>", "Subsection",
+ CellChangeTimes->{{3.738329235683378*^9, 
+  3.738329263351378*^9}},ExpressionUUID->"9f646cdc-43c4-40bd-856b-\
+c0a867304ac8"],
+
+Cell["\<\
+The metadata for properties that return entities doesn\[CloseCurlyQuote]t \
+indicate what type entities they return.\
+\>", "Text",
+ CellChangeTimes->{{3.7383293079643784`*^9, 3.7383293408343782`*^9}, {
+  3.73841986911732*^9, 
+  3.738419885408949*^9}},ExpressionUUID->"995d83b8-73e2-4116-a5b6-\
+4326a7cc019a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"entityTypeToDataListProperties", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Select", "[", 
+      RowBox[{"#", ",", 
+       RowBox[{
+        RowBox[{"MemberQ", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"\"\<Data\>\"", ",", "\"\<DataList\>\""}], "}"}], ",", 
+          RowBox[{"#", "[", "\"\<OutputType\>\"", "]"}]}], "]"}], "&"}]}], 
+      "]"}], "&"}], "/@", "entityTypeToPropertyMetaDataFinal"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"entityTypeToDataListProperties", "//", "Length"}]}], "Input",
+ CellChangeTimes->{{3.7383425263465977`*^9, 3.738342567722598*^9}, 
+   3.7384121829148283`*^9},
+ CellLabel->
+  "In[320]:=",ExpressionUUID->"93ab9cbe-d832-449c-9eb9-a76e6c42dc7e"],
+
+Cell[BoxData["57"], "Output",
+ CellChangeTimes->{
+  3.738342568165598*^9, 3.738343104002598*^9, 3.738343784576598*^9, 
+   3.738348238719898*^9, 3.738354391426961*^9, 3.738408312983697*^9, 
+   3.738408695459697*^9, 3.7384095377955637`*^9, {3.7384121836792383`*^9, 
+   3.738412191703945*^9}, 3.7384128404917245`*^9, 3.7396159203210225`*^9, 
+   3.748006822970355*^9},
+ CellLabel->
+  "Out[321]=",ExpressionUUID->"3f95387c-e30c-47a2-a452-73041f1e6ce4"]
+}, Open  ]],
+
+Cell["\<\
+We can use a few heuristics to determine entity types, and actually query for \
+values to see what is returned if is needed:\
+\>", "Text",
+ CellChangeTimes->{{3.7383305601811686`*^9, 3.7383305777979307`*^9}, {
+  3.738331414647607*^9, 3.7383314446856103`*^9}, {3.7384198929126997`*^9, 
+  3.73841991682209*^9}},ExpressionUUID->"bbbdc577-a02a-4194-a508-\
+8414c987c956"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"categoricalProperties", "=", 
+   RowBox[{
+    TemplateBox[{
+     "\"categorical properties\"",RowBox[{"EntityPropertyClass", "[", 
+        RowBox[{"\"Food\"", ",", "\"CategoricalProperties\""}], "]"}],
+      "\"EntityPropertyClass[\\\"Food\\\", \\\"CategoricalProperties\\\"]\""},
+     "EntityPropertyClass"], "[", "\"\<Properties\>\"", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"categoricalPropertyNames", "=", 
+    RowBox[{"CanonicalName", "/@", "categoricalProperties"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"entityTypeToSampleEntities", "=", 
+    RowBox[{"AssociationMap", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"EntityValue", "[", 
+        RowBox[{"#", ",", "\"\<SampleEntities\>\""}], "]"}], "&"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Keys", "[", "entityTypeToDataListProperties", "]"}]}], 
+     "\[IndentingNewLine]", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ClearAll", "[", "dataListEntityType", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"dataListEntityType", "::", "unknown"}], "=", 
+    "\"\<The entity type for the property `` could not be determined.\>\""}], 
+   ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "All", " ", "Categorical", " ", "properties", " ", "are", " ", "named", 
+    " ", "according", " ", "to", " ", "their", " ", "types"}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dataListEntityType", "[", 
+    RowBox[{"_", ",", 
+     RowBox[{"{", 
+      RowBox[{"_", ",", 
+       RowBox[{"Key", "[", 
+        RowBox[{"EntityProperty", "[", 
+         RowBox[{"_", ",", 
+          RowBox[{
+          "\"\<Foods\>\"", "|", "\"\<StrictFoods\>\"", "|", 
+           "\"\<AddedFoods\>\"", "|", "\"\<SourceFoods\>\"", "|", 
+           "\"\<Source\>\""}]}], "]"}], "]"}]}], "}"}]}], "]"}], ":=", 
+   "\"\<Food\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dataListEntityType", "[", 
+    RowBox[{"_", ",", 
+     RowBox[{"{", 
+      RowBox[{"_", ",", 
+       RowBox[{"Key", "[", 
+        RowBox[{"EntityProperty", "[", 
+         RowBox[{"_", ",", 
+          RowBox[{
+          "\"\<FoodType\>\"", "|", "\"\<FoodTypes\>\"", "|", 
+           "\"\<StrictFoodTypes\>\"", "|", "\"\<AddedFoodTypes\>\"", "|", 
+           "\"\<SourceFoodTypes\>\""}]}], "]"}], "]"}]}], "}"}]}], "]"}], 
+   ":=", "\"\<FoodType\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dataListEntityType", "[", 
+    RowBox[{"_", ",", 
+     RowBox[{"{", 
+      RowBox[{"_", ",", 
+       RowBox[{"Key", "[", 
+        RowBox[{"EntityProperty", "[", 
+         RowBox[{"_", ",", 
+          RowBox[{"type", ":", 
+           RowBox[{"Alternatives", "@@", "categoricalPropertyNames"}]}]}], 
+         "]"}], "]"}]}], "}"}]}], "]"}], ":=", 
+   RowBox[{"\"\<Food\>\"", "<>", "type"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"dataListEntityType", "[", 
+     RowBox[{"_", ",", 
+      RowBox[{"{", 
+       RowBox[{"_", ",", 
+        RowBox[{"Key", "[", 
+         RowBox[{"EntityProperty", "[", 
+          RowBox[{"_", ",", 
+           RowBox[{"s_String", "/;", 
+            RowBox[{"StringEndsQ", "[", 
+             RowBox[{"s", ",", "\"\<ICDTenCodes\>\""}], "]"}]}]}], "]"}], 
+         "]"}]}], "}"}]}], "]"}], ":=", "\"\<ICDTen\>\""}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dataListEntityType", "[", 
+    RowBox[{"_", ",", 
+     RowBox[{"{", 
+      RowBox[{"_", ",", " ", 
+       RowBox[{"Key", "[", 
+        RowBox[{"EntityProperty", "[", 
+         RowBox[{"_", ",", "\"\<CookingEquipmentType\>\""}], "]"}], "]"}]}], 
+      "}"}]}], "]"}], ":=", "\"\<CookingEquipmentType\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dataListEntityType", "[", 
+    RowBox[{"_", ",", 
+     RowBox[{"{", 
+      RowBox[{"_", ",", " ", 
+       RowBox[{"Key", "[", 
+        RowBox[{"EntityProperty", "[", 
+         RowBox[{"_", ",", "\"\<CookingEquipment\>\""}], "]"}], "]"}]}], 
+      "}"}]}], "]"}], ":=", "\"\<CookingEquipment\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"dataListEntityType", "[", 
+     RowBox[{"_", ",", 
+      RowBox[{"{", 
+       RowBox[{"_", ",", " ", 
+        RowBox[{"Key", "[", 
+         RowBox[{"EntityProperty", "[", 
+          RowBox[{"_", ",", "\"\<TypicalCookingActions\>\""}], "]"}], "]"}]}],
+        "}"}]}], "]"}], ":=", "\"\<CookingAction\>\""}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dataListEntityType", "[", 
+    RowBox[{"_", ",", 
+     RowBox[{"{", 
+      RowBox[{"_", ",", " ", 
+       RowBox[{"Key", "[", 
+        RowBox[{"EntityProperty", "[", 
+         RowBox[{"_", ",", "\"\<CookingMethod\>\""}], "]"}], "]"}]}], "}"}]}],
+     "]"}], ":=", "\"\<CookingMethod\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"dataListEntityType", "[", 
+     RowBox[{"_", ",", 
+      RowBox[{"{", 
+       RowBox[{"_", ",", " ", 
+        RowBox[{"Key", "[", 
+         RowBox[{"EntityProperty", "[", 
+          RowBox[{"_", ",", "\"\<PLUCodes\>\""}], "]"}], "]"}]}], "}"}]}], 
+     "]"}], ":=", "\"\<PLUCode\>\""}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dataListEntityType", "[", 
+    RowBox[{"_", ",", 
+     RowBox[{"{", 
+      RowBox[{"_", ",", " ", 
+       RowBox[{"Key", "[", 
+        RowBox[{"EntityProperty", "[", 
+         RowBox[{"_", ",", "\"\<AvailableFibers\>\""}], "]"}], "]"}]}], 
+      "}"}]}], "]"}], ":=", "\"\<Nutrient\>\""}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"dataListEntityType", "[", 
+    RowBox[{"_", ",", 
+     RowBox[{"{", 
+      RowBox[{"_", ",", " ", 
+       RowBox[{"Key", "[", 
+        RowBox[{"EntityProperty", "[", 
+         RowBox[{"_", ",", "\"\<SubBrandName\>\""}], "]"}], "]"}]}], "}"}]}], 
+    "]"}], ":=", "\"\<FoodBrandName\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"dataListEntityType", "[", 
+     RowBox[{"_", ",", 
+      RowBox[{"{", 
+       RowBox[{"_", ",", " ", 
+        RowBox[{"Key", "[", 
+         RowBox[{"EntityProperty", "[", 
+          RowBox[{"_", ",", 
+           RowBox[{"\"\<Constitution\>\"", "|", "\"\<Concentration\>\""}]}], 
+          "]"}], "]"}]}], "}"}]}], "]"}], ":=", 
+    RowBox[{"Missing", "[", "\"\<NotAvailable\>\"", "]"}]}], ";"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"dataListEntityType", "[", 
+      RowBox[{"_", ",", 
+       RowBox[{"{", 
+        RowBox[{"_", ",", " ", 
+         RowBox[{"Key", "[", 
+          RowBox[{"EntityProperty", "[", 
+           RowBox[{"_", ",", "\"\<Ingredients\>\""}], "]"}], "]"}]}], "}"}]}],
+       "]"}], ":=", "\"\<FoodIngredient\>\""}], ";"}], "*)"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Otherwise", ",", " ", 
+    RowBox[{
+    "query", " ", "for", " ", "values", " ", "to", " ", "attempt", " ", "to", 
+     " ", "find", " ", "the", " ", "type"}]}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"dataListEntityType", "[", 
+     RowBox[{"_", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Key", "[", "entityType_", "]"}], ",", 
+        RowBox[{"Key", "[", "property_EntityProperty", "]"}]}], "}"}]}], 
+     "]"}], ":=", 
+    RowBox[{"Module", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"sampleEntities", ",", "results", ",", "types"}], "}"}], ",", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"sampleEntities", "=", 
+        RowBox[{"Join", "[", 
+         RowBox[{
+          RowBox[{"entityTypeToSampleEntities", "[", "entityType", "]"}], ",", 
+          RowBox[{"RandomEntity", "[", 
+           RowBox[{"\"\<Food\>\"", ",", "10"}], "]"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"results", "=", 
+        RowBox[{"EntityValue", "[", 
+         RowBox[{"sampleEntities", ",", "property"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"types", "=", 
+        RowBox[{"Union", "@", 
+         RowBox[{"Cases", "[", 
+          RowBox[{"results", ",", 
+           RowBox[{
+            RowBox[{"Entity", "[", 
+             RowBox[{"type_", ",", "___"}], "]"}], "\[RuleDelayed]", "type"}],
+            ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "2"}], "}"}]}], "]"}]}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"Replace", "[", 
+        RowBox[{"types", ",", "\[IndentingNewLine]", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"{", "t_String", "}"}], "\[RuleDelayed]", "t"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"{", "t__String", "}"}], "\[RuleDelayed]", 
+            RowBox[{"{", "t", "}"}]}], ",", "\[IndentingNewLine]", 
+           RowBox[{"_", "\[RuleDelayed]", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"Message", "[", 
+               RowBox[{
+                RowBox[{"dataListEntityType", "::", "unknown"}], ",", 
+                "property"}], "]"}], ";", 
+              RowBox[{"Missing", "[", "\"\<NotAvailable\>\"", "]"}]}], 
+             ")"}]}]}], "\[IndentingNewLine]", "}"}]}], "\[IndentingNewLine]",
+         "]"}]}]}], "\[IndentingNewLine]", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Off", "[", 
+   RowBox[{"General", "::", "stop"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"entityTypeToPropertyEntityType", "=", 
+   RowBox[{"MapIndexed", "[", 
+    RowBox[{"dataListEntityType", ",", "entityTypeToDataListProperties", ",", 
+     RowBox[{"{", "2", "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"On", "[", 
+   RowBox[{"General", "::", "stop"}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.738330606323783*^9, 3.738330814186567*^9}, {
+   3.738330860194167*^9, 3.7383308702931767`*^9}, {3.738330910880235*^9, 
+   3.738331104116557*^9}, {3.738331144129558*^9, 3.738331156401785*^9}, {
+   3.738331469628104*^9, 3.7383315207002115`*^9}, {3.738331696141576*^9, 
+   3.7383319602921677`*^9}, {3.7383320001531677`*^9, 
+   3.7383320029951677`*^9}, {3.7383323424859047`*^9, 3.738332363344716*^9}, {
+   3.738332399206436*^9, 3.738332399519442*^9}, {3.738332438332026*^9, 
+   3.7383324732485228`*^9}, {3.738332518237966*^9, 3.7383325691858587`*^9}, {
+   3.7383327598513937`*^9, 3.7383328100392714`*^9}, {3.738336210510338*^9, 
+   3.7383362564929357`*^9}, {3.7383363145277386`*^9, 
+   3.7383363337496605`*^9}, {3.7383363992612114`*^9, 
+   3.7383364008143663`*^9}, {3.7383364375600405`*^9, 3.738336454975782*^9}, {
+   3.7383438083655977`*^9, 3.738343848578598*^9}, {3.7383438936735983`*^9, 
+   3.738343923083598*^9}, {3.7384087040096965`*^9, 3.7384087047606964`*^9}, {
+   3.738409770952877*^9, 3.7384097894027224`*^9}, {3.7384123780961246`*^9, 
+   3.7384123858203244`*^9}, 3.7384199384842567`*^9, {3.748006815179304*^9, 
+   3.748006838142295*^9}, {3.74800696613338*^9, 3.7480069682591753`*^9}},
+ CellLabel->
+  "In[345]:=",ExpressionUUID->"df39fa44-a7e6-449d-b597-af89648816d6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"entityTypeToPropertyEntityType", "[", 
+  RowBox[{"[", 
+   RowBox[{
+    RowBox[{"2", ";;", "2"}], ",", 
+    RowBox[{
+     RowBox[{"-", "10"}], ";;"}]}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7384126574937243`*^9, 3.738412668665924*^9}, {
+  3.7384199617555833`*^9, 3.7384199679582033`*^9}},
+ CellLabel->
+  "In[366]:=",ExpressionUUID->"d6acab03-8cdb-46b0-bf2f-3627d714e4fd"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{"\<\"Food\"\>", "\[Rule]", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{
+      TemplateBox[{"\"typical outside colors\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"TypicalOutsideColors\""}], "]"}],
+        "\"EntityProperty[\\\"Food\\\", \\\"TypicalOutsideColors\\\"]\""},
+       "EntityProperty"], "\[Rule]", "\<\"ColorSet\"\>"}], ",", 
+     RowBox[{
+      TemplateBox[{"\"USDA food group\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"USDAFoodGroup\""}], "]"}],
+        "\"EntityProperty[\\\"Food\\\", \\\"USDAFoodGroup\\\"]\""},
+       "EntityProperty"], "\[Rule]", "\<\"USDAFoodGroup\"\>"}], ",", 
+     RowBox[{
+      TemplateBox[{"\"variety\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"Variety\""}], "]"}],
+        "\"EntityProperty[\\\"Food\\\", \\\"Variety\\\"]\""},
+       "EntityProperty"], "\[Rule]", "\<\"FoodVariety\"\>"}], ",", 
+     RowBox[{
+      TemplateBox[{"\"vegetable part\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"VegetablePart\""}], "]"}],
+        "\"EntityProperty[\\\"Food\\\", \\\"VegetablePart\\\"]\""},
+       "EntityProperty"], "\[Rule]", "\<\"FoodVegetablePart\"\>"}], ",", 
+     RowBox[{
+      TemplateBox[{"\"ingredients\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"Ingredients\""}], "]"}],
+        "\"EntityProperty[\\\"Food\\\", \\\"Ingredients\\\"]\""},
+       "EntityProperty"], "\[Rule]", 
+      RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+     RowBox[{
+      TemplateBox[{"\"price look up codes\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"PLUCodes\""}], "]"}],
+        "\"EntityProperty[\\\"Food\\\", \\\"PLUCodes\\\"]\""},
+       "EntityProperty"], "\[Rule]", "\<\"PLUCode\"\>"}], ",", 
+     RowBox[{
+      TemplateBox[{
+       "\"compatible dietary restrictions\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"CompatibleDietaryRestrictions\""}], 
+          "]"}],"\"EntityProperty[\\\"Food\\\", \
+\\\"CompatibleDietaryRestrictions\\\"]\""},
+       "EntityProperty"], "\[Rule]", "\<\"DietaryRestriction\"\>"}], ",", 
+     RowBox[{
+      TemplateBox[{
+       "\"incompatible dietary restrictions\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"IncompatibleDietaryRestrictions\""}], 
+          "]"}],"\"EntityProperty[\\\"Food\\\", \
+\\\"IncompatibleDietaryRestrictions\\\"]\""},
+       "EntityProperty"], "\[Rule]", "\<\"DietaryRestriction\"\>"}], ",", 
+     RowBox[{
+      TemplateBox[{
+       "\"questionably compatible dietary restrictions\"",
+        RowBox[{"EntityProperty", "[", 
+          
+          RowBox[{"\"Food\"", ",", 
+            "\"QuestionablyCompatibleDietaryRestrictions\""}], "]"}],
+        "\"EntityProperty[\\\"Food\\\", \
+\\\"QuestionablyCompatibleDietaryRestrictions\\\"]\""},
+       "EntityProperty"], "\[Rule]", "\<\"DietaryRestriction\"\>"}], ",", 
+     RowBox[{
+      TemplateBox[{"\"LanguaL terms\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"LanguaLTerms\""}], "]"}],
+        "\"EntityProperty[\\\"Food\\\", \\\"LanguaLTerms\\\"]\""},
+       "EntityProperty"], "\[Rule]", "\<\"LanguaLTerm\"\>"}]}], 
+    "\[RightAssociation]"}]}], "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{
+  3.7384129617499247`*^9, {3.7384199629957075`*^9, 3.738419968292237*^9}, 
+   3.748006960529919*^9},
+ CellLabel->
+  "Out[344]=",ExpressionUUID->"48d071ba-7176-44b9-9d8d-d5526204fcdb"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{"\<\"Food\"\>", "\[Rule]", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{
+      TemplateBox[{"\"typical outside colors\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"TypicalOutsideColors\""}], "]"}],
+        "\"EntityProperty[\\\"Food\\\", \\\"TypicalOutsideColors\\\"]\""},
+       "EntityProperty"], "\[Rule]", "\<\"ColorSet\"\>"}], ",", 
+     RowBox[{
+      TemplateBox[{"\"USDA food group\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"USDAFoodGroup\""}], "]"}],
+        "\"EntityProperty[\\\"Food\\\", \\\"USDAFoodGroup\\\"]\""},
+       "EntityProperty"], "\[Rule]", "\<\"USDAFoodGroup\"\>"}], ",", 
+     RowBox[{
+      TemplateBox[{"\"variety\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"Variety\""}], "]"}],
+        "\"EntityProperty[\\\"Food\\\", \\\"Variety\\\"]\""},
+       "EntityProperty"], "\[Rule]", "\<\"FoodVariety\"\>"}], ",", 
+     RowBox[{
+      TemplateBox[{"\"vegetable part\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"VegetablePart\""}], "]"}],
+        "\"EntityProperty[\\\"Food\\\", \\\"VegetablePart\\\"]\""},
+       "EntityProperty"], "\[Rule]", "\<\"FoodVegetablePart\"\>"}], ",", 
+     RowBox[{
+      TemplateBox[{"\"ingredients\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"Ingredients\""}], "]"}],
+        "\"EntityProperty[\\\"Food\\\", \\\"Ingredients\\\"]\""},
+       "EntityProperty"], "\[Rule]", "\<\"FoodIngredient\"\>"}], ",", 
+     RowBox[{
+      TemplateBox[{"\"price look up codes\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"PLUCodes\""}], "]"}],
+        "\"EntityProperty[\\\"Food\\\", \\\"PLUCodes\\\"]\""},
+       "EntityProperty"], "\[Rule]", "\<\"PLUCode\"\>"}], ",", 
+     RowBox[{
+      TemplateBox[{
+       "\"compatible dietary restrictions\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"CompatibleDietaryRestrictions\""}], 
+          "]"}],"\"EntityProperty[\\\"Food\\\", \
+\\\"CompatibleDietaryRestrictions\\\"]\""},
+       "EntityProperty"], "\[Rule]", "\<\"DietaryRestriction\"\>"}], ",", 
+     RowBox[{
+      TemplateBox[{
+       "\"incompatible dietary restrictions\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"IncompatibleDietaryRestrictions\""}], 
+          "]"}],"\"EntityProperty[\\\"Food\\\", \
+\\\"IncompatibleDietaryRestrictions\\\"]\""},
+       "EntityProperty"], "\[Rule]", "\<\"DietaryRestriction\"\>"}], ",", 
+     RowBox[{
+      TemplateBox[{
+       "\"questionably compatible dietary restrictions\"",
+        RowBox[{"EntityProperty", "[", 
+          
+          RowBox[{"\"Food\"", ",", 
+            "\"QuestionablyCompatibleDietaryRestrictions\""}], "]"}],
+        "\"EntityProperty[\\\"Food\\\", \
+\\\"QuestionablyCompatibleDietaryRestrictions\\\"]\""},
+       "EntityProperty"], "\[Rule]", "\<\"DietaryRestriction\"\>"}], ",", 
+     RowBox[{
+      TemplateBox[{"\"LanguaL terms\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"LanguaLTerms\""}], "]"}],
+        "\"EntityProperty[\\\"Food\\\", \\\"LanguaLTerms\\\"]\""},
+       "EntityProperty"], "\[Rule]", "\<\"LanguaLTerm\"\>"}]}], 
+    "\[RightAssociation]"}]}], "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.7480070910271*^9},
+ CellLabel->
+  "Out[366]=",ExpressionUUID->"d884d35b-14de-4723-b99c-7976eb275b2c"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Normalize the Output Types into nodes", "Subsection",
+ CellChangeTimes->{{3.73833761637191*^9, 
+  3.7383376332716*^9}},ExpressionUUID->"7c2ee200-224c-47dd-8826-0e731f515159"],
+
+Cell["\<\
+This allows for cleaning up the graph structure and grouping the nodes into \
+various categories:\
+\>", "Text",
+ CellChangeTimes->{{3.7383393800242577`*^9, 3.7383393922954845`*^9}, {
+  3.7384199785762653`*^9, 
+  3.7384200005594635`*^9}},ExpressionUUID->"b51d318d-5d95-48bd-93b9-\
+870411f8cb70"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ClearAll", "[", "addNode", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"addNode", "[", 
+     RowBox[{"a_Association", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Key", "[", "entityType_", "]"}], ",", 
+        RowBox[{"Key", "[", "prop_EntityProperty", "]"}]}], "}"}]}], "]"}], ":=", 
+    RowBox[{"With", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"Append", "[", 
+       RowBox[{"a", ",", 
+        RowBox[{"\"\<Node\>\"", "\[Rule]", 
+         RowBox[{"Replace", "[", 
+          RowBox[{
+           RowBox[{"Lookup", "[", 
+            RowBox[{"a", ",", "\"\<OutputType\>\""}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{"{", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"\"\<Data\>\"", "|", "\"\<DataList\>\""}], 
+              "\[RuleDelayed]", 
+              RowBox[{"entityTypeToPropertyEntityType", "[", 
+               RowBox[{"[", 
+                RowBox[{
+                 RowBox[{"Key", "[", "entityType", "]"}], ",", 
+                 RowBox[{"Key", "[", "prop", "]"}]}], "]"}], "]"}]}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"\"\<Quantity\>\"", "\[RuleDelayed]", 
+              RowBox[{"Replace", "[", 
+               RowBox[{
+                RowBox[{"Lookup", "[", 
+                 RowBox[{"a", ",", "\"\<PhysicalQuantity\>\"", ",", "None"}], 
+                 "]"}], ",", 
+                RowBox[{"_Missing", "\[RuleDelayed]", "\"\<Quantity\>\""}]}], 
+               "]"}]}], ",", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"\"\<String\>\"", "|", "\"\<StringList\>\""}], 
+              "\[Rule]", "\"\<String\>\""}], ",", "\[IndentingNewLine]", 
+             RowBox[{"\"\<Date\>\"", "\[Rule]", "\"\<DateObject\>\""}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"\"\<CompassPlot\>\"", "|", 
+               StyleBox["\"\<FoodItemNutritionLabel\>\"",
+                ShowStringCharacters->True,
+                NumberMarks->True]}], "\[Rule]", "\"\<Graphics\>\""}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"\"\<WebImage\>\"", "\[Rule]", "\"\<Image\>\""}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{
+             "\"\<EntityPropertyList\>\"", "\[Rule]", 
+              "\"\<EntityProperty\>\""}], ",", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"\"\<Rules\>\"", "|", "\"\<Association\>\""}], 
+              "\[Rule]", "\"\<Association\>\""}]}], "\[IndentingNewLine]", 
+            "}"}]}], "\[IndentingNewLine]", "]"}]}]}], "]"}]}], 
+     "\[IndentingNewLine]", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"entityTypeToMetaDataWithNodes", "=", 
+   RowBox[{"MapIndexed", "[", 
+    RowBox[{"addNode", ",", "entityTypeToPropertyMetaDataFinal", ",", 
+     RowBox[{"{", "2", "}"}]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.7383376788921614`*^9, 3.738337783908662*^9}, {
+   3.738339080039262*^9, 3.7383390833455925`*^9}, {3.738339113503608*^9, 
+   3.7383393158988457`*^9}, {3.7383393649537506`*^9, 
+   3.7383394187001247`*^9}, {3.738339630894342*^9, 3.7383396706403165`*^9}, {
+   3.738340816604598*^9, 3.738340826644598*^9}, {3.738340901314598*^9, 
+   3.738340908079598*^9}, {3.7383409384055977`*^9, 3.7383409417405977`*^9}, {
+   3.738340999637598*^9, 3.738341010790598*^9}, {3.738341104546598*^9, 
+   3.738341125316598*^9}, {3.738341307425598*^9, 3.7383413223315983`*^9}, {
+   3.7383413539095984`*^9, 3.7383413562985983`*^9}, {3.738341429704598*^9, 
+   3.7383414350745983`*^9}, {3.7383416681745977`*^9, 3.738341668544598*^9}, {
+   3.738342459185598*^9, 3.7383424744425983`*^9}, {3.738343452444598*^9, 
+   3.738343457601598*^9}, {3.7383547427060857`*^9, 3.7383547539362087`*^9}, {
+   3.7383550222530375`*^9, 3.7383550566154733`*^9}, {3.7383553734821568`*^9, 
+   3.7383554674925566`*^9}, 3.7384083175346966`*^9, {3.73840961406319*^9, 
+   3.738409627884572*^9}, {3.738409716793462*^9, 3.738409718862669*^9}, {
+   3.7384127668983245`*^9, 3.7384127673663244`*^9}, {3.7384129917729244`*^9, 
+   3.738413059951418*^9}, {3.738413096554078*^9, 3.738413097138136*^9}, {
+   3.7384131398864107`*^9, 3.738413145052927*^9}, {3.7384196530407147`*^9, 
+   3.7384196640578165`*^9}},
+ CellLabel->
+  "In[367]:=",ExpressionUUID->"92279473-bdea-46b2-b05c-d4caf7fe9cb7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"entityTypeToMetaDataWithNodes", "[", 
+  RowBox[{"[", 
+   RowBox[{
+    RowBox[{"2", ";;", "2"}], ",", 
+    RowBox[{"3", ";;", "4"}]}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7384200057849855`*^9, 3.738420033178725*^9}},
+ CellLabel->
+  "In[370]:=",ExpressionUUID->"e7934733-3b31-4808-a668-14ebd0c64481"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{"\<\"Food\"\>", "\[Rule]", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{
+      TemplateBox[{"\"age\"",RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"Age\""}], "]"}],
+        "\"EntityProperty[\\\"Food\\\", \\\"Age\\\"]\""},
+       "EntityProperty"], "\[Rule]", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"Label\"\>", "\[Rule]", "\<\"age\"\>"}], ",", 
+        RowBox[{"\<\"OutputType\"\>", "\[Rule]", "\<\"DataList\"\>"}], ",", 
+        RowBox[{"\<\"Definition\"\>", 
+         "\[Rule]", "\<\"Describes the age of the food.\"\>"}], ",", 
+        RowBox[{"\<\"PhysicalQuantity\"\>", "\[Rule]", 
+         RowBox[{"Missing", "[", "\<\"NotAvailable\"\>", "]"}]}], ",", 
+        RowBox[{"\<\"Unit\"\>", "\[Rule]", 
+         TagBox["\<\"Years\"\>",
+          HoldForm]}], ",", 
+        RowBox[{"\<\"Node\"\>", "\[Rule]", "\<\"FoodAge\"\>"}]}], 
+       "\[RightAssociation]"}]}], ",", 
+     RowBox[{
+      TemplateBox[{
+       "\"alanine content per typical item size\"",
+        RowBox[{"EntityProperty", "[", 
+          RowBox[{"\"Food\"", ",", "\"AlanineContentPerItem\""}], "]"}],
+        "\"EntityProperty[\\\"Food\\\", \\\"AlanineContentPerItem\\\"]\""},
+       "EntityProperty"], "\[Rule]", 
+      RowBox[{"\[LeftAssociation]", 
+       RowBox[{
+        RowBox[{"\<\"Label\"\>", 
+         "\[Rule]", "\<\"alanine content per typical item size\"\>"}], ",", 
+        RowBox[{"\<\"OutputType\"\>", "\[Rule]", "\<\"Quantity\"\>"}], ",", 
+        RowBox[{"\<\"Definition\"\>", 
+         "\[Rule]", "\<\"The amount of alanine in a typical item of \
+food.\"\>"}], ",", 
+        RowBox[{"\<\"PhysicalQuantity\"\>", "\[Rule]", 
+         TemplateBox[{"\"Mass\"","\"Mass\""},
+          "QuantityVariable",
+          DisplayFunction->(TooltipBox[
+            
+            StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+             False], 
+            RowBox[{"Quantity variable:", " mass"}], TooltipStyle -> 
+            "TextStyling"]& )]}], ",", 
+        RowBox[{"\<\"Unit\"\>", "\[Rule]", 
+         TagBox["\<\"Grams\"\>",
+          HoldForm]}], ",", 
+        RowBox[{"\<\"Node\"\>", "\[Rule]", 
+         TemplateBox[{"\"Mass\"","\"Mass\""},
+          "QuantityVariable",
+          DisplayFunction->(TooltipBox[
+            
+            StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+             False], 
+            RowBox[{"Quantity variable:", " mass"}], TooltipStyle -> 
+            "TextStyling"]& )]}]}], "\[RightAssociation]"}]}]}], 
+    "\[RightAssociation]"}]}], "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{{3.73842001022843*^9, 3.7384200335997667`*^9}, 
+   3.7396161512665796`*^9, 3.7480071020092225`*^9},
+ CellLabel->
+  "Out[370]=",ExpressionUUID->"9f17bf0b-dd7f-45e6-8b8f-e919ea051941"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Gather node information", "Section",
+ CellChangeTimes->{{3.738342180349598*^9, 
+  3.738342186260598*^9}},ExpressionUUID->"ad58bdb9-2020-4328-a457-\
+a9a1eed0c1fc"],
+
+Cell["Find all of the nodes:", "Text",
+ CellChangeTimes->{{3.7383427499095984`*^9, 
+  3.7383427534125977`*^9}},ExpressionUUID->"22ff3615-222c-4fca-9a5a-\
+7239e6fe45be"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"allNodes", "=", 
+  RowBox[{"DeleteMissing", "@", 
+   RowBox[{"Union", "[", 
+    RowBox[{"Flatten", "[", 
+     RowBox[{"List", "@@@", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{"KeyValueMap", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Thread", "[", 
+           RowBox[{"#1", "\[Rule]", "#2"}], "]"}], "&"}], ",", 
+         RowBox[{"Values", "/@", 
+          RowBox[{"entityTypeToMetaDataWithNodes", "[", 
+           RowBox[{"[", 
+            RowBox[{"All", ",", "All", ",", "\"\<Node\>\""}], "]"}], 
+           "]"}]}]}], "]"}], "]"}]}], "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7383422133065977`*^9, 3.7383423089835978`*^9}, {
+   3.738344043887598*^9, 3.7383440459895983`*^9}, 3.7384087320326967`*^9},
+ CellLabel->
+  "In[371]:=",ExpressionUUID->"d0268791-7cc9-4866-8786-40ac3c3d4a7c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"Association\"\>", ",", "\<\"BasicFoodGroup\"\>", 
+   ",", "\<\"Boolean\"\>", ",", "\<\"ColorSet\"\>", 
+   ",", "\<\"CookingMethod\"\>", ",", "\<\"Country\"\>", 
+   ",", "\<\"DateObject\"\>", ",", "\<\"DietaryRestriction\"\>", 
+   ",", "\<\"EntityProperty\"\>", ",", "\<\"Food\"\>", ",", "\<\"FoodAge\"\>",
+    ",", "\<\"FoodAlcoholLabel\"\>", ",", "\<\"FoodBeefGrade\"\>", 
+   ",", "\<\"FoodBoneContent\"\>", ",", "\<\"FoodBrandName\"\>", 
+   ",", "\<\"FoodCaffeineLabel\"\>", ",", "\<\"FoodCalorieLabel\"\>", 
+   ",", "\<\"FoodComposition\"\>", ",", "\<\"FoodConcentration\"\>", 
+   ",", "\<\"FoodCrustType\"\>", ",", "\<\"FoodCulture\"\>", 
+   ",", "\<\"FoodDataSource\"\>", ",", "\<\"FoodFatLabel\"\>", 
+   ",", "\<\"FoodFatType\"\>", ",", "\<\"FoodFiberLabel\"\>", 
+   ",", "\<\"FoodFlavor\"\>", ",", "\<\"FoodGeometryType\"\>", 
+   ",", "\<\"FoodIngredient\"\>", ",", "\<\"FoodIntendedUse\"\>", 
+   ",", "\<\"FoodIronLabel\"\>", ",", "\<\"FoodLocation\"\>", 
+   ",", "\<\"FoodManufacturer\"\>", ",", "\<\"FoodMeatCut\"\>", 
+   ",", "\<\"FoodMeatQuality\"\>", ",", "\<\"FoodMoistureLevel\"\>", 
+   ",", "\<\"FoodNutritionalSupplement\"\>", 
+   ",", "\<\"FoodNutritionalSupplementNotAdded\"\>", 
+   ",", "\<\"FoodPackaging\"\>", ",", "\<\"FoodPart\"\>", 
+   ",", "\<\"FoodPattyCount\"\>", ",", "\<\"FoodPeelingType\"\>", 
+   ",", "\<\"FoodPreparation\"\>", ",", "\<\"FoodProcessingType\"\>", 
+   ",", "\<\"FoodSeafoodVariety\"\>", ",", "\<\"FoodSeedContent\"\>", 
+   ",", "\<\"FoodServingType\"\>", ",", "\<\"FoodShape\"\>", 
+   ",", "\<\"FoodSize\"\>", ",", "\<\"FoodSkinContent\"\>", 
+   ",", "\<\"FoodSodiumLabel\"\>", ",", "\<\"FoodState\"\>", 
+   ",", "\<\"FoodStorageType\"\>", ",", "\<\"FoodSubBrandName\"\>", 
+   ",", "\<\"FoodSugarLabel\"\>", ",", "\<\"FoodSugarType\"\>", 
+   ",", "\<\"FoodTexture\"\>", ",", "\<\"FoodTrimmingLevel\"\>", 
+   ",", "\<\"FoodType\"\>", ",", "\<\"FoodTypeGroup\"\>", 
+   ",", "\<\"FoodVariety\"\>", ",", "\<\"FoodVegetablePart\"\>", 
+   ",", "\<\"Graphics\"\>", ",", "\<\"ICDNine\"\>", ",", "\<\"ICDTen\"\>", 
+   ",", "\<\"Image\"\>", ",", "\<\"Language\"\>", ",", "\<\"LanguaLTerm\"\>", 
+   ",", "\<\"Number\"\>", ",", "\<\"Nutrient\"\>", ",", "\<\"PLUCode\"\>", 
+   ",", "\<\"Pokemon\"\>", ",", "\<\"Quantity\"\>", ",", "\<\"Solid\"\>", 
+   ",", "\<\"String\"\>", ",", "\<\"Transparency\"\>", 
+   ",", "\<\"USDAFoodGroup\"\>", ",", 
+   TemplateBox[{"\"Energy\"","\"Energy\""},
+    "QuantityVariable",
+    DisplayFunction->(TooltipBox[
+      StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> False], 
+      RowBox[{"Quantity variable:", " energy"}], TooltipStyle -> 
+      "TextStyling"]& )], ",", 
+   TemplateBox[{"\"EnergyPerMass\"","\"EnergyPerMass\""},
+    "QuantityVariable",
+    DisplayFunction->(TooltipBox[
+      StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> False], 
+      RowBox[{"Quantity variable:", " energy per mass"}], TooltipStyle -> 
+      "TextStyling"]& )], ",", 
+   TemplateBox[{"\"Mass\"","\"Mass\""},
+    "QuantityVariable",
+    DisplayFunction->(TooltipBox[
+      StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> False], 
+      RowBox[{"Quantity variable:", " mass"}], TooltipStyle -> 
+      "TextStyling"]& )], ",", 
+   TemplateBox[{"\"MassDensity\"","\"MassDensity\""},
+    "QuantityVariable",
+    DisplayFunction->(TooltipBox[
+      StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> False], 
+      RowBox[{"Quantity variable:", " mass density"}], TooltipStyle -> 
+      "TextStyling"]& )], ",", 
+   TemplateBox[{"\"MassRatio\"","\"MassRatio\""},
+    "QuantityVariable",
+    DisplayFunction->(TooltipBox[
+      StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> False], 
+      RowBox[{"Quantity variable:", " mass ratio"}], TooltipStyle -> 
+      "TextStyling"]& )], ",", 
+   TemplateBox[{"\"Volume\"","\"Volume\""},
+    "QuantityVariable",
+    DisplayFunction->(TooltipBox[
+      StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> False], 
+      RowBox[{"Quantity variable:", " volume"}], TooltipStyle -> 
+      "TextStyling"]& )]}], "}"}]], "Output",
+ CellChangeTimes->{3.738412289434924*^9, 3.738412500222124*^9, 
+  3.738413150120434*^9, 3.7396161560661*^9, 3.748007103991573*^9},
+ CellLabel->
+  "Out[371]=",ExpressionUUID->"127741eb-9d39-4e13-80db-55f677000590"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Group Nodes", "Subsection",
+ CellChangeTimes->{{3.7383427963585978`*^9, 3.738342798218598*^9}, {
+   3.738342882933598*^9, 3.738342898057598*^9}, 
+   3.738348251689195*^9},ExpressionUUID->"62b055e6-3c51-4a95-934c-\
+be384d5397bc"],
+
+Cell["Group the nodes into a few different groups:", "Text",
+ CellChangeTimes->{{3.73842004303271*^9, 
+  3.7384200510075073`*^9}},ExpressionUUID->"3cdb50e3-362b-49c0-ab63-\
+b261ecd41040"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"majorFoodEntityTypes", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<Food\>\"", ",", "\"\<FoodType\>\"", ",", "\"\<FoodTypeGroup\>\""}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"specialFoodEntityTypes", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<LanguaLTerm\>\"", ",", "\"\<PLUCode\>\"", ",", "\"\<Nutrient\>\"", 
+     ",", "\"\<FoodIngredient\>\"", ",", "\"\<DietaryRestriction\>\""}], 
+    "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"otherFoodEntityTypes", "=", 
+   RowBox[{"Sort", "@", 
+    RowBox[{"Join", "[", 
+     RowBox[{
+      RowBox[{"Complement", "[", 
+       RowBox[{
+        RowBox[{"Cases", "[", 
+         RowBox[{"allNodes", ",", 
+          RowBox[{"s_String", "/;", 
+           RowBox[{"StringContainsQ", "[", 
+            RowBox[{"s", ",", "\"\<Food\>\""}], "]"}]}]}], "]"}], ",", 
+        "majorFoodEntityTypes", ",", "specialFoodEntityTypes"}], "]"}], ",", 
+      RowBox[{"{", "\"\<CookingMethod\>\"", "}"}]}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"basicDataTypes", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<Boolean\>\"", ",", "\"\<DateObject\>\"", ",", "\"\<Number\>\"", ",", 
+     "\"\<String\>\"", ",", "\"\<Association\>\"", ",", "\"\<Graphics\>\"", 
+     ",", "\"\<Image\>\"", ",", "\"\<EntityProperty\>\""}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"quantityVariableTypes", "=", 
+   RowBox[{"Append", "[", 
+    RowBox[{
+     RowBox[{"Cases", "[", 
+      RowBox[{"allNodes", ",", "_QuantityVariable"}], "]"}], ",", 
+     "\"\<Quantity\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"otherEntityTypes", "=", 
+   RowBox[{"Complement", "[", 
+    RowBox[{
+    "allNodes", ",", "majorFoodEntityTypes", ",", "specialFoodEntityTypes", 
+     ",", "otherFoodEntityTypes", ",", "basicDataTypes", ",", 
+     "quantityVariableTypes"}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.738409554898274*^9, 3.738409605953379*^9}, {
+   3.7384096417119546`*^9, 3.738409648547638*^9}, {3.7384101176187024`*^9, 
+   3.7384101301819105`*^9}, {3.738419677366147*^9, 3.7384196882792387`*^9}, 
+   3.7384200565870657`*^9, {3.738420087165123*^9, 3.7384200958809943`*^9}, {
+   3.7396177968431406`*^9, 3.739617797046161*^9}},
+ CellLabel->
+  "In[372]:=",ExpressionUUID->"683442ba-95cd-4351-9167-31119e7e3ed0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"allNodesGrouped", "=", 
+   RowBox[{"<|", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+     "\"\<MajorFoodEntityTypes\>\"", "\[Rule]", "majorFoodEntityTypes"}], ",",
+      "\[IndentingNewLine]", 
+     RowBox[{
+     "\"\<OtherFoodEntityTypes\>\"", "\[Rule]", "otherFoodEntityTypes"}], ",",
+      "\[IndentingNewLine]", 
+     RowBox[{
+     "\"\<SpecialFoodEntityTypes\>\"", "\[Rule]", "specialFoodEntityTypes"}], 
+     ",", "\[IndentingNewLine]", 
+     RowBox[{"\"\<BasicDataTypes\>\"", "\[Rule]", "basicDataTypes"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<Quantities\>\"", "\[Rule]", "quantityVariableTypes"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<OtherEntityTypes\>\"", "\[Rule]", "otherEntityTypes"}]}], 
+    "\[IndentingNewLine]", "|>"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7384223528247795`*^9, 3.7384223547805834`*^9}},
+ CellLabel->
+  "In[378]:=",ExpressionUUID->"3fd4d943-2fd7-46c5-9b41-f5ddd3999940"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Take", "[", 
+    RowBox[{"#", ",", 
+     RowBox[{"UpTo", "[", "3", "]"}]}], "]"}], "&"}], "/@", 
+  "allNodesGrouped"}]], "Input",
+ CellChangeTimes->{{3.7384201031337194`*^9, 3.7384201171531215`*^9}},
+ CellLabel->
+  "In[379]:=",ExpressionUUID->"fb7c6a21-7e6c-424a-81a2-8d6a52603ecb"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"MajorFoodEntityTypes\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\<\"Food\"\>", ",", "\<\"FoodType\"\>", 
+      ",", "\<\"FoodTypeGroup\"\>"}], "}"}]}], ",", 
+   RowBox[{"\<\"OtherFoodEntityTypes\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\<\"BasicFoodGroup\"\>", ",", "\<\"CookingMethod\"\>", 
+      ",", "\<\"FoodAge\"\>"}], "}"}]}], ",", 
+   RowBox[{"\<\"SpecialFoodEntityTypes\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\<\"LanguaLTerm\"\>", ",", "\<\"PLUCode\"\>", 
+      ",", "\<\"Nutrient\"\>"}], "}"}]}], ",", 
+   RowBox[{"\<\"BasicDataTypes\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\<\"Boolean\"\>", ",", "\<\"DateObject\"\>", 
+      ",", "\<\"Number\"\>"}], "}"}]}], ",", 
+   RowBox[{"\<\"Quantities\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      TemplateBox[{"\"Energy\"","\"Energy\""},
+       "QuantityVariable",
+       DisplayFunction->(TooltipBox[
+         StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+          False], 
+         RowBox[{"Quantity variable:", " energy"}], TooltipStyle -> 
+         "TextStyling"]& )], ",", 
+      TemplateBox[{"\"EnergyPerMass\"","\"EnergyPerMass\""},
+       "QuantityVariable",
+       DisplayFunction->(TooltipBox[
+         StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+          False], 
+         RowBox[{"Quantity variable:", " energy per mass"}], TooltipStyle -> 
+         "TextStyling"]& )], ",", 
+      TemplateBox[{"\"Mass\"","\"Mass\""},
+       "QuantityVariable",
+       DisplayFunction->(TooltipBox[
+         StyleBox[#, FontColor -> GrayLevel[0.4], ShowStringCharacters -> 
+          False], 
+         RowBox[{"Quantity variable:", " mass"}], TooltipStyle -> 
+         "TextStyling"]& )]}], "}"}]}], ",", 
+   RowBox[{"\<\"OtherEntityTypes\"\>", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\<\"ColorSet\"\>", ",", "\<\"Country\"\>", 
+      ",", "\<\"ICDNine\"\>"}], "}"}]}]}], "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{{3.7384201091563215`*^9, 3.738420117415148*^9}, 
+   3.7384223576182995`*^9, 3.7396178037488313`*^9, 3.748007109997421*^9},
+ CellLabel->
+  "Out[379]=",ExpressionUUID->"591a1d45-9990-4c7d-943f-b7b3c7209206"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Gather node metadata", "Subsection",
+ CellChangeTimes->{{3.7383428149635983`*^9, 3.738342816403598*^9}, {
+  3.738348721096135*^9, 3.738348724178135*^9}, {3.738349205340135*^9, 
+  3.738349208774135*^9}},ExpressionUUID->"efc222ad-6213-4845-a4cd-\
+08b56dc00fe1"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ClearAll", "[", "decamel", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"decamel", "[", "s_String", "]"}], ":=", 
+   RowBox[{"StringReplace", "[", 
+    RowBox[{"s", ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"a_", "?", "LowerCaseQ"}], "~~", 
+       RowBox[{"b_", "?", "UpperCaseQ"}]}], "\[RuleDelayed]", 
+      RowBox[{"a", "<>", "\"\< \>\"", "<>", "b"}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"decamel", "[", "x_", "]"}], ":=", "x"}], ";"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Use", " ", "EntityValue", " ", "to", " ", "gather", " ", "metdata", " ", 
+    "for", " ", "entity", " ", "types"}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"entityTypeMetaData", "=", 
+    RowBox[{"AssociationMap", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Function", "[", 
+       RowBox[{
+        RowBox[{"{", "entityType", "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"AssociationMap", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"EntityValue", "[", 
+            RowBox[{"entityType", ",", "#"}], "]"}], "&"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<Label\>\"", ",", "\"\<LabelPlural\>\"", ",", 
+            "\"\<EntityCount\>\"", ",", "\"\<PropertyCount\>\"", ",", 
+            "\"\<SampleEntities\>\"", ",", "\"\<PropertyClassCount\>\"", ",", 
+            "\"\<PropertyClasses\>\"", ",", "\"\<SampleEntityClasses\>\"", 
+            ",", "\"\<EntityClassCount\>\""}], "}"}]}], "]"}]}], 
+       "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"Complement", "[", 
+       RowBox[{
+        RowBox[{"Flatten", "[", 
+         RowBox[{"Values", "@", "allNodesGrouped"}], "]"}], ",", 
+        "quantityVariableTypes", ",", "basicDataTypes"}], "]"}]}], 
+     "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "There", " ", "are", " ", "several", " ", "functions", " ", "that", " ", 
+    "give", " ", "more", " ", "information", " ", "about", " ", "quantity", 
+    " ", "variables", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"e", ".", "g", ".", " ", "mass"}], ",", " ", "volume", ",", " ",
+       "energy", ",", " ", "..."}], ")"}]}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"quantityVariableMetaData", "=", 
+    RowBox[{"AssociationMap", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Replace", "[", "\[IndentingNewLine]", 
+       RowBox[{"{", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"qv_QuantityVariable", "\[RuleDelayed]", 
+          RowBox[{"<|", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"\"\<Label\>\"", "\[Rule]", 
+             RowBox[{"ToLowerCase", "[", 
+              RowBox[{"decamel", "@", 
+               RowBox[{"First", "[", "qv", "]"}]}], "]"}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"\"\<Identifier\>\"", "\[Rule]", 
+             RowBox[{"QuantityVariableIdentifier", "[", "qv", "]"}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"\"\<Dimensions\>\"", "\[Rule]", 
+             RowBox[{"QuantityVariableDimensions", "[", "qv", "]"}]}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"\"\<CanonicalUnit\>\"", "\[Rule]", 
+             RowBox[{"QuantityVariableCanonicalUnit", "[", "qv", "]"}]}]}], 
+           "\[IndentingNewLine]", "|>"}]}], ",", "\[IndentingNewLine]", 
+         RowBox[{"\"\<Quantity\>\"", "\[Rule]", 
+          RowBox[{"<|", 
+           RowBox[{"\"\<Label\>\"", "\[Rule]", "\"\<quantity\>\""}], 
+           "|>"}]}]}], "\[IndentingNewLine]", "}"}], "\[IndentingNewLine]", 
+       "]"}], ",", "\[IndentingNewLine]", "quantityVariableTypes"}], 
+     "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Use", " ", "the", " ", "WolframLanguageSymbol", " ", "entity", " ", 
+    "type", " ", "to", " ", "gather", " ", "metadata", " ", "for", " ", 
+    "basic", " ", "data", " ", "types"}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"wolframlanguageSymbolProperties", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<Entity\>\"", ",", "\"\<DateIntroduced\>\"", ",", 
+     "\"\<DateLastModified\>\"", ",", "\"\<DocumentationBasicExamples\>\"", 
+     ",", "\"\<RelatedSymbols\>\"", ",", "\"\<Timeline\>\"", ",", 
+     "\"\<TypesetUsage\>\"", ",", "\"\<Translations\>\"", ",", "\"\<URL\>\"", 
+     ",", "\"\<WolframDocumentationLink\>\""}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"basicTypeMetaData", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Entity", "[", 
+      RowBox[{"\"\<WolframLanguageSymbol\>\"", ",", "#"}], "]"}], "&"}], "/@", 
+    RowBox[{"AssociationMap", "[", 
+     RowBox[{
+      RowBox[{"Replace", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"\"\<Boolean\>\"", "\[Rule]", "\"\<Boole\>\""}], ",", 
+         RowBox[{"\"\<Number\>\"", "\[Rule]", "\"\<Real\>\""}]}], "}"}], 
+       "]"}], ",", "basicDataTypes"}], "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"basicTypeMetaData", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"EntityValue", "[", 
+      RowBox[{
+      "#", ",", "wolframlanguageSymbolProperties", ",", 
+       "\"\<PropertyAssociation\>\""}], "]"}], "&"}], "/@", 
+    "basicTypeMetaData"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"basicTypeMetaData", "=", 
+    RowBox[{"MapIndexed", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Prepend", "[", 
+        RowBox[{"#1", ",", 
+         RowBox[{"\"\<Label\>\"", "\[Rule]", 
+          RowBox[{"decamel", "[", 
+           RowBox[{"#2", "[", 
+            RowBox[{"[", 
+             RowBox[{"1", ",", "1"}], "]"}], "]"}], "]"}]}]}], "]"}], "&"}], 
+      ",", "basicTypeMetaData"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Combine", " ", "all", " ", "of", " ", "the", " ", "data"}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nodeToMetaData", "=", 
+   RowBox[{"Join", "[", 
+    RowBox[{
+    "entityTypeMetaData", ",", "quantityVariableMetaData", ",", 
+     "basicTypeMetaData"}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.7383443498829765`*^9, 3.7383444268704515`*^9}, {
+  3.7383444622421284`*^9, 3.73834446526764*^9}, {3.738345424570512*^9, 
+  3.7383454466677213`*^9}, {3.738345499594013*^9, 3.7383455232043743`*^9}, {
+  3.7383524523220325`*^9, 3.738352453304836*^9}, {3.7384084715936966`*^9, 
+  3.738408482608697*^9}, {3.7384087508226967`*^9, 3.7384087665286965`*^9}, {
+  3.7384091026654196`*^9, 3.7384091090346937`*^9}, {3.7384196923016405`*^9, 
+  3.7384196928246927`*^9}, {3.7384200749569025`*^9, 3.7384200856129675`*^9}, {
+  3.7384201278941956`*^9, 3.738420265792984*^9}},
+ CellLabel->
+  "In[380]:=",ExpressionUUID->"1dbc5ed0-cac6-4812-b71f-119ac1faee5f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"nodeToMetaData", "[", 
+  RowBox[{"[", 
+   RowBox[{";;", "1"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.738420148570263*^9, 3.738420150370443*^9}},
+ CellLabel->
+  "In[390]:=",ExpressionUUID->"2a767a07-2b55-4aca-9c95-32ddf4e8cf2c"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{"\<\"BasicFoodGroup\"\>", "\[Rule]", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"Label\"\>", "\[Rule]", "\<\"basic food group\"\>"}], ",", 
+     RowBox[{"\<\"LabelPlural\"\>", "\[Rule]", "\<\"basic food groups\"\>"}], 
+     ",", 
+     RowBox[{"\<\"EntityCount\"\>", "\[Rule]", "5"}], ",", 
+     RowBox[{"\<\"PropertyCount\"\>", "\[Rule]", "9"}], ",", 
+     RowBox[{"\<\"SampleEntities\"\>", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        TemplateBox[{"\"fruits\"",RowBox[{"Entity", "[", 
+            RowBox[{"\"BasicFoodGroup\"", ",", "\"Fruits\""}], "]"}],
+          "\"Entity[\\\"BasicFoodGroup\\\", \\\"Fruits\\\"]\"",
+          "\"basic food group\""},
+         "Entity"], ",", 
+        TemplateBox[{"\"vegetables\"",RowBox[{"Entity", "[", 
+            RowBox[{"\"BasicFoodGroup\"", ",", "\"Vegetables\""}], "]"}],
+          "\"Entity[\\\"BasicFoodGroup\\\", \\\"Vegetables\\\"]\"",
+          "\"basic food group\""},
+         "Entity"], ",", 
+        TemplateBox[{"\"protein foods\"",RowBox[{"Entity", "[", 
+            RowBox[{"\"BasicFoodGroup\"", ",", "\"ProteinFoods\""}], "]"}],
+          "\"Entity[\\\"BasicFoodGroup\\\", \\\"ProteinFoods\\\"]\"",
+          "\"basic food group\""},
+         "Entity"]}], "}"}]}], ",", 
+     RowBox[{"\<\"PropertyClassCount\"\>", "\[Rule]", "0"}], ",", 
+     RowBox[{"\<\"PropertyClasses\"\>", "\[Rule]", 
+      RowBox[{"{", "}"}]}], ",", 
+     RowBox[{"\<\"SampleEntityClasses\"\>", "\[Rule]", 
+      RowBox[{"{", "}"}]}], ",", 
+     RowBox[{"\<\"EntityClassCount\"\>", "\[Rule]", "1"}]}], 
+    "\[RightAssociation]"}]}], "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.7384201510645123`*^9, 3.7384223955895023`*^9, 
+  3.748007115303486*^9},
+ CellLabel->
+  "Out[390]=",ExpressionUUID->"e3d4a9b6-2149-46de-af3a-4150efceab1f"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Group nodes (Add index to metadata)", "Subsection",
+ CellChangeTimes->{{3.738349226787135*^9, 3.7383492393801355`*^9}, 
+   3.738349316931135*^9, {3.7383497662426586`*^9, 3.738349777765811*^9}, {
+   3.7383500576267943`*^9, 3.738350076065638*^9}, {3.7396181433467875`*^9, 
+   3.739618166764129*^9}},ExpressionUUID->"e9116a7f-6886-48c4-92ac-\
+21e8798729be"],
+
+Cell["\<\
+This allows for grouped nodes to have similar indices, which will look nicer \
+when making a legend.\
+\>", "Text",
+ CellChangeTimes->{{3.738349321248135*^9, 3.7383493459291353`*^9}, {
+  3.738420311690573*^9, 
+  3.738420328431247*^9}},ExpressionUUID->"203552be-2110-4c1a-9d93-\
+29d9530187f1"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"nodeToGroup", "=", 
+   RowBox[{"GroupBy", "[", 
+    RowBox[{
+     RowBox[{"Flatten", "[", 
+      RowBox[{"KeyValueMap", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Thread", "[", 
+          RowBox[{"Rule", "[", "##", "]"}], "]"}], "&"}], ",", 
+        "allNodesGrouped"}], "]"}], "]"}], ",", 
+     RowBox[{"Last", "\[Rule]", "First"}], ",", "First"}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.739618291576609*^9, 3.7396183392503757`*^9}},
+ CellLabel->
+  "In[391]:=",ExpressionUUID->"bbededbc-3f49-40b8-a14b-4e39d15e8a85"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ClearAll", "[", "processNode", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"processNode", "[", 
+    RowBox[{"node_", ",", 
+     RowBox[{"{", "index_", "}"}]}], "]"}], ":=", 
+   RowBox[{"With", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"group", "=", 
+       RowBox[{"Lookup", "[", 
+        RowBox[{"nodeToGroup", ",", "node", ",", 
+         RowBox[{"Missing", "[", "\"\<NotAvailable\>\"", "]"}]}], "]"}]}], 
+      "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Property", "[", 
+      RowBox[{"node", ",", 
+       RowBox[{"Prepend", "[", 
+        RowBox[{
+         RowBox[{"Normal", "@", 
+          RowBox[{"nodeToMetaData", "[", "node", "]"}]}], ",", 
+         RowBox[{"\"\<Group\>\"", "\[Rule]", "group"}]}], "]"}]}], "]"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"allNodesProcessed", "=", 
+   RowBox[{"MapIndexed", "[", 
+    RowBox[{"processNode", ",", 
+     RowBox[{"Flatten", "[", 
+      RowBox[{"Values", "@", "allNodesGrouped"}], "]"}]}], "]"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.738341845282598*^9, 3.7383419817995977`*^9}, {
+  3.738342062126598*^9, 3.738342116701598*^9}, {3.738344138611598*^9, 
+  3.738344326841462*^9}, {3.7383491545021353`*^9, 3.7383491571861353`*^9}, {
+  3.738349252381135*^9, 3.738349265445135*^9}, {3.738352524956503*^9, 
+  3.7383525258623214`*^9}, {3.7383540085146737`*^9, 3.738354016037426*^9}, {
+  3.7384197080182123`*^9, 3.7384197083052406`*^9}, {3.739618186622115*^9, 
+  3.7396181896204147`*^9}, {3.7396183498764386`*^9, 3.7396183656160126`*^9}, {
+  3.739618822404687*^9, 3.7396188652869744`*^9}},
+ CellLabel->
+  "In[392]:=",ExpressionUUID->"ac1db2f2-f41f-48fd-8156-bc107f69371a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"allNodesProcessed", "//", "Length"}]], "Input",
+ CellChangeTimes->{{3.7396192455619984`*^9, 3.7396192465530972`*^9}},
+ CellLabel->
+  "In[395]:=",ExpressionUUID->"13bcde1a-1448-414c-bed1-5d4292cc759f"],
+
+Cell[BoxData["82"], "Output",
+ CellChangeTimes->{3.7396192470031424`*^9, 3.748007118908394*^9},
+ CellLabel->
+  "Out[395]=",ExpressionUUID->"5a62b84e-7487-4af8-84f9-5084bbbbba77"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Export as a CloudObject for future use", "Section",
+ CellChangeTimes->{{3.7383396748907413`*^9, 
+  3.7383396879050426`*^9}},ExpressionUUID->"9d4f554c-1aae-4e26-820b-\
+b1883c72511e"],
+
+Cell["\<\
+This data is publically accessible through the Wolfram Cloud if you want to \
+investigate the data or even make your own ontology graph:\
+\>", "Text",
+ CellChangeTimes->{{3.7384203381782217`*^9, 3.7384203836397676`*^9}, {
+  3.7384224067933817`*^9, 3.738422408364225*^9}, {3.748002756412537*^9, 
+  3.748002757350513*^9}},ExpressionUUID->"9e45fc9a-a23e-4ce7-b445-\
+74e63a0ae23f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"siteDirectory", "=", 
+   RowBox[{"CloudObject", "[", "\"\<FoodOntologyGraph\>\"", "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.748002459013192*^9, 3.7480024729675875`*^9}},
+ CellLabel->
+  "In[396]:=",ExpressionUUID->"284de1bf-ad22-440b-aff5-b02f970aa137"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"CloudExport", "[", 
+  RowBox[{"entityTypeToMetaDataWithNodes", ",", "\"\<Package\>\"", ",", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"siteDirectory", ",", "\"\<EdgeData.m\>\""}], "}"}], "]"}], ",", 
+   RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"CloudExport", "[", 
+  RowBox[{"allNodesProcessed", ",", "\"\<Package\>\"", ",", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"siteDirectory", ",", "\"\<NodeData.m\>\""}], "}"}], "]"}], ",", 
+   RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"CloudExport", "[", 
+  RowBox[{"allNodesGrouped", ",", "\"\<Package\>\"", ",", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"siteDirectory", ",", "\"\<GroupedNodes.m\>\""}], "}"}], "]"}], 
+   ",", 
+   RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7383396907463264`*^9, 3.738339733250577*^9}, {
+  3.738349376424135*^9, 3.7383493770521355`*^9}, {3.7384087933706965`*^9, 
+  3.738408797386697*^9}, {3.7384203868020835`*^9, 3.738420394356839*^9}, {
+  3.7480024785791483`*^9, 3.7480025121185017`*^9}},
+ CellLabel->
+  "In[397]:=",ExpressionUUID->"83b7e2aa-76ce-45ae-9af5-b13bd4c597b8"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"CloudObject", "[", 
+   TemplateBox[{
+    "\"https://www.wolframcloud.com/objects/andrews/FoodOntologyGraph/\
+EdgeData.m\"",
+     "https://www.wolframcloud.com/objects/andrews/FoodOntologyGraph/EdgeData.\
+m"},
+    "HyperlinkURL"], "]"}],
+  CloudObject[
+  "https://www.wolframcloud.com/objects/andrews/FoodOntologyGraph/EdgeData.m"],
+  SelectWithContents->True]], "Output",
+ CellChangeTimes->{
+  3.7383397349967513`*^9, 3.7383408303175983`*^9, 3.7383409462325983`*^9, 
+   3.738341018661598*^9, 3.738341128271598*^9, 3.7383411988175983`*^9, 
+   3.738341366873598*^9, 3.738341439321598*^9, 3.7383416734165983`*^9, {
+   3.7383493705711355`*^9, 3.7383493783441353`*^9}, 3.7383494495731354`*^9, 
+   3.738350350449074*^9, 3.738351166144599*^9, 3.7383517483288116`*^9, 
+   3.7383525305663805`*^9, 3.738353559811987*^9, 3.7383537545819874`*^9, 
+   3.7383539555213747`*^9, 3.738354022170039*^9, 3.7383540608569074`*^9, 
+   3.7383541416289835`*^9, 3.738354474154233*^9, 3.738354690517867*^9, 
+   3.7383555532971363`*^9, 3.738408496985697*^9, {3.738408779742697*^9, 
+   3.7384088040156965`*^9}, 3.7384088797266965`*^9, 3.7384089399878907`*^9, 
+   3.7384096636231456`*^9, 3.7384097292177043`*^9, 3.7384101377088346`*^9, 
+   3.738412313404724*^9, 3.7384125133273244`*^9, 3.738413159852407*^9, 
+   3.7384203952169247`*^9, 3.738422396164445*^9, 3.7396182222726793`*^9, 
+   3.7396183873891897`*^9, 3.739618873121758*^9, 3.748002519318222*^9, 
+   3.7480071240496626`*^9},
+ CellLabel->
+  "Out[397]=",ExpressionUUID->"63982798-bbf1-4c79-959d-a7b5b8298c86"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"CloudObject", "[", 
+   TemplateBox[{
+    "\"https://www.wolframcloud.com/objects/andrews/FoodOntologyGraph/\
+NodeData.m\"",
+     "https://www.wolframcloud.com/objects/andrews/FoodOntologyGraph/NodeData.\
+m"},
+    "HyperlinkURL"], "]"}],
+  CloudObject[
+  "https://www.wolframcloud.com/objects/andrews/FoodOntologyGraph/NodeData.m"],
+  SelectWithContents->True]], "Output",
+ CellChangeTimes->{
+  3.7383397349967513`*^9, 3.7383408303175983`*^9, 3.7383409462325983`*^9, 
+   3.738341018661598*^9, 3.738341128271598*^9, 3.7383411988175983`*^9, 
+   3.738341366873598*^9, 3.738341439321598*^9, 3.7383416734165983`*^9, {
+   3.7383493705711355`*^9, 3.7383493783441353`*^9}, 3.7383494495731354`*^9, 
+   3.738350350449074*^9, 3.738351166144599*^9, 3.7383517483288116`*^9, 
+   3.7383525305663805`*^9, 3.738353559811987*^9, 3.7383537545819874`*^9, 
+   3.7383539555213747`*^9, 3.738354022170039*^9, 3.7383540608569074`*^9, 
+   3.7383541416289835`*^9, 3.738354474154233*^9, 3.738354690517867*^9, 
+   3.7383555532971363`*^9, 3.738408496985697*^9, {3.738408779742697*^9, 
+   3.7384088040156965`*^9}, 3.7384088797266965`*^9, 3.7384089399878907`*^9, 
+   3.7384096636231456`*^9, 3.7384097292177043`*^9, 3.7384101377088346`*^9, 
+   3.738412313404724*^9, 3.7384125133273244`*^9, 3.738413159852407*^9, 
+   3.7384203952169247`*^9, 3.738422396164445*^9, 3.7396182222726793`*^9, 
+   3.7396183873891897`*^9, 3.739618873121758*^9, 3.748002519318222*^9, 
+   3.7480071259558134`*^9},
+ CellLabel->
+  "Out[398]=",ExpressionUUID->"90beb554-e30b-4e75-981b-e6f31b24adab"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"CloudObject", "[", 
+   TemplateBox[{
+    "\"https://www.wolframcloud.com/objects/andrews/FoodOntologyGraph/\
+GroupedNodes.m\"",
+     "https://www.wolframcloud.com/objects/andrews/FoodOntologyGraph/\
+GroupedNodes.m"},
+    "HyperlinkURL"], "]"}],
+  CloudObject[
+  "https://www.wolframcloud.com/objects/andrews/FoodOntologyGraph/\
+GroupedNodes.m"],
+  SelectWithContents->True]], "Output",
+ CellChangeTimes->{
+  3.7383397349967513`*^9, 3.7383408303175983`*^9, 3.7383409462325983`*^9, 
+   3.738341018661598*^9, 3.738341128271598*^9, 3.7383411988175983`*^9, 
+   3.738341366873598*^9, 3.738341439321598*^9, 3.7383416734165983`*^9, {
+   3.7383493705711355`*^9, 3.7383493783441353`*^9}, 3.7383494495731354`*^9, 
+   3.738350350449074*^9, 3.738351166144599*^9, 3.7383517483288116`*^9, 
+   3.7383525305663805`*^9, 3.738353559811987*^9, 3.7383537545819874`*^9, 
+   3.7383539555213747`*^9, 3.738354022170039*^9, 3.7383540608569074`*^9, 
+   3.7383541416289835`*^9, 3.738354474154233*^9, 3.738354690517867*^9, 
+   3.7383555532971363`*^9, 3.738408496985697*^9, {3.738408779742697*^9, 
+   3.7384088040156965`*^9}, 3.7384088797266965`*^9, 3.7384089399878907`*^9, 
+   3.7384096636231456`*^9, 3.7384097292177043`*^9, 3.7384101377088346`*^9, 
+   3.738412313404724*^9, 3.7384125133273244`*^9, 3.738413159852407*^9, 
+   3.7384203952169247`*^9, 3.738422396164445*^9, 3.7396182222726793`*^9, 
+   3.7396183873891897`*^9, 3.739618873121758*^9, 3.748002519318222*^9, 
+   3.7480071261908073`*^9},
+ CellLabel->
+  "Out[399]=",ExpressionUUID->"383a282d-c644-462d-a77d-4aae12078db0"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Construct an ontology graph", "Section",
+ CellChangeTimes->{{3.740422803630105*^9, 3.7404228173933306`*^9}, {
+  3.7480027614800086`*^9, 
+  3.748002763083568*^9}},ExpressionUUID->"2af16779-f5a6-48a3-95b6-\
+f402536a8d1e"],
+
+Cell[TextData[{
+ "The data that was gathered is used in ",
+ ButtonBox["this notebook to create an ontology graph",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://www.wolframcloud.com/objects/andrews/FoodOntologyGraph/\
+OntologyGraph_Construction.nb"], None},
+  ButtonNote->
+   "https://www.wolframcloud.com/objects/andrews/FoodOntologyGraph/\
+OntologyGraph_Construction.nb"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.7480026698544197`*^9, 3.748002682112707*^9}, {
+  3.7480027279287443`*^9, 
+  3.7480027279287443`*^9}},ExpressionUUID->"067df5b1-d6fb-4750-89e8-\
+72491c63de35"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{944, 982},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowStatusArea->None,
+FrontEndVersion->"11.3 for Microsoft Windows (64-bit) (March 6, 2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 204, 4, 96, "Title",ExpressionUUID->"079449f4-27e5-45c9-b794-f166ec7e0de4"],
+Cell[CellGroupData[{
+Cell[809, 30, 168, 3, 67, "Section",ExpressionUUID->"8472186e-cc85-410b-91a2-296dcb11f577"],
+Cell[980, 35, 266, 6, 34, "Text",ExpressionUUID->"ec00b32a-3d6a-4a56-99e9-fe6a559550a5"],
+Cell[CellGroupData[{
+Cell[1271, 45, 359, 8, 28, "Input",ExpressionUUID->"bfd4c1c8-6c11-4d3b-ba65-b03c2f2bbc7d"],
+Cell[1633, 55, 2173, 36, 166, "Output",ExpressionUUID->"b6242e7b-417d-4e65-b124-1959d7f96f1f"]
+}, Open  ]],
+Cell[3821, 94, 193, 3, 34, "Text",ExpressionUUID->"e7bf1aaf-d3af-47a5-9d34-9843c5893a46"],
+Cell[4017, 99, 498, 11, 28, "Input",ExpressionUUID->"ff451cf4-13c1-4f53-95ec-20de5492bfe7"],
+Cell[CellGroupData[{
+Cell[4540, 114, 299, 6, 28, "Input",ExpressionUUID->"aded6730-ea8c-445b-801a-7d2bfb909b4e"],
+Cell[4842, 122, 2568, 42, 185, "Output",ExpressionUUID->"5329d85d-9986-48d2-8b66-4552e6a2ea15"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7459, 170, 239, 4, 67, "Section",ExpressionUUID->"9125c487-7589-4fee-a55b-def06dd543ff"],
+Cell[CellGroupData[{
+Cell[7723, 178, 280, 4, 53, "Subsection",ExpressionUUID->"1e358e08-2c38-40fa-bbc4-e5095fe23e5b"],
+Cell[8006, 184, 230, 5, 34, "Text",ExpressionUUID->"81557193-3d76-4f3d-8728-dcf2c63ed6bc"],
+Cell[CellGroupData[{
+Cell[8261, 193, 1390, 33, 124, "Input",ExpressionUUID->"2c314be3-bf70-4ef8-9ef3-4f1ea0d5e286"],
+Cell[9654, 228, 3918, 67, 223, "Output",ExpressionUUID->"c8b8b2bc-3f0b-44dc-9ada-c7bb4b251519"],
+Cell[13575, 297, 382, 7, 32, "Output",ExpressionUUID->"6dabd015-b141-45bc-b51c-4f3807f62429"]
+}, Open  ]],
+Cell[13972, 307, 200, 3, 34, "Text",ExpressionUUID->"5854a4be-095d-4474-b960-a612d98b2c74"],
+Cell[14175, 312, 4340, 99, 224, "Input",ExpressionUUID->"d7a2b2de-7fec-47bf-bb96-6631a8239070"],
+Cell[CellGroupData[{
+Cell[18540, 415, 458, 11, 28, "Input",ExpressionUUID->"5e9ccd43-b782-4916-8b16-9fe16b51b125"],
+Cell[19001, 428, 5698, 115, 344, "Output",ExpressionUUID->"ae61a05a-2d92-4202-8bf4-89237679527c"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24748, 549, 224, 5, 53, "Subsection",ExpressionUUID->"9f646cdc-43c4-40bd-856b-c0a867304ac8"],
+Cell[24975, 556, 318, 7, 34, "Text",ExpressionUUID->"995d83b8-73e2-4116-a5b6-4326a7cc019a"],
+Cell[CellGroupData[{
+Cell[25318, 567, 747, 19, 67, "Input",ExpressionUUID->"93ab9cbe-d832-449c-9eb9-a76e6c42dc7e"],
+Cell[26068, 588, 447, 8, 32, "Output",ExpressionUUID->"3f95387c-e30c-47a2-a452-73041f1e6ce4"]
+}, Open  ]],
+Cell[26530, 599, 376, 7, 34, "Text",ExpressionUUID->"bbbdc577-a02a-4194-a508-8414c987c956"],
+Cell[26909, 608, 11455, 294, 1015, "Input",ExpressionUUID->"df39fa44-a7e6-449d-b597-af89648816d6"],
+Cell[CellGroupData[{
+Cell[38389, 906, 403, 10, 28, "Input",ExpressionUUID->"d6acab03-8cdb-46b0-bf2f-3627d714e4fd"],
+Cell[38795, 918, 3575, 70, 148, "Output",ExpressionUUID->"48d071ba-7176-44b9-9d8d-d5526204fcdb"],
+Cell[42373, 990, 3458, 67, 148, "Output",ExpressionUUID->"d884d35b-14de-4723-b99c-7976eb275b2c"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[45880, 1063, 180, 2, 53, "Subsection",ExpressionUUID->"7c2ee200-224c-47dd-8826-0e731f515159"],
+Cell[46063, 1067, 304, 7, 34, "Text",ExpressionUUID->"b51d318d-5d95-48bd-93b9-870411f8cb70"],
+Cell[46370, 1076, 4495, 89, 356, "Input",ExpressionUUID->"92279473-bdea-46b2-b05c-d4caf7fe9cb7"],
+Cell[CellGroupData[{
+Cell[50890, 1169, 332, 8, 28, "Input",ExpressionUUID->"e7934733-3b31-4808-a668-14ebd0c64481"],
+Cell[51225, 1179, 2865, 63, 151, "Output",ExpressionUUID->"9f17bf0b-dd7f-45e6-8b8f-e919ea051941"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[54151, 1249, 168, 3, 67, "Section",ExpressionUUID->"ad58bdb9-2020-4328-a457-a9a1eed0c1fc"],
+Cell[54322, 1254, 168, 3, 34, "Text",ExpressionUUID->"22ff3615-222c-4fca-9a5a-7239e6fe45be"],
+Cell[CellGroupData[{
+Cell[54515, 1261, 838, 20, 105, "Input",ExpressionUUID->"d0268791-7cc9-4866-8786-40ac3c3d4a7c"],
+Cell[55356, 1283, 4372, 78, 223, "Output",ExpressionUUID->"127741eb-9d39-4e13-80db-55f677000590"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[59765, 1366, 234, 4, 53, "Subsection",ExpressionUUID->"62b055e6-3c51-4a95-934c-be384d5397bc"],
+Cell[60002, 1372, 187, 3, 34, "Text",ExpressionUUID->"3cdb50e3-362b-49c0-ab63-b261ecd41040"],
+Cell[60192, 1377, 2359, 57, 181, "Input",ExpressionUUID->"683442ba-95cd-4351-9167-31119e7e3ed0"],
+Cell[62554, 1436, 982, 22, 162, "Input",ExpressionUUID->"3fd4d943-2fd7-46c5-9b41-f5ddd3999940"],
+Cell[CellGroupData[{
+Cell[63561, 1462, 329, 9, 28, "Input",ExpressionUUID->"fb7c6a21-7e6c-424a-81a2-8d6a52603ecb"],
+Cell[63893, 1473, 2247, 50, 90, "Output",ExpressionUUID->"591a1d45-9990-4c7d-943f-b7b3c7209206"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[66189, 1529, 265, 4, 53, "Subsection",ExpressionUUID->"efc222ad-6213-4845-a4cd-08b56dc00fe1"],
+Cell[66457, 1535, 7030, 167, 789, "Input",ExpressionUUID->"1dbc5ed0-cac6-4812-b71f-119ac1faee5f"],
+Cell[CellGroupData[{
+Cell[73512, 1706, 259, 6, 28, "Input",ExpressionUUID->"2a767a07-2b55-4aca-9c95-32ddf4e8cf2c"],
+Cell[73774, 1714, 1865, 38, 109, "Output",ExpressionUUID->"e3d4a9b6-2149-46de-af3a-4150efceab1f"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[75688, 1758, 360, 5, 53, "Subsection",ExpressionUUID->"e9116a7f-6886-48c4-92ac-21e8798729be"],
+Cell[76051, 1765, 301, 7, 34, "Text",ExpressionUUID->"203552be-2110-4c1a-9d93-29d9530187f1"],
+Cell[76355, 1774, 578, 16, 28, "Input",ExpressionUUID->"bbededbc-3f49-40b8-a14b-4e39d15e8a85"],
+Cell[76936, 1792, 1774, 40, 124, "Input",ExpressionUUID->"ac1db2f2-f41f-48fd-8156-bc107f69371a"],
+Cell[CellGroupData[{
+Cell[78735, 1836, 224, 4, 28, "Input",ExpressionUUID->"13bcde1a-1448-414c-bed1-5d4292cc759f"],
+Cell[78962, 1842, 178, 3, 32, "Output",ExpressionUUID->"5a62b84e-7487-4af8-84f9-5084bbbbba77"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[79201, 1852, 187, 3, 67, "Section",ExpressionUUID->"9d4f554c-1aae-4e26-820b-b1883c72511e"],
+Cell[79391, 1857, 387, 7, 56, "Text",ExpressionUUID->"9e45fc9a-a23e-4ce7-b445-74e63a0ae23f"],
+Cell[79781, 1866, 296, 7, 28, "Input",ExpressionUUID->"284de1bf-ad22-440b-aff5-b02f970aa137"],
+Cell[CellGroupData[{
+Cell[80102, 1877, 1312, 27, 105, "Input",ExpressionUUID->"83b7e2aa-76ce-45ae-9af5-b13bd4c597b8"],
+Cell[81417, 1906, 1580, 29, 35, "Output",ExpressionUUID->"63982798-bbf1-4c79-959d-a7b5b8298c86"],
+Cell[83000, 1937, 1580, 29, 35, "Output",ExpressionUUID->"90beb554-e30b-4e75-981b-e6f31b24adab"],
+Cell[84583, 1968, 1594, 30, 35, "Output",ExpressionUUID->"383a282d-c644-462d-a77d-4aae12078db0"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[86226, 2004, 225, 4, 67, "Section",ExpressionUUID->"2af16779-f5a6-48a3-95b6-f402536a8d1e"],
+Cell[86454, 2010, 585, 15, 34, "Text",ExpressionUUID->"067df5b1-d6fb-4750-89e8-72491c63de35"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
